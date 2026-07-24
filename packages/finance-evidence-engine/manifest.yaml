@@ -1,0 +1,13 @@
+id: "finance-evidence-engine"
+version: "2.1.0"
+category: "domain-intelligence"
+
+depends_on:
+  - "kernel"
+  - "evidence-engine"
+
+exports:
+  - "DoubleEntryLedger"
+  - "JournalEntry"
+
+description: "The physics of AXIONYX finance. Converts raw business evidence (invoices, receipts) into mathematically strict double-entry journal records, forming the foundation of the Financial Digital Twin."

@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-07-24T00:00:00Z",
+    "sensor_id": "CRSH-01-VIB",
+    "reading": 138.4,
+    "unit": "Hz"
+  },
+  {
+    "timestamp": "2026-07-24T00:00:00Z",
+    "sensor_id": "CRSH-01-PWR",
+    "reading": 4200.0,
+    "unit": "kW"
+  }
+]

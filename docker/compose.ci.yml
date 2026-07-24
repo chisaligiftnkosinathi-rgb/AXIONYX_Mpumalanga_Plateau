@@ -1,0 +1,20 @@
+version: '3.8'
+
+# Minimal CI/CD Profile for testing
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: axionyx
+      POSTGRES_PASSWORD: ci
+
+  redis:
+    image: redis:7
+
+  axionyx-api:
+    build: ../apps/axionyx-api
+    command: npm run test:e2e
+    depends_on:
+      postgres:
+        condition: service_healthy

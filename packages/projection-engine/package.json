@@ -1,0 +1,11 @@
+{
+  "name": "@axionyx/projection-engine",
+  "version": "1.0.0",
+  "description": "AXIONYX Projection Engine",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@axionyx/event-bus": "workspace:*",
+    "rxjs": "^7.8.1"
+  }
+}

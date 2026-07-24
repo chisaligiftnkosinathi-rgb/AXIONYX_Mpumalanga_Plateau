@@ -1,0 +1,27 @@
+{
+  "name": "@axionyx/reference-laboratory",
+  "version": "1.0.0",
+  "description": "AXIONYX v1.0 Reference Laboratory Pilot Implementation",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "db:push": "drizzle-kit push:pg"
+  },
+  "dependencies": {
+    "@axionyx/event-bus": "workspace:*",
+    "@axionyx/event-store": "workspace:*",
+    "@axionyx/policy-engine": "workspace:*",
+    "@axionyx/workflow-engine": "workspace:*",
+    "@axionyx/standards": "workspace:*",
+    "drizzle-orm": "^0.30.10",
+    "pg": "^8.11.5",
+    "fastify": "^4.26.2"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.17",
+    "@types/pg": "^8.11.5",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}

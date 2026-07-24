@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  axionyx-kernel:
+    image: node:20
+    working_dir: /opt/axionyx
+    volumes:
+      - .:/opt/axionyx
+    command: npm run start:kernel
+    ports:
+      - "4000:4000"
+
+  axionyx-command-center:
+    image: node:20
+    working_dir: /opt/axionyx/apps/axionyx-command-center
+    volumes:
+      - .:/opt/axionyx
+    command: npm run start:dashboard
+    ports:
+      - "3000:3000"
+    depends_on:
+      - axionyx-kernel
+
+  axionyx-cerberus:
+    image: node:20
+    working_dir: /opt/axionyx
+    volumes:
+      - .:/opt/axionyx
+    command: npm run start:security
+    ports:
+      - "4001:4001"

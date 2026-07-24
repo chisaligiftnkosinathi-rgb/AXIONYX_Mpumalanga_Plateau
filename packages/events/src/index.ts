@@ -1,0 +1,21 @@
+// AXIONYX Core Event Types
+
+export enum AxionyxEvent {
+  IDENTITY_CREATED = 'IDENTITY_CREATED',
+  MISSION_CREATED = 'MISSION_CREATED',
+  PROJECT_STARTED = 'PROJECT_STARTED',
+  EVIDENCE_ADDED = 'EVIDENCE_ADDED',
+  PROJECT_DEPLOYED = 'PROJECT_DEPLOYED',
+  IP_REGISTERED = 'IP_REGISTERED',
+  LICENSE_CREATED = 'LICENSE_CREATED',
+  PAYMENT_RECEIVED = 'PAYMENT_RECEIVED',
+  IMPACT_RECORDED = 'IMPACT_RECORDED'
+}
+
+export interface BaseEventPayload<T> {
+  eventId: string;
+  eventType: AxionyxEvent;
+  actorId: string;
+  timestamp: Date;
+  payload: T;
+}

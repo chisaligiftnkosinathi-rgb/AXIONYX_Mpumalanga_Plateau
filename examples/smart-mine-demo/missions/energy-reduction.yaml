@@ -1,0 +1,11 @@
+mission:
+  name: "Plant Energy Reduction"
+  objective: "Reduce plant energy consumption by 10% while maintaining coal recovery rates."
+  constraints:
+    - type: "SAFETY"
+      max_vibration_hz: 150.0
+    - type: "COMPLIANCE"
+      max_water_usage_lps: 45.0
+  expected_impact:
+    energy_drop_pct: 10.0
+    recovery_change_pct: 0.0

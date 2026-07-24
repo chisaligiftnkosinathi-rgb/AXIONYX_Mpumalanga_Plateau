@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # ----------------------------------------------------
+  # PERSISTENT MEMORY LAYER
+  # ----------------------------------------------------
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: axionyx
+      POSTGRES_PASSWORD: axionyx_password
+      POSTGRES_DB: axionyx_structure
+    ports:
+      - "5432:5432"
+    volumes:
+      - axionyx_pg_data:/var/lib/postgresql/data
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg15
+    environment:
+      POSTGRES_USER: axionyx
+      POSTGRES_PASSWORD: axionyx_password
+      POSTGRES_DB: axionyx_simulation
+    ports:
+      - "5433:5432"
+    volumes:
+      - axionyx_ts_data:/var/lib/postgresql/data
+
+  vectordb:
+    image: milvusdb/milvus:latest
+    ports:
+      - "19530:19530"
+    volumes:
+      - axionyx_vec_data:/var/lib/milvus
+
+  object-storage:
+    image: minio/minio
+    command: server /data
+    environment:
+      MINIO_ROOT_USER: axionyx
+      MINIO_ROOT_PASSWORD: axionyx_password
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - axionyx_obj_data:/data
+
+  # ----------------------------------------------------
+  # AXIONYX RUNTIME LAYER
+  # ----------------------------------------------------
+  axionyx-core:
+    build: 
+      context: ../../
+      dockerfile: deployment/docker/Dockerfile.core
+    environment:
+      - POSTGRES_URL=postgres://axionyx:axionyx_password@postgres:5432/axionyx_structure
+      - TIMESCALE_URL=postgres://axionyx:axionyx_password@timescaledb:5432/axionyx_simulation
+    depends_on:
+      - postgres
+      - timescaledb
+      - vectordb
+      - object-storage
+
+  axionyx-api:
+    build:
+      context: ../../
+      dockerfile: deployment/docker/Dockerfile.api
+    ports:
+      - "4000:4000"
+    depends_on:
+      - axionyx-core
+
+  axionyx-studio:
+    build:
+      context: ../../
+      dockerfile: deployment/docker/Dockerfile.studio
+    ports:
+      - "3000:3000"
+    depends_on:
+      - axionyx-api
+
+volumes:
+  axionyx_pg_data:
+  axionyx_ts_data:
+  axionyx_vec_data:
+  axionyx_obj_data:

@@ -1,0 +1,46 @@
+version: '3.8'
+
+# Extending the local profile to add MinIO for Laboratory Evidence Storage 
+# and the Scientific Knowledge Platform API.
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: axionyx
+      POSTGRES_PASSWORD: local
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U axionyx"]
+
+  redis:
+    image: redis:7
+
+  mqtt:
+    image: eclipse-mosquitto:2
+
+  # Evidence Storage for the Lab (PDFs, Images, Calibration Certs)
+  minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+  axionyx-api:
+    build: ../apps/axionyx-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  scientific-knowledge-platform:
+    build: ../apps/scientific-knowledge-platform
+    ports:
+      - "3001:3000"
+    depends_on:
+      - axionyx-api
+      - minio
+
+  axionyx-validation-center:
+    build: ../apps/axionyx-validation-center
+    ports:
+      - "3002:3000"

@@ -1,0 +1,17 @@
+axionyxVersion: 1.0.0
+kernel: 1.0.0
+
+policies:
+  - iso17025@1.2.0
+  - epa_water@2.0.1
+
+connectors:
+  - mqtt
+  - csv
+  - lims
+
+mediaPipeline:
+  renderGraph: 1.0
+
+deployment:
+  environment: reference-laboratory

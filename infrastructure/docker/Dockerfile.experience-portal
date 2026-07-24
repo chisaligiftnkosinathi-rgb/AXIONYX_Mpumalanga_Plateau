@@ -1,0 +1,41 @@
+# syntax=docker/dockerfile:1
+FROM node:20-alpine AS base
+WORKDIR /app
+
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# Copy workspace configuration
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+COPY apps/experience-portal/package.json ./apps/experience-portal/
+COPY packages/ ./packages/
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Build the portal and its dependencies
+COPY apps/experience-portal/ ./apps/experience-portal/
+RUN pnpm --filter experience-portal build
+
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+COPY --from=base /app/apps/experience-portal/dist ./dist
+COPY --from=base /app/node_modules ./node_modules
+COPY --from=base /app/apps/experience-portal/package.json ./
+
+# Required Observability endpoints implemented in the app:
+# /health
+# /ready
+# /metrics
+# /version
+
+# AXIONYX OCI Annotations
+LABEL org.axionyx.version="1.0.0" \
+      org.axionyx.commit="${GIT_COMMIT}" \
+      org.axionyx.kernel="1.0" \
+      org.axionyx.build="${BUILD_DATE}" \
+      org.axionyx.component="experience-portal"
+
+EXPOSE 3000
+CMD ["node", "dist/index.js"]

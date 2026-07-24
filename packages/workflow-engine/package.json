@@ -1,0 +1,12 @@
+{
+  "name": "@axionyx/workflow-engine",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "xstate": "^5.13.0",
+    "@axionyx/event-bus": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

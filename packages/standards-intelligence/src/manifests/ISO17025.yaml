@@ -1,0 +1,13 @@
+id: ISO17025
+title: General requirements for the competence of testing and calibration laboratories
+publisher: ISO
+domain:
+  - laboratory
+  - scientific
+objects:
+  - Laboratory
+  - Instrument
+  - Calibration
+  - Measurement
+  - Method
+  - ProficiencyTest

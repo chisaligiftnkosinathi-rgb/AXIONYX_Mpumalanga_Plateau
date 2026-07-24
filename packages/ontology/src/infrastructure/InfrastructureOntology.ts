@@ -1,0 +1,39 @@
+export enum InfrastructureLevel {
+  CLUSTER = 'CLUSTER',
+  REGION = 'REGION',
+  AVAILABILITY_ZONE = 'AVAILABILITY_ZONE',
+  NODE = 'NODE',
+  NAMESPACE = 'NAMESPACE',
+  DEPLOYMENT = 'DEPLOYMENT',
+  REPLICA_SET = 'REPLICA_SET',
+  STATEFUL_SET = 'STATEFUL_SET',
+  DAEMON_SET = 'DAEMON_SET',
+  JOB = 'JOB',
+  CRON_JOB = 'CRON_JOB',
+  POD = 'POD',
+  CONTAINER = 'CONTAINER',
+  IMAGE = 'IMAGE',
+  SERVICE = 'SERVICE',
+  INGRESS = 'INGRESS',
+  GATEWAY = 'GATEWAY',
+  SECRET = 'SECRET',
+  CONFIG_MAP = 'CONFIG_MAP',
+  PERSISTENT_VOLUME = 'PERSISTENT_VOLUME',
+  PERSISTENT_VOLUME_CLAIM = 'PERSISTENT_VOLUME_CLAIM',
+  STORAGE_CLASS = 'STORAGE_CLASS',
+  NETWORK_POLICY = 'NETWORK_POLICY',
+  HORIZONTAL_POD_AUTOSCALER = 'HORIZONTAL_POD_AUTOSCALER',
+  CERTIFICATE = 'CERTIFICATE',
+  ROUTE = 'ROUTE',
+  DNS_RECORD = 'DNS_RECORD'
+}
+
+export interface InfrastructureEntity {
+  id: string;
+  name: string;
+  level: InfrastructureLevel;
+  parentEntityId?: string; // e.g. Pod -> Deployment
+  labels: Record<string, string>;
+  annotations: Record<string, string>;
+  status: 'PENDING' | 'RUNNING' | 'SUCCEEDED' | 'FAILED' | 'UNKNOWN';
+}

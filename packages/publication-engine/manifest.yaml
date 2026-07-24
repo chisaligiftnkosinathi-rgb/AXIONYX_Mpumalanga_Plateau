@@ -1,0 +1,16 @@
+id: "publication-engine"
+version: "2.2.0"
+category: "research"
+
+depends_on:
+  - "kernel"
+  - "evidence-engine"
+  - "research-engine"
+
+exports:
+  - "PublicationOrchestrator"
+  - "CitationManager"
+  - "PeerReviewWorkflow"
+  - "ZenodoIntegration"
+
+description: "The Scientific Communication Engine. Transforms canonical AXIONYX evidence-backed markdown into multi-channel publications including formal PDFs, LinkedIn posts, GitHub releases, Conference abstracts, and IEEE journal submissions."

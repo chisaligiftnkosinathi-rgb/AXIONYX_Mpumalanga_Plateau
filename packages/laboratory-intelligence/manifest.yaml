@@ -1,0 +1,18 @@
+id: "laboratory-intelligence"
+version: "2.1.0"
+category: "domain-intelligence"
+
+depends_on:
+  - "kernel"
+  - "evidence-engine"
+  - "trust-engine"
+  - "infrastructure-registry"
+
+exports:
+  - "CalibrationEngine"
+  - "UncertaintyEngine"
+  - "QualityControlEngine"
+  - "ProficiencyTestingEngine"
+  - "ChainOfCustodyEngine"
+
+description: "The world's first Evidence-Centric Laboratory SDK. Manages the complete ISO 17025 scientific lifecycle from raw instrument telemetry to certified measurement uncertainty."

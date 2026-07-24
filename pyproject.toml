@@ -1,0 +1,11 @@
+[project]
+name = "axionyx-platform"
+version = "1.0.0"
+description = "AXIONYX Monorepo Python Workspace"
+readme = "README.md"
+requires-python = ">=3.11"
+
+[tool.uv.workspace]
+members = [
+    "apps/media-pipeline",
+]

@@ -1,0 +1,34 @@
+AXIONYX HYBRID OPEN CORE LICENSE v1.0
+=====================================
+
+Copyright (c) 2026 AXIONYX Platform
+
+AXIONYX is distributed under a Hybrid Open Core licensing model. 
+This protects the open-source community foundation while reserving 
+commercial rights for the enterprise trust and compliance layers.
+
+1. OPEN SOURCE CORE (APACHE LICENSE 2.0)
+----------------------------------------
+The following directories are licensed under the Apache License, Version 2.0:
+- /packages/axionyx-kernel
+- /packages/reality-graph
+- /packages/simulation-engine
+- /packages/axionyx-sdk-ts
+- /packages/axionyx-cli
+- /docs
+- /examples
+
+You may obtain a copy of the Apache 2.0 License at:
+http://www.apache.org/licenses/LICENSE-2.0
+
+2. ENTERPRISE COMMERCIAL LAYER (PROPRIETARY)
+--------------------------------------------
+The following directories are proprietary and require a commercial AXIONYX Enterprise License for production deployment:
+- /packages/compliance-engine
+- /packages/certification-authority
+- /packages/enterprise-control-plane
+- /packages/enterprise-adapters
+- /packages/cerberus-advanced
+- /packages/value-assurance-engine
+
+By using the software, you agree to respect the boundaries of this Hybrid License.

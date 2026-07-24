@@ -1,0 +1,23 @@
+{
+  "name": "@axionyx/event-store",
+  "version": "1.0.0",
+  "description": "AXIONYX Persistent Event Store (Drizzle + PostgreSQL)",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@axionyx/event-bus": "workspace:*",
+    "drizzle-orm": "^0.30.10",
+    "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.17",
+    "@types/pg": "^8.11.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@axionyx/infrastructure-observer",
+  "version": "1.0.0",
+  "description": "AXIONYX Kubernetes Infrastructure Observer",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "ts-node-dev src/index.ts"
+  },
+  "dependencies": {
+    "@kubernetes/client-node": "^0.20.0",
+    "@axionyx/event-bus": "workspace:*",
+    "@axionyx/ontology": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.1",
+    "@types/node": "^20.0.0"
+  }
+}

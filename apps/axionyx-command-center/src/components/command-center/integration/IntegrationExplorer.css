@@ -1,0 +1,47 @@
+.integration-explorer {
+  background-color: #0f1422;
+  border: 1px solid #1f2937;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+}
+
+.system-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.system-item {
+  display: flex;
+  align-items: center;
+  background: #111827;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #374151;
+}
+
+.status-indicator {
+  margin-right: 1rem;
+  font-size: 1.25rem;
+}
+
+.sys-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sys-name {
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+.sys-type {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}

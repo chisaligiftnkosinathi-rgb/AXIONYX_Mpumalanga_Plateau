@@ -1,0 +1,77 @@
+.evidence-explorer {
+  background-color: #0f1422;
+  border-radius: 8px;
+  padding: 1.5rem;
+  color: #e2e8f0;
+  font-family: 'Inter', monospace;
+}
+
+.explorer-desc {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin-bottom: 2rem;
+}
+
+.trace-tree {
+  display: flex;
+  flex-direction: column;
+}
+
+.trace-node {
+  margin-left: 1.5rem;
+  border-left: 2px solid #374151;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.trace-node.depth-0 {
+  margin-left: 0;
+  border-left: none;
+  padding-left: 0;
+}
+
+.node-content {
+  background: #1f2937;
+  padding: 1rem;
+  border-radius: 6px;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 300px;
+  border: 1px solid #374151;
+}
+
+.node-type {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #60a5fa;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.node-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #f3f4f6;
+  margin-bottom: 0.25rem;
+}
+
+.node-value {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.node-children {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.because-connector {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  font-style: italic;
+  margin: 0.5rem 0 0.5rem -1.5rem;
+  display: flex;
+  align-items: center;
+}

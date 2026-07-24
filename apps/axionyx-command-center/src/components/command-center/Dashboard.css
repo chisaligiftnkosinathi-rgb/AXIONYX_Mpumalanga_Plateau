@@ -1,0 +1,150 @@
+.mission-control {
+  font-family: 'Inter', sans-serif;
+  background-color: #0b0f19;
+  color: #e2e8f0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mission-control-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #111827;
+  border-bottom: 1px solid #1f2937;
+}
+
+.mission-control-header h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #60a5fa;
+  margin: 0;
+}
+
+.kpi-bar {
+  display: flex;
+  gap: 2rem;
+}
+
+.kpi {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.kpi strong {
+  color: #f8fafc;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.policy-ok strong {
+  color: #34d399; /* Green for compliance */
+}
+
+.mission-control-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+.digital-twin-module {
+  padding: 2rem;
+  border-right: 1px solid #1f2937;
+  overflow-y: auto;
+}
+
+.instruments-grid {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.lifecycle-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #111827;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #1f2937;
+}
+
+.step {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+}
+
+.step.complete {
+  background: rgba(52, 211, 153, 0.1);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.step.active {
+  background: rgba(96, 165, 250, 0.1);
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.2);
+}
+
+.step.pending {
+  color: #6b7280;
+  border: 1px dashed #374151;
+}
+
+.evidence-timeline-module {
+  padding: 2rem;
+  background-color: #0f1422;
+  overflow-y: auto;
+}
+
+.timeline-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: #374151;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.close-btn:hover {
+  background: #4b5563;
+}

@@ -1,0 +1,41 @@
+# AXIONYX v2.0 - Laboratory Intelligence Pilot
+# Minimum Viable Twin (MVT) Configuration
+
+deployment:
+  id: "PILOT-LAB-001"
+  version: "1.0.0"
+  target: "ISO-17025-Laboratory-Alpha"
+
+scope:
+  boundaries:
+    laboratories: 1
+    instruments: 1
+    processes: 1
+    evidence_chains: 1
+
+twin_configuration:
+  type: "instrument-twin"
+  asset: "ICP-MS-Alpha-01"
+  telemetry_bindings:
+    - stream: "temperature_drift"
+      frequency: "1hz"
+    - stream: "signal_intensity"
+      frequency: "per_sample"
+    - stream: "reference_material_variance"
+      frequency: "per_batch"
+
+mission_objectives:
+  primary: "Predictive Calibration Scheduling"
+  success_metrics:
+    - name: "Calibration Compliance"
+      target: "100% adherence to predictive uncertainty boundary"
+    - name: "Unexpected Calibration Failures"
+      target: "Reduce by 50% vs historical baseline"
+    - name: "Time to Assemble Audit Evidence"
+      target: "Under 5 minutes per instrument"
+
+evidence_chain:
+  required_provenance:
+    - "raw_instrument_log"
+    - "reference_material_certificate"
+    - "maintenance_history"

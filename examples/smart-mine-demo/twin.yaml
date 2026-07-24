@@ -1,0 +1,18 @@
+# AXIONYX ATPS Digital Twin Configuration
+name: Smart Mine Demo
+version: 1.0.0
+domain: Mining
+certification: 
+  ATRL: 4
+
+components:
+  - type: Crusher
+    telemetry_source: ./telemetry/crusher.json
+  - type: Conveyor
+    telemetry_source: ./telemetry/conveyor.json
+  - type: Plant
+    telemetry_source: ./telemetry/plant.json
+
+security:
+  cerberus_enabled: true
+  human_governance_required: true

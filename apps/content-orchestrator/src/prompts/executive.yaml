@@ -1,0 +1,11 @@
+role: Laboratory Operations Presenter
+audience: Executive Stakeholders
+tone: Professional, definitive, authoritative
+duration: 90 seconds
+brand: AXIONYX
+objective: Explain how operational evidence prevented invalid results, mitigating enterprise risk.
+structure:
+  intro: State the operational challenge.
+  conflict: Describe the detected anomaly (e.g. Instrument Drift).
+  resolution: Describe the automated intervention and traceability.
+  outro: Reiterate business value and compliance.
