@@ -1,0 +1,50 @@
+[
+    {
+        "id": "V001",
+        "name": "Suzuki Ertiga",
+        "purpose": ["income", "family", "transport_people"],
+        "sub_purpose": ["bolt_uber", "passenger_transport"],
+        "seats": 7,
+        "fuel": "efficient",
+        "partner": "Mad Cars",
+        "base_confidence": 0.91,
+        "features": [
+            "7 seats",
+            "Practical for passengers",
+            "Fuel efficient",
+            "Supports income generation"
+        ]
+    },
+    {
+        "id": "V002",
+        "name": "Toyota Starlet",
+        "purpose": ["income", "company", "family"],
+        "sub_purpose": ["bolt_uber", "small_business"],
+        "seats": 5,
+        "fuel": "very efficient",
+        "partner": "Mad Cars",
+        "base_confidence": 0.87,
+        "features": [
+            "Extremely fuel efficient",
+            "Low maintenance cost",
+            "High reliability",
+            "Great for urban driving"
+        ]
+    },
+    {
+        "id": "V003",
+        "name": "Toyota Quantum",
+        "purpose": ["income", "business", "transport_people"],
+        "sub_purpose": ["passenger_transport", "deliveries"],
+        "seats": 14,
+        "capacity": "high",
+        "partner": "Mad Cars",
+        "base_confidence": 0.89,
+        "features": [
+            "High passenger capacity",
+            "Durable commercial build",
+            "High resale value",
+            "Industry standard"
+        ]
+    }
+]

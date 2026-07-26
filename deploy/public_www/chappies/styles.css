@@ -1,0 +1,176 @@
+:root {
+    --chappies-red: #E63946;
+    --chappies-yellow: #F4A261;
+    --chappies-blue: #1D3557;
+    --paper-bg: #F8F9FA;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif; /* Playful font for chappies */
+    background-color: var(--chappies-blue);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.chappies-container {
+    background-color: var(--paper-bg);
+    width: 100%;
+    max-width: 450px;
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+    /* Torn paper effect on bottom */
+    border-bottom: 5px dashed #ccc;
+}
+
+.chappies-header {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--chappies-red),
+        var(--chappies-red) 15px,
+        var(--chappies-yellow) 15px,
+        var(--chappies-yellow) 30px
+    );
+    color: white;
+    text-align: center;
+    padding: 30px 20px 20px 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.chappies-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.chappies-header h2 {
+    margin: 10px 0 5px 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+    background: rgba(0,0,0,0.4);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.chappies-header p {
+    margin: 5px 0 0 0;
+    font-weight: bold;
+}
+
+.step-card {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.grid-buttons button {
+    background: white;
+    border: 2px solid var(--chappies-blue);
+    color: var(--chappies-blue);
+    padding: 15px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.grid-buttons button:hover {
+    background: var(--chappies-blue);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Back Layer AXIONYX Styling */
+.axionyx-pulse {
+    font-family: monospace;
+    color: var(--chappies-red);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.question-text {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.axionyx-result {
+    background-color: #fff;
+    border-top: 2px solid #eee;
+}
+
+.result-header h3 {
+    color: var(--chappies-red);
+    margin: 0 0 5px 0;
+}
+
+.match-highlight {
+    background: #f0f4f8;
+    border-left: 4px solid var(--chappies-blue);
+    padding: 15px;
+    margin: 15px 0;
+    text-align: left;
+}
+
+.match-highlight h2 {
+    margin: 0 0 10px 0;
+    color: var(--chappies-blue);
+}
+
+.feature-list {
+    margin: 0;
+    padding-left: 20px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.intelligence-metrics {
+    font-family: monospace;
+    background: #2b2b2b;
+    color: #00ffcc;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.intelligence-metrics .metric {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.connect-btn {
+    background: var(--chappies-red);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s;
+}
+
+.connect-btn:hover {
+    transform: scale(1.05);
+}

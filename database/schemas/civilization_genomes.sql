@@ -1,0 +1,10 @@
+CREATE TABLE civilization_genomes (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(255) NOT NULL,
+    genes JSONB NOT NULL DEFAULT '[]'::jsonb,
+    traits JSONB NOT NULL DEFAULT '{}'::jsonb,
+    fitness_score NUMERIC(5,4) NOT NULL DEFAULT 0.0000,
+    risk_score NUMERIC(5,4) NOT NULL DEFAULT 0.0000,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);

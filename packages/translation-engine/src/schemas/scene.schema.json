@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AXIONYX Scene Schema",
+  "description": "Structured intermediate format for the AXIONYX Translation Media Pipeline.",
+  "type": "object",
+  "properties": {
+    "scene_index": {
+      "type": "integer"
+    },
+    "source_reality": {
+      "type": "object",
+      "properties": {
+        "reality_id": { "type": "string" },
+        "event_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["reality_id", "event_ids"]
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "narration": {
+      "type": "object",
+      "properties": {
+        "text": { "type": "string" },
+        "approved": { "type": "boolean" }
+      },
+      "required": ["text", "approved"]
+    },
+    "visual_requirements": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["scene_index", "source_reality", "purpose", "narration", "visual_requirements"]
+}

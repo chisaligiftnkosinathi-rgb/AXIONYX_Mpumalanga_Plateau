@@ -1,0 +1,12 @@
+{
+  "demo_id": "AXIONYX-0.1-GOLDEN-PATH",
+  "version": "0.1.0",
+  "canonical_dataset": "coal-sample-001.json",
+  "purpose": "demonstration",
+  "derived_content": [
+    "presentation",
+    "video",
+    "academy material"
+  ],
+  "immutable": true
+}

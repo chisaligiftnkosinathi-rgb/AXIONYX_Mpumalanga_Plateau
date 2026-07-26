@@ -1,0 +1,39 @@
+{
+  "reality_id": "VEHICLE-001",
+  "identity": {
+    "vehicle_type": "passenger_vehicle",
+    "manufacturer": "Suzuki",
+    "model": "Ertiga",
+    "mileage_km": 145000,
+    "purpose": "vehicle_health_demonstration"
+  },
+  "events": [
+    {
+      "id": "evt_vehicle_registered",
+      "type": "vehicle_registered",
+      "timestamp": "2020-03-15T10:00:00Z"
+    },
+    {
+      "id": "evt_maintenance_completed_120k",
+      "type": "service_event",
+      "timestamp": "2025-01-20T08:30:00Z"
+    },
+    {
+      "id": "evt_temperature_pattern_detected",
+      "type": "observation_created",
+      "timestamp": "2026-07-20T14:45:00Z"
+    }
+  ],
+  "observations": [
+    {
+      "measurement": "coolant_temperature_pattern",
+      "value": "above_normal_variation",
+      "confidence": "OBSERVED"
+    }
+  ],
+  "evidence": [
+    "maintenance_history",
+    "telemetry_pattern",
+    "vehicle_usage_history"
+  ]
+}

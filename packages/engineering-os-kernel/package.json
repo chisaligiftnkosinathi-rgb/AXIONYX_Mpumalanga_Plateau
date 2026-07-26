@@ -1,0 +1,5 @@
+{
+  "name": "@axionyx/engineering-os-kernel",
+  "version": "0.1.0",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@axionyx/translation-engine",
+  "version": "0.1.0",
+  "description": "The AXIONYX Content Factory. Converts frozen reality artifacts into validated human experiences.",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "generate:golden-demo": "npx ts-node src/runner/generate-golden-demo.ts"
+  },
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

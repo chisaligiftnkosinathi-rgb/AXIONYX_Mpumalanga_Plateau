@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chappies | Did You Know You Can?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chappies-container">
+        
+        <!-- Header -->
+        <header class="chappies-header">
+            <div class="stripe-bg"></div>
+            <h1>🍬 CHAPPIES</h1>
+            <h2>Did You Know You Can Find<br>Exactly What You Need?</h2>
+            <p>Tell us your mission 👇</p>
+        </header>
+
+        <!-- Step 1: Human Intent -->
+        <div id="step-1" class="step-card active">
+            <div class="grid-buttons">
+                <button onclick="selectPrimaryIntent('income')">🚗 Make Money</button>
+                <button onclick="selectPrimaryIntent('family')">👨‍👩‍👧 Family</button>
+                <button onclick="selectPrimaryIntent('business')">📦 Business</button>
+                <button onclick="selectPrimaryIntent('transport_people')">🌍 Transport People</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Discovery Questions -->
+        <div id="step-2" class="step-card hidden">
+            <div class="axionyx-pulse">💡 Did you know?</div>
+            <p class="question-text" id="dynamic-question">The best car depends on how you plan to earn. How will you use it?</p>
+            <div class="grid-buttons" id="sub-intent-buttons">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- Step 3: Intelligence Result -->
+        <div id="step-3" class="step-card hidden axionyx-result">
+            <div class="result-header">
+                <h3>🍬 Chappies Discovery</h3>
+                <p>We found a possible match:</p>
+            </div>
+            
+            <div class="match-highlight">
+                <h2 id="result-vehicle-name">🚗 Suzuki Ertiga</h2>
+                <p><strong>Why?</strong></p>
+                <ul id="result-features" class="feature-list">
+                    <!-- Populated by JS -->
+                </ul>
+            </div>
+
+            <div class="intelligence-metrics">
+                <div class="metric">
+                    <span class="label">AXIONYX Match Confidence:</span>
+                    <span class="value" id="result-confidence">91%</span>
+                </div>
+                <div class="metric">
+                    <span class="label">Verified Partner:</span>
+                    <span class="value" id="result-partner">Mad Cars</span>
+                </div>
+            </div>
+
+            <button class="connect-btn" onclick="sendToPartner()">[ Connect Me ]</button>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

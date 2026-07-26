@@ -1,0 +1,14 @@
+{
+  "id": "@axionyx/pack-emalahleni",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "dependencies": [
+    {
+      "id": "@axionyx/pack-mpumalanga",
+      "version": "^1.0.0"
+    }
+  ],
+  "exports": [
+    "eMalahleni IDP"
+  ]
+}

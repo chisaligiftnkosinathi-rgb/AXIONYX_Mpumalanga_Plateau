@@ -5,7 +5,14 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "generate:golden-demo": "npm run generate:golden-demo --workspace=packages/translation-engine",
+    "generate:vehicle-demo": "npm run generate:vehicle-demo --workspace=packages/vehicle-intelligence",
+    "generate:engineering-demo": "npm run generate:engineering-demo --workspace=packages/engineering-intelligence",
+    "generate:equipment-demo": "npm run generate:equipment-demo --workspace=packages/industrial-equipment-intelligence",
+    "generate:environmental-demo": "npm run generate:environmental-demo --workspace=packages/environmental-intelligence",
+    "generate:experience-demo": "npm run generate:experience-demo --workspace=packages/experience-intelligence",
+    "generate:publications": "npm run generate:publications --workspace=packages/knowledge-publication-engine"
   },
   "devDependencies": {
     "turbo": "^2.0.0",
@@ -13,5 +20,9 @@
     "prettier": "^3.0.0",
     "eslint": "^8.0.0"
   },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "packageManager": "pnpm@9.0.0"
 }

@@ -1,0 +1,20 @@
+{
+  "name": "@axionyx/pack-south-africa",
+  "version": "1.0.0",
+  "description": "South African National Knowledge Infrastructure (SA-NKI) Implementation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "simulate": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@axionyx/axionyx-kernel": "workspace:*",
+    "@axionyx/knowledge-graph-engine": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.2"
+  }
+}

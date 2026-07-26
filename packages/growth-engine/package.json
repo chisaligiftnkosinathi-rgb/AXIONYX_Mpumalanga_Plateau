@@ -1,0 +1,12 @@
+{
+  "name": "@axionyx/growth-engine",
+  "version": "0.1.0",
+  "description": "AXIONYX Growth Engine: Translates verified capabilities into trust-based marketing and explainable lead opportunities.",
+  "main": "src/index.ts",
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

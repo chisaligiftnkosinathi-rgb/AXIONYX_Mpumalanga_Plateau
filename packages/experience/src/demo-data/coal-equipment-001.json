@@ -1,0 +1,39 @@
+{
+  "reality_id": "COAL-EQUIPMENT-001",
+  "equipment": {
+    "name": "AXIONYX Smart Muffle Furnace",
+    "type": "muffle_furnace",
+    "application": "coal_ash_analysis"
+  },
+  "standard_requirements": [
+    {
+      "standard": "ISO 1171",
+      "requirement": "controlled heating process"
+    }
+  ],
+  "design_events": [
+    {
+      "id": "DE-001",
+      "event": "requirement_translated",
+      "evidence": ["ISO 1171 Section 4.2"]
+    },
+    {
+      "id": "DE-002",
+      "event": "design_decision_recorded",
+      "decision": "Use high-purity ceramic insulation material",
+      "reason": "Maintain thermal stability at 815 degrees Celsius",
+      "impact": "Improved temperature consistency",
+      "evidence": ["thermal_simulation_004"]
+    },
+    {
+      "id": "DE-003",
+      "event": "prototype_designed",
+      "evidence": ["engineering_drawing_v1", "BOM_v1"]
+    },
+    {
+      "id": "DE-004",
+      "event": "verification_completed",
+      "evidence": ["thermal_stability_test_report_815C"]
+    }
+  ]
+}

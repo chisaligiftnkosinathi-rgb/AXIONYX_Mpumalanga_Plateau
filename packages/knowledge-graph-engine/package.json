@@ -1,0 +1,17 @@
+{
+  "name": "@axionyx/knowledge-graph-engine",
+  "version": "1.0.0",
+  "description": "Universal Knowledge Infrastructure Engine",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "@axionyx/axionyx-kernel": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

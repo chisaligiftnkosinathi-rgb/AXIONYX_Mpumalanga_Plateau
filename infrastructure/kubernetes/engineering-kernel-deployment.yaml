@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: engineering-os-kernel
+  labels:
+    app: engineering-os-kernel
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: engineering-os-kernel
+  template:
+    metadata:
+      labels:
+        app: engineering-os-kernel
+    spec:
+      containers:
+      - name: engineering-os-kernel
+        image: gcr.io/axionyx/engineering-os-kernel:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"

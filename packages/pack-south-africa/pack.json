@@ -1,0 +1,9 @@
+{
+  "id": "@axionyx/pack-south-africa",
+  "version": "1.0.0",
+  "engine": "^1.0.0",
+  "dependencies": [],
+  "exports": [
+    "NDP2030"
+  ]
+}

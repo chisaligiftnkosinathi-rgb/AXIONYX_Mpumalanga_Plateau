@@ -1,0 +1,99 @@
+{
+  "totalNodes": 7,
+  "totalRelationships": 6,
+  "nodes": [
+    {
+      "id": "A",
+      "type": "HUMAN_INTENT",
+      "name": "100 Chappies Conversations",
+      "domain": "mobility",
+      "metadata": {}
+    },
+    {
+      "id": "B",
+      "type": "OPPORTUNITY_CRYSTAL",
+      "name": "Vehicle Demand Crystal",
+      "domain": "mobility",
+      "metadata": {}
+    },
+    {
+      "id": "C",
+      "type": "REQUIREMENT",
+      "name": "Income Mobility Need",
+      "domain": "mobility",
+      "metadata": {}
+    },
+    {
+      "id": "D",
+      "type": "CAPABILITY",
+      "name": "Mad Cars Capability",
+      "domain": "commerce",
+      "metadata": {}
+    },
+    {
+      "id": "E",
+      "type": "TRANSACTION",
+      "name": "Vehicle Delivery",
+      "domain": "commerce",
+      "metadata": {}
+    },
+    {
+      "id": "F",
+      "type": "OUTCOME",
+      "name": "Regional Economic Activity",
+      "domain": "economics",
+      "metadata": {}
+    },
+    {
+      "id": "G",
+      "type": "ECONOMIC_CRYSTAL",
+      "name": "Mobility Economy Crystal",
+      "domain": "macro_economics",
+      "metadata": {}
+    }
+  ],
+  "edges": [
+    {
+      "sourceId": "A",
+      "targetId": "B",
+      "type": "RESULTS_IN",
+      "evidence": "Aggregated conversational intent signals",
+      "confidence": 0.95
+    },
+    {
+      "sourceId": "B",
+      "targetId": "C",
+      "type": "REVEALS",
+      "evidence": "Intent clustering algorithm",
+      "confidence": 0.88
+    },
+    {
+      "sourceId": "C",
+      "targetId": "D",
+      "type": "MET_BY",
+      "evidence": "Partner Passport Validation",
+      "confidence": 0.92
+    },
+    {
+      "sourceId": "D",
+      "targetId": "E",
+      "type": "EXECUTES",
+      "evidence": "Observed outcome feedback loop",
+      "confidence": 0.99
+    },
+    {
+      "sourceId": "E",
+      "targetId": "F",
+      "type": "GENERATES",
+      "evidence": "Financial transaction telemetry",
+      "confidence": 0.85
+    },
+    {
+      "sourceId": "F",
+      "targetId": "G",
+      "type": "SYNTHESIZES_TO",
+      "evidence": "Macro-economic clustering logic",
+      "confidence": 0.9
+    }
+  ]
+}

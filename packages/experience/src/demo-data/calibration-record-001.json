@@ -1,0 +1,8 @@
+{
+  "reality_id": "CALIBRATION-001",
+  "sensor": "AX-WATER-001",
+  "reference_standard": "Certified pH 7.00 Buffer",
+  "calibration_date": "2026-07-24",
+  "offset": -0.05,
+  "status": "VERIFIED"
+}

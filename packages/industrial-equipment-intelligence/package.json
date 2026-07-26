@@ -1,0 +1,19 @@
+{
+  "name": "@axionyx/industrial-equipment-intelligence",
+  "version": "0.1.0",
+  "description": "AXIONYX Industrial Equipment Intelligence Layer",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "generate:equipment-demo": "npx ts-node src/runner/generate-equipment-demo.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.2",
+    "jest": "^29.5.0",
+    "@types/jest": "^29.5.0"
+  }
+}

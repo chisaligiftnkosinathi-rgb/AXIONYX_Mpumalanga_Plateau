@@ -1,0 +1,119 @@
+{
+  "reality_id": "MP-2026-001",
+  "identity": {
+    "sample_type": "coal",
+    "origin": "Mpumalanga Mining Operation",
+    "purpose": "shipment quality verification"
+  },
+  "events": [
+    {
+      "id": "evt_001",
+      "type": "sample_received",
+      "timestamp": "2026-07-24T09:02:00Z",
+      "actor": "Laboratory Technician",
+      "state_transition": {
+        "from": "UNKNOWN",
+        "to": "RECEIVED"
+      },
+      "evidence": [
+        "chain_of_custody_document"
+      ]
+    },
+    {
+      "id": "evt_002",
+      "type": "sample_prepared",
+      "timestamp": "2026-07-24T09:45:00Z",
+      "actor": "Sample Prep Technician",
+      "state_transition": {
+        "from": "RECEIVED",
+        "to": "PREPARED"
+      },
+      "evidence": [
+        "mass_reduction_log",
+        "particle_size_verification"
+      ]
+    },
+    {
+      "id": "evt_003",
+      "type": "sample_analyzed",
+      "timestamp": "2026-07-24T11:30:00Z",
+      "actor": "Instrument ICP-OES-01",
+      "state_transition": {
+        "from": "PREPARED",
+        "to": "OBSERVED"
+      },
+      "evidence": [
+        "instrument_calibration_record",
+        "raw_spectra_file"
+      ]
+    },
+    {
+      "id": "evt_004",
+      "type": "result_interpreted",
+      "timestamp": "2026-07-24T13:20:00Z",
+      "actor": "AXIONYX Policy Engine",
+      "state_transition": {
+        "from": "OBSERVED",
+        "to": "INTERPRETED"
+      },
+      "evidence": [
+        "iso_method_evaluation"
+      ]
+    },
+    {
+      "id": "evt_005",
+      "type": "decision_rendered",
+      "timestamp": "2026-07-24T14:00:00Z",
+      "actor": "Laboratory Director",
+      "state_transition": {
+        "from": "INTERPRETED",
+        "to": "DECIDED"
+      },
+      "evidence": [
+        "electronic_signature",
+        "certificate_of_analysis"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "measurement": "ash_content",
+      "value": 12.4,
+      "unit": "%",
+      "method": "ISO_ANALYTICAL_METHOD",
+      "confidence": "VERIFIED"
+    },
+    {
+      "measurement": "moisture",
+      "value": 3.1,
+      "unit": "%",
+      "method": "ISO_ANALYTICAL_METHOD",
+      "confidence": "VERIFIED"
+    },
+    {
+      "measurement": "sulphur",
+      "value": 0.8,
+      "unit": "%",
+      "method": "ISO_ANALYTICAL_METHOD",
+      "confidence": "VERIFIED"
+    }
+  ],
+  "knowledge_graph": {
+    "nodes": [
+      { "id": "coal_001", "label": "Coal Commodity" },
+      { "id": "mine_mp", "label": "Mpumalanga Mining Operation" },
+      { "id": "lab_iso", "label": "Laboratory Method" }
+    ],
+    "relationships": [
+      { "source": "MP-2026-001", "target": "coal_001", "type": "IS_A" },
+      { "source": "MP-2026-001", "target": "mine_mp", "type": "ORIGINATES_FROM" },
+      { "source": "MP-2026-001", "target": "lab_iso", "type": "VERIFIED_BY" }
+    ]
+  },
+  "decision": {
+    "outcome": "ACCEPTED",
+    "reason": "Within contractual threshold",
+    "rule": "ash < 15%",
+    "confidence": "HIGH"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "reality_id": "SENSOR-DESIGN-001",
+  "sensor": "AX-WATER-001",
+  "design": {
+    "components": [
+      "pH sensor",
+      "Temperature sensor",
+      "Turbidity sensor",
+      "Data logger",
+      "Communication module",
+      "Calibration interface"
+    ]
+  },
+  "measurements": [
+    {
+      "parameter": "pH",
+      "value": 7.35,
+      "event_id": "sensor_measurement_event_001"
+    }
+  ]
+}

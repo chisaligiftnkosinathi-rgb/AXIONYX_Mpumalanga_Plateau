@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIONYX | Opportunity Telemetry</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #0d0d0d;
+            color: #00ffcc;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 { color: #fff; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .log-container {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+            border-radius: 4px;
+        }
+        .log-entry { margin-bottom: 10px; border-left: 2px solid #00ffcc; padding-left: 10px; }
+        .timestamp { color: #888; font-size: 0.8rem; }
+        .event-type { color: #f4a261; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🌍 AXIONYX | Opportunity Telemetry</h1>
+    <p>Live conversion events across the ecosystem (Chappies <-> Partners)</p>
+
+    <div class="log-container" id="telemetry-logs">
+        <div class="log-entry">
+            <span class="timestamp">[SYSTEM BOOT]</span>
+            <span class="event-type">INFO:</span> Listening for localStorage opportunity events...
+        </div>
+    </div>
+
+    <script>
+        // Simple polling to observe localStorage and print logs
+        let lastLeadCount = 0;
+        
+        function pollTelemetry() {
+            let leads = JSON.parse(localStorage.getItem('madcars_leads') || '[]');
+            
+            if (leads.length > lastLeadCount) {
+                // New lead arrived
+                const newLead = leads[leads.length - 1];
+                logEvent('OPPORTUNITY_ROUTED', `Crystal ${newLead.id} routed to ${newLead.partner}. Value: R${newLead.leadValue} | Match: ${(newLead.confidence*100).toFixed(0)}%`);
+                lastLeadCount = leads.length;
+            } else if (leads.length < lastLeadCount) {
+                // Lead removed (simulating partner accepted/declined)
+                logEvent('PARTNER_ACTION', `Partner processed an opportunity. Crystal removed from inbox.`);
+                lastLeadCount = leads.length;
+            }
+        }
+
+        function logEvent(type, message) {
+            const container = document.getElementById('telemetry-logs');
+            const el = document.createElement('div');
+            el.className = 'log-entry';
+            el.innerHTML = `<span class="timestamp">[${new Date().toLocaleTimeString()}]</span> <span class="event-type">${type}:</span> ${message}`;
+            container.prepend(el);
+        }
+
+        setInterval(pollTelemetry, 1000);
+    </script>
+</body>
+</html>

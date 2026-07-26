@@ -1,0 +1,26 @@
+{
+  "reality_id": "WATER-CYCLE-001",
+  "environment": {
+    "location": "river_monitoring_point_A"
+  },
+  "states": [
+    {
+      "state": "PRECIPITATION",
+      "observations": []
+    },
+    {
+      "state": "SURFACE_WATER",
+      "observations": [
+        { "parameter": "pH", "value": 7.35 },
+        { "parameter": "temperature", "value": 22.5 }
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "from": "PRECIPITATION",
+      "to": "SURFACE_WATER",
+      "evidence": ["sensor_measurement_event_001"]
+    }
+  ]
+}

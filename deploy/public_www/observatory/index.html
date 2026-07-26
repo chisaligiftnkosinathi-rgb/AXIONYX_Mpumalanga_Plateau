@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AXIONYX | Multi-Node Economic Observatory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Top Status Bar -->
+    <header class="observatory-header">
+        <div class="header-left">
+            <h1>🌍 AXIONYX ECONOMIC OBSERVATORY</h1>
+            <span class="system-status"><span class="dot pulse"></span> Operational</span>
+        </div>
+        <div class="header-stats">
+            <div class="stat-box">
+                <span class="label">Active Nodes</span>
+                <span class="value">6</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Opportunities Today</span>
+                <span class="value" id="total-opps">127</span>
+            </div>
+            <div class="stat-box highlight">
+                <span class="label">Estimated Economic Flow</span>
+                <span class="value" id="econ-flow">R850 000</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Connected Partners</span>
+                <span class="value">14</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-grid">
+        <!-- Node Grid (Left Column) -->
+        <div class="node-grid">
+            
+            <!-- 1. WhatsApp Node -->
+            <div class="node-card node-chappies">
+                <div class="node-header">
+                    <h3>🍬 WhatsApp Intelligence Node</h3>
+                    <span class="badge">LIVE</span>
+                </div>
+                <div class="node-metrics">
+                    <p>Number: <span class="val">0711603850</span></p>
+                    <p>Conversations: <span class="val" id="wa-convs">93</span></p>
+                    <p>Qualified Intent: <span class="val">42</span></p>
+                </div>
+            </div>
+
+            <!-- 2. Web Discovery Node -->
+            <div class="node-card node-web">
+                <div class="node-header">
+                    <h3>🌐 Web Discovery Node</h3>
+                    <span class="badge">LIVE</span>
+                </div>
+                <div class="node-metrics">
+                    <p>Visitors: <span class="val">1,240</span></p>
+                    <p>Search Intent: <span class="val">340</span></p>
+                    <p>Opportunities: <span class="val">87</span></p>
+                </div>
+            </div>
+
+            <!-- 3. Partner Network Node -->
+            <div class="node-card node-commerce">
+                <div class="node-header">
+                    <h3>🤝 Partner Network Node</h3>
+                    <span class="badge">LIVE</span>
+                </div>
+                <div class="node-metrics">
+                    <p>Opportunities Sent: <span class="val">56</span></p>
+                    <p>Accepted: <span class="val">34</span></p>
+                    <p>Converted: <span class="val">7</span></p>
+                </div>
+            </div>
+
+            <!-- 4. Material Intelligence Node -->
+            <div class="node-card node-science">
+                <div class="node-header">
+                    <h3>🧪 Material Intelligence Node</h3>
+                    <span class="badge">LIVE</span>
+                </div>
+                <div class="node-metrics">
+                    <p>Aluminium Req: <span class="val">12</span></p>
+                    <p>Copper Req: <span class="val">8</span></p>
+                    <p>Lab Services: <span class="val">5</span></p>
+                </div>
+            </div>
+
+            <!-- 5. Scientific Network Node -->
+            <div class="node-card node-science-deep">
+                <div class="node-header">
+                    <h3>🔬 Scientific Network Node</h3>
+                    <span class="badge">LIVE</span>
+                </div>
+                <div class="node-metrics">
+                    <p>Reality Crystals: <span class="val">2,168</span></p>
+                    <p>Evidence Records: <span class="val">420</span></p>
+                    <p>Verified: <span class="val">86%</span></p>
+                </div>
+            </div>
+
+            <!-- 6. Industrial Pilot Node -->
+            <div class="node-card node-industrial">
+                <div class="node-header">
+                    <h3>🏭 Industrial Pilot Node</h3>
+                    <span class="badge">LIVE</span>
+                </div>
+                <div class="node-metrics">
+                    <p>Assets: <span class="val">24</span></p>
+                    <p>Telemetry Events: <span class="val">45,000</span></p>
+                    <p>Impact Score: <span class="val">0.82</span></p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Flow Map & Stream (Right Column) -->
+        <div class="side-panel">
+            
+            <div class="flow-map panel-card">
+                <h3>🔄 Opportunity Flow Map</h3>
+                <div class="flow-diagram">
+                    <div class="flow-step">👤 HUMAN NEED</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">🧠 INTENT ENGINE</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">💎 OPPORTUNITY CRYSTAL</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">⚙️ MATCH ENGINE</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step">🤝 TRUSTED PARTNER</div>
+                    <div class="flow-arrow">↓</div>
+                    <div class="flow-step highlight-step">💰 ECONOMIC EVENT</div>
+                </div>
+            </div>
+
+            <div class="event-stream panel-card">
+                <h3>📡 Live Event Stream</h3>
+                <div id="stream-content" class="stream-content">
+                    <!-- Events populated by JS -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
