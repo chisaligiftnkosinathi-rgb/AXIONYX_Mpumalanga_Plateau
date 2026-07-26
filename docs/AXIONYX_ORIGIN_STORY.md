@@ -1,4 +1,7 @@
-# AXIONYX Origin Story
+# Gift's Hub & AXIONYX Origin Story
+
+**Gift's Hub** is the umbrella identity—where old wisdom and new intelligence fuse into systems that serve humanity.
+
 
 ## Chapter 1
 **Scientific Foundations**
