@@ -1,0 +1,21 @@
+{
+  "id": "community",
+  "name": "Community Opportunity Network",
+  "version": "1.0.0",
+  "category": "community",
+  "purpose": "Township and local business visibility",
+  "inputs": [
+    "human_intent"
+  ],
+  "outputs": [
+    "economic_opportunities"
+  ],
+  "connects_to": [
+    "knowledge_graph",
+    "opportunity_exchange"
+  ],
+  "governance": {
+    "requiresConsent": true,
+    "requiresEvidence": true
+  }
+}

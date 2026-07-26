@@ -1,0 +1,21 @@
+{
+  "id": "agriculture",
+  "name": "Agriculture Intelligence",
+  "version": "1.0.0",
+  "category": "agriculture",
+  "purpose": "Connect Farmers to Knowledge and Markets",
+  "inputs": [
+    "human_intent"
+  ],
+  "outputs": [
+    "economic_opportunities"
+  ],
+  "connects_to": [
+    "knowledge_graph",
+    "opportunity_exchange"
+  ],
+  "governance": {
+    "requiresConsent": true,
+    "requiresEvidence": true
+  }
+}

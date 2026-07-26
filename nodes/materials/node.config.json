@@ -1,0 +1,30 @@
+{
+  "id": "materials",
+  "name": "Material Science Intelligence",
+  "version": "1.0.0",
+  "category": "science",
+  "purpose": "Connect industry demand with scientific capability.",
+  "inputs": [
+    "human_intent",
+    "material_requirement"
+  ],
+  "outputs": [
+    "chemical_properties",
+    "supplier",
+    "laboratory_verification",
+    "industrial_application"
+  ],
+  "connects_to": [
+    "knowledge_graph",
+    "opportunity_exchange",
+    "laboratory_network"
+  ],
+  "governance": {
+    "requiresConsent": true,
+    "requiresEvidence": true
+  },
+  "runtime": "active",
+  "intelligence": true,
+  "knowledge_graph": true,
+  "opportunity_exchange": true
+}

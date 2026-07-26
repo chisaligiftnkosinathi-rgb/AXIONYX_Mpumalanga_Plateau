@@ -1,0 +1,31 @@
+{
+  "simulation_id": "sensor-tree-emalahleni-001",
+  "seed": {
+    "source": "Mining Community",
+    "problem": "Need affordable environmental monitoring sensors",
+    "location": "eMalahleni",
+    "urgency": "high"
+  },
+  "environment": {
+    "pressure": "Mining water monitoring requirement"
+  },
+  "capabilities_required": [
+    "Analytical Chemistry",
+    "Electronics Engineering",
+    "Manufacturing",
+    "Testing Laboratory"
+  ],
+  "metrics": {
+    "Need": 0.9,
+    "Evidence": 0.8,
+    "Trust": 0.85,
+    "Collaboration": 0.9,
+    "Learning": 0.95
+  },
+  "failure_injection": {
+    "failure_type": "Calibration drift",
+    "root_cause": "Temperature variation",
+    "correction": "Temperature compensation algorithm created",
+    "new_standard": "AXIONYX Sensor Standard v1"
+  }
+}

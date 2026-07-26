@@ -1,0 +1,29 @@
+{
+  "id": "curio",
+  "name": "Curio Education Engine",
+  "version": "1.0.0",
+  "category": "education",
+  "purpose": "Convert curiosity into education pathways.",
+  "inputs": [
+    "human_intent",
+    "interest"
+  ],
+  "outputs": [
+    "knowledge_gap",
+    "learning_path",
+    "institution",
+    "career_opportunity"
+  ],
+  "connects_to": [
+    "knowledge_graph",
+    "opportunity_exchange"
+  ],
+  "governance": {
+    "requiresConsent": true,
+    "requiresEvidence": true
+  },
+  "runtime": "active",
+  "intelligence": true,
+  "knowledge_graph": true,
+  "opportunity_exchange": true
+}

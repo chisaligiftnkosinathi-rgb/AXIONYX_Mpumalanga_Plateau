@@ -1,0 +1,21 @@
+{
+  "id": "creative",
+  "name": "Creative Intelligence Studio",
+  "version": "1.0.0",
+  "category": "creative",
+  "purpose": "Where creativity becomes structured opportunity",
+  "inputs": [
+    "human_intent"
+  ],
+  "outputs": [
+    "economic_opportunities"
+  ],
+  "connects_to": [
+    "knowledge_graph",
+    "opportunity_exchange"
+  ],
+  "governance": {
+    "requiresConsent": true,
+    "requiresEvidence": true
+  }
+}

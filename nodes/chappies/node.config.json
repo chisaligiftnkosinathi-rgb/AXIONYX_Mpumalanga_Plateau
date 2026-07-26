@@ -1,0 +1,26 @@
+{
+  "id": "chappies",
+  "name": "Chappies Curiosity Gateway",
+  "version": "1.0.0",
+  "category": "curiosity",
+  "purpose": "Ask anything. Discover opportunities.",
+  "inputs": [
+    "human_intent"
+  ],
+  "outputs": [
+    "intent_crystal",
+    "economic_opportunities"
+  ],
+  "connects_to": [
+    "knowledge_graph",
+    "opportunity_exchange"
+  ],
+  "governance": {
+    "requiresConsent": true,
+    "requiresEvidence": true
+  },
+  "runtime": "active",
+  "intelligence": true,
+  "knowledge_graph": true,
+  "opportunity_exchange": true
+}

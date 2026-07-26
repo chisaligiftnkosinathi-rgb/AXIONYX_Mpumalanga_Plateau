@@ -1,0 +1,32 @@
+{
+  "id": "madcars",
+  "name": "MadCars Mobility Intelligence",
+  "version": "1.0.0",
+  "category": "mobility",
+  "purpose": "Transform transportation needs into economic mobility.",
+  "inputs": [
+    "human_intent",
+    "budget",
+    "purpose",
+    "location"
+  ],
+  "outputs": [
+    "vehicle_matches",
+    "economic_opportunities",
+    "finance_path",
+    "partner_connection"
+  ],
+  "connects_to": [
+    "knowledge_graph",
+    "opportunity_exchange",
+    "partner_network"
+  ],
+  "governance": {
+    "requiresConsent": true,
+    "requiresEvidence": true
+  },
+  "runtime": "active",
+  "intelligence": true,
+  "knowledge_graph": true,
+  "opportunity_exchange": true
+}
