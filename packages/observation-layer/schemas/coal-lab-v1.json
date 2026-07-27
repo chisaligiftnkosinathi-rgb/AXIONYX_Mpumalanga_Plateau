@@ -1,0 +1,13 @@
+{
+  "schemaId": "coal-lab-csv",
+  "version": "1.0",
+  "description": "Historical CSV export format from Carolina Coal Laboratory",
+  "columns": [
+    { "name": "Sample ID", "canonicalName": "source", "type": "string", "required": true },
+    { "name": "Sample Date", "canonicalName": "occurredAt", "type": "timestamp", "required": true },
+    { "name": "Laboratory", "canonicalName": "metadata.adapterId", "type": "string", "required": false },
+    { "name": "Ash", "canonicalName": "ProductAsh", "type": "numeric", "unit": "%", "required": true, "bounds": { "min": 0, "max": 100 } },
+    { "name": "Moisture", "canonicalName": "ProductMoisture", "type": "numeric", "unit": "%", "required": false, "bounds": { "min": 0, "max": 50 } },
+    { "name": "CV", "canonicalName": "ProductCV", "type": "numeric", "unit": "MJ/kg", "required": false, "bounds": { "min": 10, "max": 35 } }
+  ]
+}
