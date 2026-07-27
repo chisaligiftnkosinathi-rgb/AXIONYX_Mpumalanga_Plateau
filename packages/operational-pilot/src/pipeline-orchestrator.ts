@@ -1,3 +1,5 @@
+import { Logger, Tracing } from '@axionyx/observability';
+
 export interface PipelineState {
   stage: number;
   status: 'IDLE' | 'RUNNING' | 'PAUSED' | 'COMPLETED' | 'FAILED';
@@ -10,6 +12,7 @@ export interface PipelineState {
     replayability: number;
     confidence: number;
   };
+  correlationId?: string;
 }
 
 export class PipelineOrchestrator {
@@ -28,6 +31,7 @@ export class PipelineOrchestrator {
 
   public loadScenario(domain: 'COAL' | 'ERTIGA', failureMode?: string) {
     this.state = this.getInitialState();
+    this.state.correlationId = Tracing.generateCorrelationId();
     // In a real system, these would import from the specific domain adapters
     this.scenarioData = { domain, failureMode, timestamp: new Date().toISOString() };
     this.log(`Loaded scenario: ${domain}${failureMode ? ' (Injection: ' + failureMode + ')' : ''}`);
@@ -79,6 +83,17 @@ export class PipelineOrchestrator {
     this.state.logs.push({ 
       timestamp: `${ts.getHours().toString().padStart(2, '0')}:${ts.getMinutes().toString().padStart(2, '0')}:${ts.getSeconds().toString().padStart(2, '0')}.${ts.getMilliseconds().toString().padStart(3, '0')}`, 
       message 
+    });
+    
+    Logger.log({
+      stage: `STAGE_${this.state.stage}`,
+      eventId: 'evt_' + Math.random().toString(36).substr(2, 9),
+      correlationId: this.state.correlationId || 'N/A',
+      component: 'pipeline-orchestrator',
+      severity: message.includes('REJECTED') || message.includes('FAILED') ? 'ERROR' : message.includes('WARNING') ? 'WARN' : 'INFO',
+      status: this.state.status,
+      durationMs: 0,
+      message
     });
   }
 
