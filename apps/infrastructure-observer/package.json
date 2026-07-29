@@ -9,8 +9,7 @@
   },
   "dependencies": {
     "@kubernetes/client-node": "^0.20.0",
-    "@axionyx/event-bus": "workspace:*",
-    "@axionyx/ontology": "workspace:*"
+    "@axionyx/event-bus": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
