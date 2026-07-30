@@ -269,8 +269,8 @@ export class BusinessEntityRegistry {
         enabled: true
       },
       transitRoutes: ['N4_TOLL_ROUTE (Secure Convoy)', 'DOMESTIC_AIR_CORRIDOR (High Value Cargo)'],
-      errorSpaceRedundancies: ['Armored Convoy Escorts', 'Satellite Tracking (Dual Band)', 'Geofenced Route Locks'],
-      declaredAssets: ['Platinum Smelter A', 'Armored Transport Fleet'],
+      errorSpaceRedundancies: ['Armored Convoy Escorts', 'Satellite Tracking (Dual Band)', 'Geofenced Route Locks', 'CCS (Carbon Capture & Storage)'],
+      declaredAssets: ['Platinum Smelter A', 'Armored Transport Fleet', 'Carbon Credit Commission'],
       serviceMethod: 'ISP_FIBER',
       workforceSize: '5,500+ (Heavy Industry / Corporate Scale)'
     });
@@ -399,7 +399,8 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       transitRoutes: ['N12_HIGHWAY', 'N17_FREIGHT_CORRIDOR'], // Heavy haulage toll route
-      declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System'],
+      errorSpaceRedundancies: ['CCS (Carbon Capture & Storage)', 'Tailings Water Filtration'],
+      declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System', 'Carbon Credit Commission'],
       serviceMethod: 'ISP_FIBER'
     });
 

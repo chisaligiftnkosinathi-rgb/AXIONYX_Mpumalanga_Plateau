@@ -250,9 +250,13 @@ const mockClients = [
     laborArchetypes: ['Underground Miners', 'Smelter Operators', 'Tactical Security Teams'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
+    shippingLogic: {
+      engineId: 'secure_bullion_transit',
+      enabled: true
+    },
     transitRoutes: ['N4_TOLL_ROUTE (Secure Convoy)', 'DOMESTIC_AIR_CORRIDOR (High Value Cargo)'],
-    errorSpaceRedundancies: ['Armored Convoy Escorts', 'Satellite Tracking (Dual Band)', 'Geofenced Route Locks'],
-    declaredAssets: ['Platinum Smelter A', 'Armored Transport Fleet'],
+    errorSpaceRedundancies: ['Armored Convoy Escorts', 'Satellite Tracking (Dual Band)', 'Geofenced Route Locks', 'CCS (Carbon Capture & Storage)'],
+    declaredAssets: ['Platinum Smelter A', 'Armored Transport Fleet', 'Carbon Credit Commission'],
     workforceSize: '5,500+ (Heavy Industry / Corporate Scale)',
     status: 'ACTIVE'
   },
@@ -354,11 +358,13 @@ const mockClients = [
     role: 'CLIENT',
     legalName: 'Carolina Coal Processing',
     registrationNumber: '2015/654321/07',
-    serviceMethod: 'ISP_FIBER',
     complianceStandards: ['ISO_17025', 'MELOKUHLE_SAMPLING_STANDARD'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
-    declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System'],
+    transitRoutes: ['N12_HIGHWAY', 'N17_FREIGHT_CORRIDOR'],
+    errorSpaceRedundancies: ['CCS (Carbon Capture & Storage)', 'Tailings Water Filtration'],
+    declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System', 'Carbon Credit Commission'],
+    serviceMethod: 'ISP_FIBER',
     status: 'ACTIVE'
   },
   {
