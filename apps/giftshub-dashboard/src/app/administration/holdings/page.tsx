@@ -7,7 +7,7 @@ const mockProvider = {
   legalName: 'Global IT and Business Solutions Pty Ltd',
   registrationNumber: '2021/999569/07',
   servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE'],
-  complianceStandards: ['ROOT_SYSTEM', 'ISO_27001', 'ISP_GROWTH_INSURANCE'],
+  complianceStandards: ['ROOT_SYSTEM', 'ISO_27001', 'ISP_GROWTH_INSURANCE', 'STANDARD_PUBLISHING_AUTHORITY'],
   isProtectedAsset: true,
   paymentRouting: 'DIRECT_COLLECTION',
   declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
@@ -97,7 +97,7 @@ const mockClients = [
     legalName: 'Walala Wasala Genesis',
     registrationNumber: 'CONCEPTUAL',
     soilEntityId: 'global_holdings_root',
-    complianceStandards: ['ROOT_SYSTEM'],
+    complianceStandards: ['ROOT_SYSTEM', 'STANDARD_PUBLISHING_AUTHORITY'],
     isProtectedAsset: true,
     paymentRouting: 'NONE',
     declaredAssets: ['The Core Idea'],
@@ -653,7 +653,7 @@ export default function HoldingsPage() {
                              {client.complianceStandards && (
                                 <div className="flex flex-wrap gap-1 mb-2">
                                   {client.complianceStandards.map((std: string) => (
-                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : std.includes('SAMBRA') || std.includes('RMI') ? 'bg-orange-950/40 text-orange-400 border-orange-900/50' : std.includes('SGS') || std.includes('LABOUR') || std.includes('LRA') ? 'bg-yellow-950/40 text-yellow-400 border-yellow-900/50' : std.includes('FSC') || std.includes('FORESTRY') || std.includes('ENVIRONMENTAL') ? 'bg-emerald-950/40 text-emerald-400 border-emerald-900/50' : std.includes('ISP_GROWTH_INSURANCE') ? 'bg-sky-950/40 text-sky-400 border-sky-900/50' : std.includes('MELOKUHLE') ? 'bg-pink-950/40 text-pink-400 border-pink-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : std.includes('SAMBRA') || std.includes('RMI') ? 'bg-orange-950/40 text-orange-400 border-orange-900/50' : std.includes('SGS') || std.includes('LABOUR') || std.includes('LRA') ? 'bg-yellow-950/40 text-yellow-400 border-yellow-900/50' : std.includes('FSC') || std.includes('FORESTRY') || std.includes('ENVIRONMENTAL') ? 'bg-emerald-950/40 text-emerald-400 border-emerald-900/50' : std.includes('ISP_GROWTH_INSURANCE') ? 'bg-sky-950/40 text-sky-400 border-sky-900/50' : std.includes('MELOKUHLE') ? 'bg-pink-950/40 text-pink-400 border-pink-900/50' : std.includes('PUBLISHING') ? 'bg-indigo-950/40 text-indigo-400 border-indigo-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
                                       {std === 'ISO_17025' ? (
                                         <span className="flex items-center gap-1">
                                           <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
@@ -692,6 +692,11 @@ export default function HoldingsPage() {
                                       ) : std.includes('MELOKUHLE') ? (
                                         <span className="flex items-center gap-1">
                                           <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                          {std.replace(/_/g, ' ')}
+                                        </span>
+                                      ) : std.includes('PUBLISHING') ? (
+                                        <span className="flex items-center gap-1">
+                                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
                                           {std.replace(/_/g, ' ')}
                                         </span>
                                       ) : std.replace(/_/g, ' ')}

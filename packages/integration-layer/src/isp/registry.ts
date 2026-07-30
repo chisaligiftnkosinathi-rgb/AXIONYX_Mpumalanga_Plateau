@@ -83,7 +83,7 @@ export class BusinessEntityRegistry {
       legalName: 'Global IT and Business Solutions Pty Ltd',
       registrationNumber: '2021/999569/07',
       servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE_MANAGEMENT'],
-      complianceStandards: ['ROOT_SYSTEM', 'ISO_27001', 'ISP_GROWTH_INSURANCE'],
+      complianceStandards: ['ROOT_SYSTEM', 'ISO_27001', 'ISP_GROWTH_INSURANCE', 'STANDARD_PUBLISHING_AUTHORITY'],
       isProtectedAsset: true,
       paymentRouting: 'DIRECT_COLLECTION', // Root collects payments
       declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
@@ -132,6 +132,7 @@ export class BusinessEntityRegistry {
       role: 'INCUBATOR',
       legalName: 'Walala Wasala Stokvel',
       registrationNumber: '2024/STK/998',
+      complianceStandards: ['STANDARD_PUBLISHING_AUTHORITY'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Stokvel Treasury Account', 'Community Hall (Leased)'],
@@ -147,7 +148,7 @@ export class BusinessEntityRegistry {
       legalName: 'Imbally',
       registrationNumber: '2025/111999/07',
       servicesOffered: ['SCIENTIFIC_CALIBRATION', 'AGRICULTURAL_ROUTING'],
-      complianceStandards: ['ISO_17025'],
+      complianceStandards: ['ISO_17025', 'STANDARD_PUBLISHING_AUTHORITY'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       shippingLogic: {
