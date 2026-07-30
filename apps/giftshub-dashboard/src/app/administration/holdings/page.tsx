@@ -135,10 +135,27 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'node_curiosity_education',
+    role: 'INCUBATOR',
+    legalName: 'Curiosity Learning Initiative',
+    registrationNumber: '2025/EDU/000',
+    seedEntityId: 'seed_walala_wasala',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Walala Wasala Genesis',
+    serviceMethod: 'ISP_WIRELESS',
+    complianceStandards: ['ROOT_SYSTEM'],
+    laborArchetypes: ['Curious Minds', 'Students', 'Educators'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Community Library', 'Early Learning Center'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'node_cbd_training',
     role: 'INCUBATOR',
     legalName: 'CBD Vocational Training Hub',
     registrationNumber: '2025/EDU/001',
+    parentEntityId: 'node_curiosity_education',
     seedEntityId: 'seed_walala_wasala',
     soilEntityId: 'global_holdings_root',
     seedName: 'Walala Wasala Genesis',

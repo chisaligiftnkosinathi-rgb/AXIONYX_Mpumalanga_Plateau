@@ -139,12 +139,29 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_WIRELESS'
     });
 
-    // 4. The Training Ground: CBD Skills Incubator
+    // 4. The Spark: Curiosity & Early Education Node
+    this.entities.set('node_curiosity_education', {
+      entityId: 'node_curiosity_education',
+      role: 'INCUBATOR',
+      legalName: 'Curiosity Learning Initiative',
+      registrationNumber: '2025/EDU/000',
+      seedEntityId: 'client_stokvel_01', // Seeded by Stokvel community
+      servicesOffered: ['CURIOSITY_INCUBATION', 'EARLY_EDUCATION'],
+      complianceStandards: ['ROOT_SYSTEM'],
+      laborArchetypes: ['Curious Minds', 'Students', 'Educators'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Community Library', 'Early Learning Center'],
+      serviceMethod: 'ISP_WIRELESS'
+    });
+
+    // 5. The Training Ground: CBD Skills Incubator
     this.entities.set('node_cbd_training', {
       entityId: 'node_cbd_training',
       role: 'INCUBATOR',
       legalName: 'CBD Vocational Training Hub',
       registrationNumber: '2025/EDU/001',
+      parentEntityId: 'node_curiosity_education', // Curiosity leads to vocational training
       seedEntityId: 'client_stokvel_01', // Birthed by the Stokvel
       servicesOffered: ['VOCATIONAL_TRAINING', 'SKILLS_INCUBATION'],
       complianceStandards: ['ROOT_SYSTEM'],
