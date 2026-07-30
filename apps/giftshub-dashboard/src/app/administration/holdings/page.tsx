@@ -224,6 +224,21 @@ const mockClients = [
     declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
     serviceMethod: 'ISP_FIBER',
     status: 'ACTIVE'
+  },
+  {
+    entityId: 'vendor_panelbeater_01',
+    role: 'SUBSIDIARY',
+    legalName: 'Global Auto Body & Panelbeaters',
+    registrationNumber: '2023/112233/07',
+    seedEntityId: 'global_holdings_root',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Global IT and Business Solutions Pty Ltd',
+    complianceStandards: ['SAMBRA_MAJOR_STRUCTURAL', 'RMI_APPROVED', 'IATF_16949_AUTOMOTIVE'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Chassis Straightening Machine', 'Spray Booth Array'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
   }
 ];
 
@@ -458,7 +473,7 @@ export default function HoldingsPage() {
                              {client.complianceStandards && (
                                 <div className="flex flex-wrap gap-1 mb-2">
                                   {client.complianceStandards.map((std: string) => (
-                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : std.includes('SAMBRA') || std.includes('RMI') ? 'bg-orange-950/40 text-orange-400 border-orange-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
                                       {std === 'ISO_17025' ? (
                                         <span className="flex items-center gap-1">
                                           <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
@@ -472,6 +487,11 @@ export default function HoldingsPage() {
                                       ) : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? (
                                         <span className="flex items-center gap-1">
                                           <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h8a2 2 0 012 2v6m-2 2H6m14-2a2 2 0 11-4 0 2 2 0 014 0zM6 15a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                          {std.replace(/_/g, ' ')}
+                                        </span>
+                                      ) : std.includes('SAMBRA') || std.includes('RMI') ? (
+                                        <span className="flex items-center gap-1">
+                                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
                                           {std.replace(/_/g, ' ')}
                                         </span>
                                       ) : std.replace(/_/g, ' ')}

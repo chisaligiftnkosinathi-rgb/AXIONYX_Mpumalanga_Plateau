@@ -296,6 +296,21 @@ export class BusinessEntityRegistry {
       declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
       serviceMethod: 'ISP_FIBER'
     });
+
+    // 15. The Auto Body Spinoff (Birthed by Global IT)
+    this.entities.set('vendor_panelbeater_01', {
+      entityId: 'vendor_panelbeater_01',
+      role: 'SUBSIDIARY',
+      legalName: 'Global Auto Body & Panelbeaters',
+      registrationNumber: '2023/112233/07',
+      seedEntityId: 'global_holdings_root', // Birthed directly by the root
+      soilEntityId: 'global_holdings_root',
+      complianceStandards: ['SAMBRA_MAJOR_STRUCTURAL', 'RMI_APPROVED', 'IATF_16949_AUTOMOTIVE'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Chassis Straightening Machine', 'Spray Booth Array'],
+      serviceMethod: 'ISP_FIBER'
+    });
   }
 
   public getEntity(id: string): BusinessEntity | undefined {
