@@ -426,23 +426,23 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 5.5 The New Seed: Carolina Next-Gen Academy (SLP Education)
-    this.entities.set('node_carolina_academy', {
-      entityId: 'node_carolina_academy',
+    // 5.5 The Local Soil: Zinikeleni Secondary School (Carolina)
+    this.entities.set('node_zinikeleni_secondary', {
+      entityId: 'node_zinikeleni_secondary',
       role: 'INCUBATOR',
-      legalName: 'Carolina Next-Gen Academy (SLP Seed)',
-      registrationNumber: 'EDU/CAR/001',
+      legalName: 'Zinikeleni Secondary School (Carolina Soil)',
+      registrationNumber: 'EDU/CAR/ZIN01',
       parentEntityId: 'node_dbe_national', // Aligned with national education
-      seedEntityId: 'client_002', // Planted and funded by Carolina Coal Processing
-      servicesOffered: ['STEM_INCUBATION', 'YOUTH_EMPOWERMENT', 'BURSARY_ROUTING'],
-      complianceStandards: ['MAKWANDE_GROWTH_INDEX', 'MINING_CHARTER_SLP'], // Growing humans via mining profits
+      seedEntityId: 'client_002', // Supported/Planted by Carolina Coal Processing SLP
+      servicesOffered: ['SECONDARY_EDUCATION', 'YOUTH_INCUBATION'],
+      complianceStandards: ['MAKWANDE_GROWTH_INDEX', 'SOUTH_AFRICAN_SCHOOLS_ACT', 'MINING_CHARTER_SLP'], 
       certifyingSectors: ['BASIC_EDUCATION', 'COMMUNITY_DEVELOPMENT'],
-      laborArchetypes: ['STEM Educators', 'Mine-Sponsored Tutors', 'Local Youth'],
+      laborArchetypes: ['DBE Educators', 'Local Carolina Youth'],
       isProtectedAsset: true,
-      paymentRouting: 'NONE', // Funded by Coal Commission
-      declaredAssets: ['Advanced Science Labs', 'Community Connectivity Grid'],
+      paymentRouting: 'NONE', // Public School with SLP funding
+      declaredAssets: ['Public Classrooms', 'Coal SLP Science Labs'],
       serviceMethod: 'ISP_FIBER',
-      makwandeScale: '2,500 Local Learners (The New Generation)'
+      makwandeScale: 'Local High School Learners (The Carolina Generation)'
     });
 
     // 6. Accredited Testing Lab: Mpumalanga Water Quality
