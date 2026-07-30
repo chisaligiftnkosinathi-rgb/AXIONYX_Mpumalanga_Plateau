@@ -1,3 +1,11 @@
+export interface PhysicalAsset {
+  assetId: string;
+  assetType: 'VEHICLE' | 'EQUIPMENT' | 'FACILITY';
+  description: string;
+  seedOriginId?: string;
+  status: 'ACTIVE' | 'IN_MAINTENANCE' | 'FLAGGED';
+}
+
 export interface BusinessEntity {
   entityId: string;
   parentEntityId?: string;
@@ -9,13 +17,14 @@ export interface BusinessEntity {
   servicesOffered?: string[];
   complianceStandards?: string[];
   isProtectedAsset: boolean;
-  paymentRouting: 'ROUTE_TO_MOTHER' | 'DIRECT_COLLECTION';
+  paymentRouting: 'ROUTE_TO_MOTHER' | 'NONE';
   shippingLogic?: {
     engineId: string;
     enabled: boolean;
   };
   declaredAssets: string[];
-  serviceMethod: 'ISP_5G_ROUTER' | 'ISP_FIBER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
+  physicalAssets?: PhysicalAsset[];
+  serviceMethod: 'ISP_FIBER' | 'ISP_5G_ROUTER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
   contactDetails?: {
     clientCare: string;
     officePhone: string;
@@ -219,6 +228,14 @@ export class BusinessEntityRegistry {
     });
 
     // 12. General Client: Bolt (The Fruit of Auto Italia)
+    const boltFleet: PhysicalAsset[] = Array.from({ length: 50 }).map((_, i) => ({
+      assetId: `ERT ${String(i + 1).padStart(3, '0')} MP`,
+      assetType: 'VEHICLE',
+      description: 'Suzuki Ertiga',
+      seedOriginId: 'vendor_auto_italia',
+      status: 'ACTIVE'
+    }));
+
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',
@@ -229,6 +246,7 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
+      physicalAssets: boltFleet,
       serviceMethod: 'ISP_5G_ROUTER'
     });
   }

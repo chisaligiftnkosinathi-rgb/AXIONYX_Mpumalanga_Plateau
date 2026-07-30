@@ -57,6 +57,16 @@ const mockSubsidiaries = [
   }
 ];
 
+const generateBoltFleet = () => {
+  return Array.from({ length: 50 }).map((_, i) => ({
+    assetId: `ERT ${String(i + 1).padStart(3, '0')} MP`,
+    assetType: 'VEHICLE',
+    description: 'Suzuki Ertiga',
+    seedOriginId: 'vendor_auto_italia',
+    status: 'ACTIVE'
+  }));
+};
+
 const mockClients = [
   {
     entityId: 'client_002',
@@ -166,6 +176,7 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
+    physicalAssets: generateBoltFleet(),
     status: 'ACTIVE'
   }
 ];
@@ -370,71 +381,96 @@ export default function HoldingsPage() {
                    </thead>
                    <tbody className="text-sm divide-y divide-slate-800/50">
                      {clients.map(client => (
-                       <tr key={client.entityId} className="hover:bg-slate-800/30 transition-colors">
-                         <td className="py-4 px-4 font-medium text-white">
-                           {client.legalName}
-                           {client.role === 'INCUBATOR' && (
-                             <span className="ml-2 inline-flex items-center gap-1 bg-fuchsia-900/30 text-fuchsia-400 border border-fuchsia-800/50 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest">
-                               <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
-                               Seed Origin
-                             </span>
-                           )}
-                           <div className="text-xs text-slate-500 font-mono mt-1">
-                             Reg: {client.registrationNumber}
-                             {client.vatNumber && <span className="ml-2">VAT: {client.vatNumber}</span>}
-                           </div>
-                         </td>
-                         <td className="py-4 px-4">
-                           {client.complianceStandards && (
-                             <div className="flex flex-wrap gap-1 mb-2">
-                               {client.complianceStandards.map((std: string) => (
-                                 <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
-                                   {std === 'ISO_17025' ? (
-                                     <span className="flex items-center gap-1">
-                                       <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                                       {std.replace('_', ' ')}
-                                     </span>
-                                   ) : std === 'ISO_15189' ? (
-                                     <span className="flex items-center gap-1">
-                                       <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                                       {std.replace('_', ' ')}
-                                     </span>
-                                   ) : std.replace('_', ' ')}
-                                 </span>
-                               ))}
-                             </div>
-                           )}
-                           <div className="text-xs text-slate-300 font-bold mb-1">Assets:</div>
-                           <div className="flex flex-col gap-2">
-                             <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs w-fit">
-                               {client.serviceMethod.replace('ISP_', '')}
-                             </span>
-                             {client.seedEntityId && (
-                               <div className="bg-fuchsia-950/30 border border-fuchsia-900/50 px-2 py-1 rounded text-[10px] flex items-center gap-1 text-fuchsia-200">
-                                 <svg className="w-2.5 h-2.5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
-                                 Incubated by <span className="font-bold">{client.seedName}</span>
-                               </div>
-                             )}
-                             <div className="text-[10px] text-slate-400 mt-1">
-                               {client.declaredAssets.length} Declared Assets
-                             </div>
-                           </div>
-                         </td>
-                         <td className="py-4 px-4">
-                           <div className="flex flex-col gap-2">
-                             {client.isProtectedAsset && (
-                               <span className="text-[10px] text-fuchsia-400 font-bold uppercase tracking-widest flex items-center gap-1">
-                                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.642 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.358-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clipRule="evenodd" /></svg>
-                                 Protected
+                       <React.Fragment key={client.entityId}>
+                         <tr className="hover:bg-slate-800/30 transition-colors">
+                           <td className="py-4 px-4 font-medium text-white">
+                             {client.legalName}
+                             {client.role === 'INCUBATOR' && (
+                               <span className="ml-2 inline-flex items-center gap-1 bg-fuchsia-900/30 text-fuchsia-400 border border-fuchsia-800/50 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest">
+                                 <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                                 Seed Origin
                                </span>
                              )}
-                             <span className="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
-                               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
-                               {client.paymentRouting}
-                             </span>
-                           </div>
-                         </td>
-                       </tr>
+                             <div className="text-xs text-slate-500 font-mono mt-1">
+                               Reg: {client.registrationNumber}
+                               {client.vatNumber && <span className="ml-2">VAT: {client.vatNumber}</span>}
+                             </div>
+                           </td>
+                           <td className="py-4 px-4">
+                             {client.complianceStandards && (
+                               <div className="flex flex-wrap gap-1 mb-2">
+                                 {client.complianceStandards.map((std: string) => (
+                                   <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                                     {std === 'ISO_17025' ? (
+                                       <span className="flex items-center gap-1">
+                                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                         {std.replace('_', ' ')}
+                                       </span>
+                                     ) : std === 'ISO_15189' ? (
+                                       <span className="flex items-center gap-1">
+                                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                         {std.replace('_', ' ')}
+                                       </span>
+                                     ) : std.replace('_', ' ')}
+                                   </span>
+                                 ))}
+                               </div>
+                             )}
+                             <div className="text-xs text-slate-300 font-bold mb-1">Assets:</div>
+                             <div className="flex flex-col gap-2">
+                               <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs w-fit">
+                                 {client.serviceMethod.replace('ISP_', '')}
+                               </span>
+                               {client.seedEntityId && (
+                                 <div className="bg-fuchsia-950/30 border border-fuchsia-900/50 px-2 py-1 rounded text-[10px] flex items-center gap-1 text-fuchsia-200">
+                                   <svg className="w-2.5 h-2.5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                                   Incubated by <span className="font-bold">{client.seedName}</span>
+                                 </div>
+                               )}
+                               <div className="text-[10px] text-slate-400 mt-1">
+                                 {client.declaredAssets.length} Declared Assets
+                               </div>
+                             </div>
+                           </td>
+                           <td className="py-4 px-4">
+                             <div className="flex flex-col gap-2">
+                               {client.isProtectedAsset && (
+                                 <span className="text-[10px] text-fuchsia-400 font-bold uppercase tracking-widest flex items-center gap-1">
+                                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.642 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.358-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clipRule="evenodd" /></svg>
+                                   Protected
+                                 </span>
+                               )}
+                               <span className="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+                                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+                                 {client.paymentRouting}
+                               </span>
+                             </div>
+                           </td>
+                         </tr>
+                         {client.physicalAssets && client.physicalAssets.length > 0 && (
+                           <tr className="bg-slate-900/30 border-b border-slate-800">
+                             <td colSpan={3} className="p-4 pl-12">
+                               <div className="text-xs font-semibold text-slate-300 mb-2 flex items-center gap-2">
+                                 <svg className="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                                 Fleet Tracker ({client.physicalAssets.length} Vehicles)
+                               </div>
+                               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-2">
+                                 {client.physicalAssets.map((asset: any) => (
+                                   <div key={asset.assetId} className="bg-slate-950 border border-slate-800 p-2 rounded flex flex-col gap-1 items-center justify-center text-center hover:border-slate-600 transition-colors">
+                                     <div className="text-[9px] text-slate-500 font-mono tracking-widest">{asset.assetId}</div>
+                                     <div className="text-[10px] font-medium text-slate-300">{asset.description}</div>
+                                     {asset.seedOriginId && (
+                                        <div className="text-[8px] bg-fuchsia-950/40 text-fuchsia-400 border border-fuchsia-900/50 px-1 rounded uppercase mt-1">
+                                          Seed: {client.seedName}
+                                        </div>
+                                     )}
+                                   </div>
+                                 ))}
+                               </div>
+                             </td>
+                           </tr>
+                         )}
+                       </React.Fragment>
                      ))}
                    </tbody>
                  </table>
