@@ -142,11 +142,26 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'vendor_auto_italia',
+    role: 'INCUBATOR',
+    legalName: 'Auto Italia',
+    registrationNumber: '1968/005218/07',
+    vatNumber: '4190102030',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ROOT_SYSTEM'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Carolina Dealership', 'Suzuki Ertiga Genesis Fleet'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_001',
     role: 'CLIENT',
     legalName: 'Acme Logistics South Africa',
     registrationNumber: '2019/123456/07',
     serviceMethod: 'ISP_5G_ROUTER',
+    seedEntityId: 'vendor_auto_italia',
+    seedName: 'Auto Italia',
     complianceStandards: ['ISO_9001'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
@@ -364,7 +379,10 @@ export default function HoldingsPage() {
                                Seed Origin
                              </span>
                            )}
-                           <div className="text-xs text-slate-500 font-mono mt-1">{client.registrationNumber}</div>
+                           <div className="text-xs text-slate-500 font-mono mt-1">
+                             Reg: {client.registrationNumber}
+                             {client.vatNumber && <span className="ml-2">VAT: {client.vatNumber}</span>}
+                           </div>
                          </td>
                          <td className="py-4 px-4">
                            {client.complianceStandards && (
@@ -391,6 +409,12 @@ export default function HoldingsPage() {
                              <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs w-fit">
                                {client.serviceMethod.replace('ISP_', '')}
                              </span>
+                             {client.seedEntityId && (
+                               <div className="bg-fuchsia-950/30 border border-fuchsia-900/50 px-2 py-1 rounded text-[10px] flex items-center gap-1 text-fuchsia-200">
+                                 <svg className="w-2.5 h-2.5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                                 Incubated by <span className="font-bold">{client.seedName}</span>
+                               </div>
+                             )}
                              <div className="text-[10px] text-slate-400 mt-1">
                                {client.declaredAssets.length} Declared Assets
                              </div>

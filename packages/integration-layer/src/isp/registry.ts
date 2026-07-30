@@ -5,6 +5,7 @@ export interface BusinessEntity {
   role: 'MOTHER_COMPANY' | 'SUBSIDIARY' | 'CLIENT' | 'VENDOR' | 'PARTNER' | 'INCUBATOR';
   legalName: string;
   registrationNumber: string;
+  vatNumber?: string;
   servicesOffered?: string[];
   complianceStandards?: string[];
   isProtectedAsset: boolean;
@@ -203,12 +204,27 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 11. General Client: Acme Logistics
+    // 11. The Original DNA Seed: Auto Italia
+    this.entities.set('vendor_auto_italia', {
+      entityId: 'vendor_auto_italia',
+      role: 'INCUBATOR',
+      legalName: 'Auto Italia',
+      registrationNumber: '1968/005218/07',
+      vatNumber: '4190102030',
+      complianceStandards: ['ROOT_SYSTEM'], // Automotive infrastructure
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Carolina Dealership', 'Suzuki Ertiga Genesis Fleet'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 12. General Client: Acme Logistics (The Fruit of Auto Italia)
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',
       legalName: 'Acme Logistics South Africa',
       registrationNumber: '2019/123456/07',
+      seedEntityId: 'vendor_auto_italia', // Incubated by Auto Italia
       complianceStandards: ['ISO_9001'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
