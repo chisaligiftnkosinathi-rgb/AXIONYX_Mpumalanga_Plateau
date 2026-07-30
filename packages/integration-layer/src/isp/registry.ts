@@ -355,22 +355,22 @@ export class BusinessEntityRegistry {
       lastAuditDate: '2026-07-30'
     });
 
-    // 12. Early Talent & Aptitude Discovery Engine
+    // 12. Early Talent & Aptitude Discovery Engine (The Early Scanner)
     this.entities.set('node_talent_discovery', {
       entityId: 'node_talent_discovery',
       role: 'INCUBATOR',
       legalName: 'Early Talent & Aptitude Discovery Engine',
       registrationNumber: '2025/APT/001',
-      parentEntityId: 'node_dbe_national', // Happens during schooling (Senior Phase)
+      parentEntityId: 'node_zinikeleni_secondary', // Sits INSIDE the school to see them early
       seedEntityId: 'global_holdings_root',
-      servicesOffered: ['PSYCHOMETRIC_TESTING', 'VOCATIONAL_ROUTING', 'TALENT_IDENTIFICATION'],
+      servicesOffered: ['EARLY_ARCHETYPE_DETECTION', 'VOCATIONAL_ROUTING', 'PSYCHOMETRIC_TESTING'],
       complianceStandards: ['ROOT_SYSTEM', 'MAKWANDE_GROWTH_INDEX'],
       laborArchetypes: ['Educational Psychologists', 'Career Guidance Counselors', 'Aptitude Testers'],
       isProtectedAsset: true,
       paymentRouting: 'NONE',
       declaredAssets: ['Psychometric Testing Database', 'Career Mapping Algorithms'],
       serviceMethod: 'ISP_FIBER',
-      makwandeScale: '1.2 Million Assessees Annually'
+      makwandeScale: 'Testing All Carolina Youth Early'
     });
 
     // 7. The Training Ground: CBD Skills Incubator
