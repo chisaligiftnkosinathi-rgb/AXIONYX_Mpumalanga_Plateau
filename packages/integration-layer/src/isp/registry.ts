@@ -153,7 +153,7 @@ export class BusinessEntityRegistry {
         enabled: true
       },
       declaredAssets: ['Agricultural Cold Storage Unit', 'Imbally Transport Fleet'],
-      serviceMethod: 'ISP_5G_ROUTER'
+      serviceMethod: 'ISP_FIBER'
     });
 
     // 5. Accredited Testing Lab: Carolina Coal Processing
@@ -206,7 +206,7 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Microbiology Lab', 'Pathogen Detection Equipment'],
-      serviceMethod: 'ISP_5G_ROUTER'
+      serviceMethod: 'ISP_FIBER'
     });
 
     // 9. Accredited Testing Lab: Mpumalanga Geotechnical Services
