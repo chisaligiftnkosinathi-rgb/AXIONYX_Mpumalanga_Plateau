@@ -714,7 +714,25 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 16. Real Estate & Retail: Highveld Property Group
+    // 16. Infrastructure: Global Export Maritime Port
+    this.entities.set('vendor_maritime_port', {
+      entityId: 'vendor_maritime_port',
+      role: 'VENDOR',
+      legalName: 'Richards Bay Bulk Terminal & Port',
+      registrationNumber: 'GOV/PORT/004',
+      parentEntityId: 'global_holdings_root', // Direct line to global markets
+      complianceStandards: ['INTERNATIONAL_MARITIME_ORG', 'ISP_GROWTH_INSURANCE'],
+      certifyingSectors: ['MARITIME_LOGISTICS', 'GLOBAL_EXPORT'],
+      laborArchetypes: ['Stevedores', 'Crane Operators', 'Harbor Masters'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      transitRoutes: ['INDIAN_OCEAN_SHIPPING_LANES', 'INTERNATIONAL_WATERS'],
+      errorSpaceRedundancies: ['Tsunami Early Warning System', 'Backup Harbor Tug Fleet', 'Automated Mooring Locks'],
+      declaredAssets: ['Deep Water Berths', 'Coal Export Terminal', 'Bulk Container Cranes'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 17. Real Estate & Retail: Highveld Property Group
     this.entities.set('subsidiary_real_estate', {
       entityId: 'subsidiary_real_estate',
       role: 'SUBSIDIARY',
