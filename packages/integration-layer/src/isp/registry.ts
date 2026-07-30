@@ -82,7 +82,7 @@ export class BusinessEntityRegistry {
       legalName: 'Global IT and Business Solutions Pty Ltd',
       registrationNumber: '2021/999569/07',
       servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE_MANAGEMENT'],
-      complianceStandards: ['ROOT_SYSTEM', 'ISO_27001'],
+      complianceStandards: ['ROOT_SYSTEM', 'ISO_27001', 'ISP_GROWTH_INSURANCE'],
       isProtectedAsset: true,
       paymentRouting: 'DIRECT_COLLECTION', // Root collects payments
       declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
@@ -113,6 +113,7 @@ export class BusinessEntityRegistry {
       legalName: 'Global Network Connect (Pty) Ltd',
       registrationNumber: '2023/111222/07',
       servicesOffered: ['ENTERPRISE_FIBER', 'CYBER_INSURANCE'],
+      complianceStandards: ['ISP_GROWTH_INSURANCE'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       shippingLogic: {
