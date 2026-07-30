@@ -140,7 +140,7 @@ const mockClients = [
     legalName: 'Carolina Coal Processing',
     registrationNumber: '2015/654321/07',
     serviceMethod: 'ISP_FIBER',
-    complianceStandards: ['ISO_17025'],
+    complianceStandards: ['ISO_17025', 'MELOKUHLE_SAMPLING_STANDARD'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System'],
@@ -152,7 +152,7 @@ const mockClients = [
     legalName: 'Mpumalanga Water Quality Board',
     registrationNumber: '2018/112233/08',
     serviceMethod: 'ISP_WIRELESS',
-    complianceStandards: ['ISO_17025', 'SANS_241'],
+    complianceStandards: ['ISO_17025', 'SANS_241', 'MELOKUHLE_SAMPLING_STANDARD'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Witbank Dam Testing Facility', 'Mobile River Samplers'],
@@ -190,7 +190,7 @@ const mockClients = [
     legalName: 'Mpumalanga Geotechnical Services',
     registrationNumber: '2022/990011/07',
     serviceMethod: 'ISP_FIBER',
-    complianceStandards: ['ISO_17025', 'SANS_3001'],
+    complianceStandards: ['ISO_17025', 'SANS_3001', 'MELOKUHLE_SAMPLING_STANDARD'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Soil Core Analysis Rig', 'Geospatial Sensor Array'],
@@ -264,7 +264,7 @@ const mockClients = [
     seedEntityId: 'client_001',
     seedName: 'Imbally',
     serviceMethod: 'ISP_FIBER',
-    complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001'],
+    complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001', 'MELOKUHLE_SAMPLING_STANDARD'],
     laborArchetypes: ['Forestry Harvesters', 'Heavy Haulage Drivers', 'Pulp Mill Operators'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
@@ -354,7 +354,7 @@ const mockClients = [
     registrationNumber: '1949/032643/07',
     seedEntityId: 'client_001',
     seedName: 'Imbally',
-    complianceStandards: ['ISO_17025', 'ISO_9001'],
+    complianceStandards: ['ISO_17025', 'ISO_9001', 'MELOKUHLE_SAMPLING_STANDARD'],
     certifyingSectors: ['AGRICULTURE_SOIL_TESTING', 'PULP_AND_PAPER_INSPECTION', 'SHIPPING_LOGISTICS', 'MINING_ANALYSIS'],
     laborArchetypes: ['Environmental Samplers', 'Quality Assurance Auditors', 'Logistics Inspectors'],
     isProtectedAsset: true,
@@ -653,7 +653,7 @@ export default function HoldingsPage() {
                              {client.complianceStandards && (
                                 <div className="flex flex-wrap gap-1 mb-2">
                                   {client.complianceStandards.map((std: string) => (
-                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : std.includes('SAMBRA') || std.includes('RMI') ? 'bg-orange-950/40 text-orange-400 border-orange-900/50' : std.includes('SGS') || std.includes('LABOUR') || std.includes('LRA') ? 'bg-yellow-950/40 text-yellow-400 border-yellow-900/50' : std.includes('FSC') || std.includes('FORESTRY') || std.includes('ENVIRONMENTAL') ? 'bg-emerald-950/40 text-emerald-400 border-emerald-900/50' : std.includes('ISP_GROWTH_INSURANCE') ? 'bg-sky-950/40 text-sky-400 border-sky-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : std.includes('SAMBRA') || std.includes('RMI') ? 'bg-orange-950/40 text-orange-400 border-orange-900/50' : std.includes('SGS') || std.includes('LABOUR') || std.includes('LRA') ? 'bg-yellow-950/40 text-yellow-400 border-yellow-900/50' : std.includes('FSC') || std.includes('FORESTRY') || std.includes('ENVIRONMENTAL') ? 'bg-emerald-950/40 text-emerald-400 border-emerald-900/50' : std.includes('ISP_GROWTH_INSURANCE') ? 'bg-sky-950/40 text-sky-400 border-sky-900/50' : std.includes('MELOKUHLE') ? 'bg-pink-950/40 text-pink-400 border-pink-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
                                       {std === 'ISO_17025' ? (
                                         <span className="flex items-center gap-1">
                                           <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
@@ -687,6 +687,11 @@ export default function HoldingsPage() {
                                       ) : std.includes('ISP_GROWTH_INSURANCE') ? (
                                         <span className="flex items-center gap-1">
                                           <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                                          {std.replace(/_/g, ' ')}
+                                        </span>
+                                      ) : std.includes('MELOKUHLE') ? (
+                                        <span className="flex items-center gap-1">
+                                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
                                           {std.replace(/_/g, ' ')}
                                         </span>
                                       ) : std.replace(/_/g, ' ')}
