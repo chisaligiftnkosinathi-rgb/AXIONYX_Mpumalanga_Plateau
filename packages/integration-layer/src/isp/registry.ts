@@ -426,7 +426,7 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 5.5 The Local Soil: Zinikeleni Secondary School (Carolina)
+    // 5.5 The Local Soil: Zinikeleni Secondary School (Educational Growth: Grade R-12)
     this.entities.set('node_zinikeleni_secondary', {
       entityId: 'node_zinikeleni_secondary',
       role: 'INCUBATOR',
@@ -434,15 +434,34 @@ export class BusinessEntityRegistry {
       registrationNumber: 'EDU/CAR/ZIN01',
       parentEntityId: 'node_dbe_national', // Aligned with national education
       seedEntityId: 'client_002', // Supported/Planted by Carolina Coal Processing SLP
-      servicesOffered: ['SECONDARY_EDUCATION', 'YOUTH_INCUBATION'],
-      complianceStandards: ['MAKWANDE_GROWTH_INDEX', 'SOUTH_AFRICAN_SCHOOLS_ACT', 'MINING_CHARTER_SLP'], 
+      servicesOffered: ['SECONDARY_EDUCATION', 'GRADE_R_TO_12_INCUBATION'],
+      complianceStandards: ['SOUTH_AFRICAN_SCHOOLS_ACT', 'MINING_CHARTER_SLP'], 
       certifyingSectors: ['BASIC_EDUCATION', 'COMMUNITY_DEVELOPMENT'],
       laborArchetypes: ['DBE Educators', 'Local Carolina Youth'],
       isProtectedAsset: true,
-      paymentRouting: 'NONE', // Public School with SLP funding
+      paymentRouting: 'NONE', 
       declaredAssets: ['Public Classrooms', 'Coal SLP Science Labs'],
       serviceMethod: 'ISP_FIBER',
-      makwandeScale: 'Local High School Learners (The Carolina Generation)'
+      lifecyclePhase: 'INCUBATION' // Finite educational phase
+    });
+
+    // 5.6 Growth For Life (Catching Graduates & Outliers)
+    this.entities.set('node_carolina_life_growth', {
+      entityId: 'node_carolina_life_growth',
+      role: 'INCUBATOR', // Incubates the adult life phase
+      legalName: 'Makwande Life Growth Hub (Carolina)',
+      registrationNumber: 'LIFE/CAR/001',
+      parentEntityId: 'node_zinikeleni_secondary', // Catches them right after school
+      servicesOffered: ['LIFELONG_SKILLS', 'ENTREPRENEURSHIP', 'OUTLIER_RECOVERY'],
+      complianceStandards: ['MAKWANDE_GROWTH_INDEX'], 
+      certifyingSectors: ['COMMUNITY_DEVELOPMENT', 'BUSINESS_INCUBATION'],
+      laborArchetypes: ['Artisans', 'Entrepreneurs', 'The Outliers (Dropouts & Innovators)'],
+      isProtectedAsset: true,
+      paymentRouting: 'DIRECT_COLLECTION', 
+      declaredAssets: ['Community Maker Space', 'Stokvel Treasury'],
+      serviceMethod: 'ISP_WIRELESS',
+      makwandeScale: 'Infinite (Lifelong Growth & Outlier Integration)',
+      lifecyclePhase: 'MATURITY'
     });
 
     // 6. Accredited Testing Lab: Mpumalanga Water Quality
