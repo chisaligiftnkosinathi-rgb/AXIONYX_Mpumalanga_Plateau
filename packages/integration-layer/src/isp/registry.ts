@@ -55,6 +55,7 @@ export interface BusinessEntity {
     educationPhases: string[];
     schoolCategories?: string[]; // e.g., Private, Combined, Local Public
   };
+  errorSpaceRedundancies?: string[]; // Risk minimization and safety buffers
   contactDetails?: {
     clientCare: string;
     officePhone: string;
@@ -236,6 +237,7 @@ export class BusinessEntityRegistry {
       laborArchetypes: ['Air Traffic Controllers', 'Aviation Inspectors', 'Flight Examiners'],
       isProtectedAsset: true,
       paymentRouting: 'NONE', // Government funded / Regulatory Fees
+      errorSpaceRedundancies: ['Predictive Safety Analytics', 'Automated Airspace Override', 'Redundant Certification Servers'],
       declaredAssets: ['National Radar Grid', 'Aviation Safety Database'],
       serviceMethod: 'ISP_FIBER'
     });
@@ -685,6 +687,7 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       transitRoutes: ['DOMESTIC_AIR_CORRIDOR', 'INTERNATIONAL_FLIGHT_PATH'],
+      errorSpaceRedundancies: ['Secondary Radar Arrays', 'Backup Diesel Generators', 'Zero-Single-Point-Of-Failure Comm Grid'],
       declaredAssets: ['Runway 05/23', 'Cargo Terminal', 'Air Traffic Control Tower'],
       serviceMethod: 'ISP_FIBER'
     });

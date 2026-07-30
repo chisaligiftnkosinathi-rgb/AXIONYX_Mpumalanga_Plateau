@@ -228,6 +228,7 @@ const mockClients = [
     laborArchetypes: ['Air Traffic Controllers', 'Aviation Inspectors', 'Flight Examiners'],
     isProtectedAsset: true,
     paymentRouting: 'NONE',
+    errorSpaceRedundancies: ['Predictive Safety Analytics', 'Automated Airspace Override', 'Redundant Certification Servers'],
     declaredAssets: ['National Radar Grid', 'Aviation Safety Database'],
     status: 'ACTIVE'
   },
@@ -598,6 +599,7 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     transitRoutes: ['DOMESTIC_AIR_CORRIDOR', 'INTERNATIONAL_FLIGHT_PATH'],
+    errorSpaceRedundancies: ['Secondary Radar Arrays', 'Backup Diesel Generators', 'Zero-Single-Point-Of-Failure Comm Grid'],
     declaredAssets: ['Runway 05/23', 'Cargo Terminal', 'Air Traffic Control Tower'],
     serviceMethod: 'ISP_FIBER',
     status: 'ACTIVE'
@@ -1024,6 +1026,23 @@ export default function HoldingsPage() {
                                       </div>
                                     </>
                                   )}
+                                </div>
+                              )}
+
+                              {client.errorSpaceRedundancies && (
+                                <div className="mb-3 p-2 bg-red-950/30 border border-red-900/40 rounded-lg">
+                                  <div className="text-[10px] text-red-400 font-bold uppercase tracking-widest mb-1.5 flex items-center gap-1">
+                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                                    Error Space (Risk Redundancies)
+                                  </div>
+                                  <div className="flex flex-col gap-1.5">
+                                    {client.errorSpaceRedundancies.map((redundancy: string) => (
+                                      <div key={redundancy} className="flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 rounded-sm bg-red-500/80 shadow-[0_0_5px_rgba(239,68,68,0.5)]"></div>
+                                        <span className="text-[10px] text-red-200 tracking-wide">{redundancy}</span>
+                                      </div>
+                                    ))}
+                                  </div>
                                 </div>
                               )}
 
