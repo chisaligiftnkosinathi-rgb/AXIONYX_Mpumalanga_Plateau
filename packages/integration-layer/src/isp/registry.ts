@@ -180,7 +180,7 @@ export class BusinessEntityRegistry {
       parentEntityId: 'node_informal_creche', // Children move from informal crèches to formal ECD
       seedEntityId: 'client_stokvel_01', // Seeded by Stokvel community
       servicesOffered: ['CURIOSITY_INCUBATION', 'EARLY_EDUCATION'],
-      complianceStandards: ['ROOT_SYSTEM'],
+      complianceStandards: ['ROOT_SYSTEM', 'MAKWANDE_GROWTH_INDEX'], // Makwande drives the growth of early minds
       laborArchetypes: ['Curious Minds', 'ECD Practitioners', 'Childminders'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
@@ -197,7 +197,7 @@ export class BusinessEntityRegistry {
       parentEntityId: 'node_curiosity_education', // Curiosity flows into formal education
       seedEntityId: 'global_holdings_root',
       servicesOffered: ['PUBLIC_SCHOOLING', 'CURRICULUM_ASSESSMENT', 'MATRICULATION'],
-      complianceStandards: ['SOUTH_AFRICAN_SCHOOLS_ACT', 'ROOT_SYSTEM'],
+      complianceStandards: ['SOUTH_AFRICAN_SCHOOLS_ACT', 'ROOT_SYSTEM', 'MAKWANDE_GROWTH_INDEX'],
       laborArchetypes: ['Foundation Phase Educators', 'Subject Specialists', 'Career Counselors', 'Principals'],
       isProtectedAsset: true,
       paymentRouting: 'NONE', // Government funded
@@ -335,7 +335,7 @@ export class BusinessEntityRegistry {
       parentEntityId: 'node_dbe_national', // Happens during schooling (Senior Phase)
       seedEntityId: 'global_holdings_root',
       servicesOffered: ['PSYCHOMETRIC_TESTING', 'VOCATIONAL_ROUTING', 'TALENT_IDENTIFICATION'],
-      complianceStandards: ['ROOT_SYSTEM'],
+      complianceStandards: ['ROOT_SYSTEM', 'MAKWANDE_GROWTH_INDEX'],
       laborArchetypes: ['Educational Psychologists', 'Career Guidance Counselors', 'Aptitude Testers'],
       isProtectedAsset: true,
       paymentRouting: 'NONE',
@@ -352,7 +352,7 @@ export class BusinessEntityRegistry {
       parentEntityId: 'node_talent_discovery', // Routed here by the Discovery Engine
       seedEntityId: 'client_stokvel_01', // Birthed by the Stokvel
       servicesOffered: ['VOCATIONAL_TRAINING', 'SKILLS_INCUBATION'],
-      complianceStandards: ['ROOT_SYSTEM'],
+      complianceStandards: ['ROOT_SYSTEM', 'MAKWANDE_GROWTH_INDEX'],
       laborArchetypes: ['Apprentice Plumbers', 'Trainee Nurses', 'Fitter Apprentices', 'All-Rounder Trainees'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
