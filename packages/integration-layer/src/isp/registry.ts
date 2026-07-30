@@ -161,13 +161,14 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_WIRELESS'
     });
 
-    // 7. Accredited Testing Lab: SANBS Blood Bank (Witbank)
+    // 7. Accredited Testing Lab: SANBS Blood Bank (Witbank) (Linked to Imbally)
     this.entities.set('client_blood_01', {
       entityId: 'client_blood_01',
-      role: 'CLIENT',
+      role: 'SUBSIDIARY',
       legalName: 'Highveld Blood Testing Center',
       registrationNumber: '2020/445566/08',
-      complianceStandards: ['ISO_17025', 'WHO_GMP'],
+      seedEntityId: 'client_001', // Imbally
+      complianceStandards: ['ISO_15189', 'WHO_GMP'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Cryogenic Storage Unit A', 'Centrifuge Array'],
