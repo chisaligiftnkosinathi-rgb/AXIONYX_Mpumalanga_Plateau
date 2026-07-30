@@ -249,6 +249,20 @@ export class BusinessEntityRegistry {
       physicalAssets: imballyFleet,
       serviceMethod: 'ISP_5G_ROUTER'
     });
+
+    // 13. Umzamo Analytical Services (Linked to Imbally)
+    this.entities.set('lab_umzamo', {
+      entityId: 'lab_umzamo',
+      role: 'SUBSIDIARY',
+      legalName: 'Umzamo Analytical Services',
+      registrationNumber: 'PENDING',
+      seedEntityId: 'client_001', // Imbally
+      complianceStandards: ['ISO_17025'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Coal Testing Laboratory', 'Spectrometer Equipment'],
+      serviceMethod: 'ISP_FIBER'
+    });
   }
 
   public getEntity(id: string): BusinessEntity | undefined {

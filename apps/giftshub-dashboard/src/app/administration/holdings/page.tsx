@@ -178,6 +178,20 @@ const mockClients = [
     physicalAssets: generateImballyFleet(),
     serviceMethod: 'ISP_5G_ROUTER',
     status: 'ACTIVE'
+  },
+  {
+    entityId: 'lab_umzamo',
+    role: 'SUBSIDIARY',
+    legalName: 'Umzamo Analytical Services',
+    registrationNumber: 'PENDING',
+    seedEntityId: 'client_001',
+    seedName: 'Imbally',
+    complianceStandards: ['ISO_17025'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Coal Testing Laboratory', 'Spectrometer Equipment'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
   }
 ];
 
