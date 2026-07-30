@@ -303,6 +303,7 @@ export class BusinessEntityRegistry {
       role: 'SUBSIDIARY',
       legalName: 'Global Auto Body & Panelbeaters',
       registrationNumber: '2023/112233/07',
+      vatNumber: '4460193842',
       seedEntityId: 'global_holdings_root', // Birthed directly by the root
       soilEntityId: 'global_holdings_root',
       complianceStandards: ['SAMBRA_MAJOR_STRUCTURAL', 'RMI_APPROVED', 'IATF_16949_AUTOMOTIVE'],

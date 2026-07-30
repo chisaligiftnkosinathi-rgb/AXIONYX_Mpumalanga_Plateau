@@ -230,6 +230,7 @@ const mockClients = [
     role: 'SUBSIDIARY',
     legalName: 'Global Auto Body & Panelbeaters',
     registrationNumber: '2023/112233/07',
+    vatNumber: '4460193842',
     seedEntityId: 'global_holdings_root',
     soilEntityId: 'global_holdings_root',
     seedName: 'Global IT and Business Solutions Pty Ltd',
