@@ -263,6 +263,20 @@ export class BusinessEntityRegistry {
       declaredAssets: ['Coal Testing Laboratory', 'Spectrometer Equipment'],
       serviceMethod: 'ISP_FIBER'
     });
+
+    // 14. SGS (Linked to Imbally)
+    this.entities.set('lab_sgs', {
+      entityId: 'lab_sgs',
+      role: 'SUBSIDIARY',
+      legalName: 'SGS South Africa (Pty) Ltd',
+      registrationNumber: '1949/032643/07',
+      seedEntityId: 'client_001', // Imbally
+      complianceStandards: ['ISO_17025', 'ISO_9001'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
+      serviceMethod: 'ISP_FIBER'
+    });
   }
 
   public getEntity(id: string): BusinessEntity | undefined {
