@@ -27,6 +27,11 @@
       "items": { "type": "string" },
       "description": "Services this entity provides (e.g. ['REINSURANCE', 'ISP_INFRASTRUCTURE'])"
     },
+    "complianceStandards": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Scientific or structural standards this entity adheres to (e.g., ['ROOT_SYSTEM', 'ISO_17025'])"
+    },
     "isProtectedAsset": {
       "type": "boolean",
       "description": "Indicates this company is treated as a protected asset within the network"

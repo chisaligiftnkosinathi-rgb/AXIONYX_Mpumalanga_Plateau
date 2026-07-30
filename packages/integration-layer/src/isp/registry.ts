@@ -6,6 +6,7 @@ export interface BusinessEntity {
   legalName: string;
   registrationNumber: string;
   servicesOffered?: string[];
+  complianceStandards?: string[];
   isProtectedAsset: boolean;
   paymentRouting: 'ROUTE_TO_MOTHER' | 'DIRECT_COLLECTION';
   shippingLogic?: {
@@ -51,6 +52,7 @@ export class BusinessEntityRegistry {
       legalName: 'Global IT and Business Solutions Pty Ltd',
       registrationNumber: '2021/999569/07',
       servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE_MANAGEMENT'],
+      complianceStandards: ['ROOT_SYSTEM', 'ISO_27001'],
       isProtectedAsset: true,
       paymentRouting: 'DIRECT_COLLECTION', // Root collects payments
       declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
@@ -111,7 +113,8 @@ export class BusinessEntityRegistry {
       role: 'SUBSIDIARY',
       legalName: 'Imbally',
       registrationNumber: '2025/111999/07',
-      servicesOffered: ['COMMUNITY_LOGISTICS', 'AGRICULTURAL_ROUTING'],
+      servicesOffered: ['SCIENTIFIC_CALIBRATION', 'AGRICULTURAL_ROUTING'],
+      complianceStandards: ['ISO_17025'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       shippingLogic: {
@@ -122,27 +125,56 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_5G_ROUTER'
     });
 
-    // 4. Client: Acme Logistics
-    this.entities.set('client_001', {
-      entityId: 'client_001',
-      role: 'CLIENT',
-      legalName: 'Acme Logistics South Africa',
-      registrationNumber: '2019/123456/07',
-      isProtectedAsset: true,
-      paymentRouting: 'ROUTE_TO_MOTHER',
-      declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
-      serviceMethod: 'ISP_5G_ROUTER'
-    });
-
+    // 5. Accredited Testing Lab: Carolina Coal Processing
     this.entities.set('client_002', {
       entityId: 'client_002',
       role: 'CLIENT',
       legalName: 'Carolina Coal Processing',
       registrationNumber: '2015/654321/07',
+      complianceStandards: ['ISO_17025'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System'],
       serviceMethod: 'ISP_FIBER'
+    });
+
+    // 6. Accredited Testing Lab: Mpumalanga Water Quality
+    this.entities.set('client_water_01', {
+      entityId: 'client_water_01',
+      role: 'CLIENT',
+      legalName: 'Mpumalanga Water Quality Board',
+      registrationNumber: '2018/112233/08',
+      complianceStandards: ['ISO_17025', 'SANS_241'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Witbank Dam Testing Facility', 'Mobile River Samplers'],
+      serviceMethod: 'ISP_WIRELESS'
+    });
+
+    // 7. Accredited Testing Lab: SANBS Blood Bank (Witbank)
+    this.entities.set('client_blood_01', {
+      entityId: 'client_blood_01',
+      role: 'CLIENT',
+      legalName: 'Highveld Blood Testing Center',
+      registrationNumber: '2020/445566/08',
+      complianceStandards: ['ISO_17025', 'WHO_GMP'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Cryogenic Storage Unit A', 'Centrifuge Array'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 8. General Client: Acme Logistics
+    this.entities.set('client_001', {
+      entityId: 'client_001',
+      role: 'CLIENT',
+      legalName: 'Acme Logistics South Africa',
+      registrationNumber: '2019/123456/07',
+      complianceStandards: ['ISO_9001'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
+      serviceMethod: 'ISP_5G_ROUTER'
     });
   }
 

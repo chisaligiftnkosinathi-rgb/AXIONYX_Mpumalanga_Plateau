@@ -68,3 +68,8 @@ AXIONYX tracks the provenance of wealth creation across the network using the "S
 - **The Seed (Origin)**: Community capital or foundational entities (e.g., a Stokvel) that provide the initial treasury or energy.
 - **The Fruit (Realization)**: The resultant corporate asset or business (e.g., Imbally) that grows from the Seed.
 - **The Lineage Map**: By linking the Fruit back to the Seed via `seedEntityId`, the platform mathematically proves how community wealth incubates structural corporate assets within the Global Holding network.
+
+## 13. Compliance Standards & Laboratory Mapping
+AXIONYX Maps the corporate tree using operational and scientific standards:
+- **The Root System (`ROOT_SYSTEM`)**: The Mother Company and foundational infrastructure entities operate under the structural Root standard, enforcing network-wide financial and legal integrity.
+- **The Scientific Ecosystem (`ISO_17025`)**: The Fruit (Imbally) and all industrial laboratory entities (Coal Processing, Water Quality, Blood Banks, Food Safety) operate under ISO 17025. This allows AXIONYX to automatically map any external client demanding scientific precision directly into Imbally's operational sphere.

@@ -7,6 +7,7 @@ const mockProvider = {
   legalName: 'Global IT and Business Solutions Pty Ltd',
   registrationNumber: '2021/999569/07',
   servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE'],
+  complianceStandards: ['ROOT_SYSTEM', 'ISO_27001'],
   isProtectedAsset: true,
   paymentRouting: 'DIRECT_COLLECTION',
   declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
@@ -45,7 +46,8 @@ const mockSubsidiaries = [
     role: 'SUBSIDIARY',
     legalName: 'Imbally',
     registrationNumber: '2025/111999/07',
-    servicesOffered: ['COMMUNITY_LOGISTICS', 'AGRICULTURAL_ROUTING'],
+    servicesOffered: ['SCIENTIFIC_CALIBRATION', 'AGRICULTURAL_ROUTING'],
+    complianceStandards: ['ISO_17025'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     seedEntityId: 'client_stokvel_01',
@@ -56,6 +58,42 @@ const mockSubsidiaries = [
 ];
 
 const mockClients = [
+  {
+    entityId: 'client_002',
+    role: 'CLIENT',
+    legalName: 'Carolina Coal Processing',
+    registrationNumber: '2015/654321/07',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ISO_17025'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System'],
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'client_water_01',
+    role: 'CLIENT',
+    legalName: 'Mpumalanga Water Quality Board',
+    registrationNumber: '2018/112233/08',
+    serviceMethod: 'ISP_WIRELESS',
+    complianceStandards: ['ISO_17025', 'SANS_241'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Witbank Dam Testing Facility', 'Mobile River Samplers'],
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'client_blood_01',
+    role: 'CLIENT',
+    legalName: 'Highveld Blood Testing Center',
+    registrationNumber: '2020/445566/08',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ISO_17025', 'WHO_GMP'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Cryogenic Storage Unit A', 'Centrifuge Array'],
+    status: 'ACTIVE'
+  },
   {
     entityId: 'client_stokvel_01',
     role: 'INCUBATOR',
@@ -73,6 +111,7 @@ const mockClients = [
     legalName: 'Acme Logistics South Africa',
     registrationNumber: '2019/123456/07',
     serviceMethod: 'ISP_5G_ROUTER',
+    complianceStandards: ['ISO_9001'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
@@ -207,6 +246,21 @@ export default function HoldingsPage() {
                            <span key={svc} className="bg-slate-900 border border-slate-700 text-slate-300 px-2 py-1 rounded text-[10px] uppercase tracking-widest">{svc.replace('_', ' ')}</span>
                          ))}
                        </div>
+
+                       {sub.complianceStandards && (
+                         <div className="flex flex-wrap gap-2 mb-3">
+                           {sub.complianceStandards.map((std: string) => (
+                             <span key={std} className={`px-2 py-1 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                               {std === 'ISO_17025' ? (
+                                 <span className="flex items-center gap-1">
+                                   <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                   {std.replace('_', ' ')}
+                                 </span>
+                               ) : std.replace('_', ' ')}
+                             </span>
+                           ))}
+                         </div>
+                       )}
                        
                        {sub.seedEntityId && (
                          <div className="bg-fuchsia-950/30 border border-fuchsia-900/50 p-2 rounded mb-3 flex items-start gap-2">
@@ -272,6 +326,21 @@ export default function HoldingsPage() {
                            <div className="text-xs text-slate-500 font-mono mt-1">{client.registrationNumber}</div>
                          </td>
                          <td className="py-4 px-4">
+                           {client.complianceStandards && (
+                             <div className="flex flex-wrap gap-1 mb-2">
+                               {client.complianceStandards.map((std: string) => (
+                                 <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                                   {std === 'ISO_17025' ? (
+                                     <span className="flex items-center gap-1">
+                                       <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                       {std.replace('_', ' ')}
+                                     </span>
+                                   ) : std.replace('_', ' ')}
+                                 </span>
+                               ))}
+                             </div>
+                           )}
+                           <div className="text-xs text-slate-300 font-bold mb-1">Assets:</div>
                            <div className="flex flex-col gap-2">
                              <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs w-fit">
                                {client.serviceMethod.replace('ISP_', '')}
