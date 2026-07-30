@@ -48,6 +48,12 @@ export interface BusinessEntity {
   serviceMethod: 'ISP_FIBER' | 'ISP_5G_ROUTER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
   transitRoutes?: string[]; // e.g. 'N4_TOLL_ROUTE', 'N12_HIGHWAY', 'N17_FREIGHT_CORRIDOR'
   realEstateHoldings?: string[]; // E.g., 'Retail Shops', 'Commercial Offices', 'Warehouses'
+  nationalStatistics?: {
+    totalLearners: string;
+    totalEducators: string;
+    totalFacilities: string;
+    educationPhases: string[];
+  };
   contactDetails?: {
     clientCare: string;
     officePhone: string;
@@ -152,20 +158,43 @@ export class BusinessEntityRegistry {
       seedEntityId: 'client_stokvel_01', // Seeded by Stokvel community
       servicesOffered: ['CURIOSITY_INCUBATION', 'EARLY_EDUCATION'],
       complianceStandards: ['ROOT_SYSTEM'],
-      laborArchetypes: ['Curious Minds', 'Students', 'Educators'],
+      laborArchetypes: ['Curious Minds', 'ECD Practitioners', 'Childminders'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Community Library', 'Early Learning Center'],
       serviceMethod: 'ISP_WIRELESS'
     });
 
-    // 5. The Training Ground: CBD Skills Incubator
+    // 5. The Formal Pipeline: National Department of Basic Education (DBE)
+    this.entities.set('node_dbe_national', {
+      entityId: 'node_dbe_national',
+      role: 'INCUBATOR', // Incubating the nation's youth
+      legalName: 'National Department of Basic Education',
+      registrationNumber: 'GOV/DBE/001',
+      parentEntityId: 'node_curiosity_education', // Curiosity flows into formal education
+      seedEntityId: 'global_holdings_root',
+      servicesOffered: ['PUBLIC_SCHOOLING', 'CURRICULUM_ASSESSMENT', 'MATRICULATION'],
+      complianceStandards: ['SOUTH_AFRICAN_SCHOOLS_ACT', 'ROOT_SYSTEM'],
+      laborArchetypes: ['Foundation Phase Educators', 'Subject Specialists', 'Career Counselors', 'Principals'],
+      isProtectedAsset: true,
+      paymentRouting: 'NONE', // Government funded
+      nationalStatistics: {
+        totalLearners: '13.4 Million Learners',
+        totalEducators: '450,000+ Educators',
+        totalFacilities: '25,000+ Public Schools',
+        educationPhases: ['Foundation Phase (Gr R-3: 4 Subjects)', 'Intermediate Phase (Gr 4-6: 6 Subjects)', 'Senior Phase (Gr 7-9: 9 Subjects)', 'FET Phase (Gr 10-12: 7 Subjects)']
+      },
+      declaredAssets: ['National Curriculum Assessment Database', 'Public School Infrastructure'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 6. The Training Ground: CBD Skills Incubator
     this.entities.set('node_cbd_training', {
       entityId: 'node_cbd_training',
       role: 'INCUBATOR',
       legalName: 'CBD Vocational Training Hub',
       registrationNumber: '2025/EDU/001',
-      parentEntityId: 'node_curiosity_education', // Curiosity leads to vocational training
+      parentEntityId: 'node_dbe_national', // Graduates from DBE flow into Vocational Training
       seedEntityId: 'client_stokvel_01', // Birthed by the Stokvel
       servicesOffered: ['VOCATIONAL_TRAINING', 'SKILLS_INCUBATION'],
       complianceStandards: ['ROOT_SYSTEM'],

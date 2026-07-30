@@ -146,10 +146,38 @@ const mockClients = [
     seedName: 'Walala Wasala Genesis',
     serviceMethod: 'ISP_WIRELESS',
     complianceStandards: ['ROOT_SYSTEM'],
-    laborArchetypes: ['Curious Minds', 'Students', 'Educators'],
+    laborArchetypes: ['Curious Minds', 'ECD Practitioners', 'Childminders'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Community Library', 'Early Learning Center'],
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'node_dbe_national',
+    role: 'INCUBATOR',
+    legalName: 'National Department of Basic Education',
+    registrationNumber: 'GOV/DBE/001',
+    parentEntityId: 'node_curiosity_education',
+    seedEntityId: 'global_holdings_root',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Global IT',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['SOUTH_AFRICAN_SCHOOLS_ACT', 'ROOT_SYSTEM'],
+    laborArchetypes: ['Foundation Phase Educators', 'Subject Specialists', 'Career Counselors', 'Principals'],
+    isProtectedAsset: true,
+    paymentRouting: 'NONE',
+    nationalStatistics: {
+      totalLearners: '13.4 Million Learners',
+      totalEducators: '450,000+ Educators',
+      totalFacilities: '25,000+ Public Schools',
+      educationPhases: [
+        'Foundation Phase (Gr R-3: 4 Subjects)',
+        'Intermediate Phase (Gr 4-6: 6 Subjects)',
+        'Senior Phase (Gr 7-9: 9 Subjects)',
+        'FET Phase (Gr 10-12: 7 Subjects)'
+      ]
+    },
+    declaredAssets: ['National Curriculum Assessment Database', 'Public School Infrastructure'],
     status: 'ACTIVE'
   },
   {
@@ -157,7 +185,7 @@ const mockClients = [
     role: 'INCUBATOR',
     legalName: 'CBD Vocational Training Hub',
     registrationNumber: '2025/EDU/001',
-    parentEntityId: 'node_curiosity_education',
+    parentEntityId: 'node_dbe_national',
     seedEntityId: 'seed_walala_wasala',
     soilEntityId: 'global_holdings_root',
     seedName: 'Walala Wasala Genesis',
@@ -847,6 +875,38 @@ export default function HoldingsPage() {
                                       <span key={estate} className="px-2 py-0.5 bg-emerald-950/60 text-emerald-300 border border-emerald-800/50 rounded-md text-[9px] uppercase tracking-wider font-medium">
                                         {estate}
                                       </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
+                              {client.nationalStatistics && (
+                                <div className="mb-3 p-3 bg-cyan-950/30 border border-cyan-900/50 rounded-lg">
+                                  <div className="text-[10px] text-cyan-400 font-bold uppercase tracking-widest mb-2 flex items-center gap-1.5 border-b border-cyan-900/50 pb-1.5">
+                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                                    National Education Statistics
+                                  </div>
+                                  <div className="grid grid-cols-3 gap-2 mb-2">
+                                    <div className="bg-cyan-950/50 p-1.5 rounded flex flex-col items-center justify-center text-center">
+                                      <span className="text-[9px] text-cyan-500 font-medium">LEARNERS</span>
+                                      <span className="text-xs text-cyan-200 font-bold">{client.nationalStatistics.totalLearners}</span>
+                                    </div>
+                                    <div className="bg-cyan-950/50 p-1.5 rounded flex flex-col items-center justify-center text-center">
+                                      <span className="text-[9px] text-cyan-500 font-medium">EDUCATORS</span>
+                                      <span className="text-xs text-cyan-200 font-bold">{client.nationalStatistics.totalEducators}</span>
+                                    </div>
+                                    <div className="bg-cyan-950/50 p-1.5 rounded flex flex-col items-center justify-center text-center">
+                                      <span className="text-[9px] text-cyan-500 font-medium">FACILITIES</span>
+                                      <span className="text-xs text-cyan-200 font-bold">{client.nationalStatistics.totalFacilities}</span>
+                                    </div>
+                                  </div>
+                                  <div className="text-[9px] text-cyan-500 font-medium mb-1 mt-2">EDUCATION PHASES:</div>
+                                  <div className="flex flex-col gap-1">
+                                    {client.nationalStatistics.educationPhases.map((phase: string, idx: number) => (
+                                      <div key={idx} className="flex items-center gap-2">
+                                        <div className="w-1 h-1 rounded-full bg-cyan-500"></div>
+                                        <span className="text-[10px] text-cyan-300">{phase}</span>
+                                      </div>
                                     ))}
                                   </div>
                                 </div>
