@@ -31,6 +31,12 @@ export interface BusinessEntity {
     foodAndMaterialCosts: number;
     labourCosts: number;
   };
+  capitalLedger?: {
+    initialInvestment: number;
+    unitCost: number;
+    totalUnits: number;
+    financingSource: string;
+  };
   labourGovernance?: {
     shiftsTracked: number;
     minimumWageCompliant: boolean;
@@ -282,6 +288,12 @@ export class BusinessEntityRegistry {
         maintenanceCosts: 350000.00,
         foodAndMaterialCosts: 180000.00,
         labourCosts: 2450000.00
+      },
+      capitalLedger: {
+        initialInvestment: 13500000.00, // R 270,000 per unit * 50 units
+        unitCost: 270000.00,
+        totalUnits: 50,
+        financingSource: 'SEED_EASTVAAL_MOTORS'
       },
       labourGovernance: {
         shiftsTracked: 1500,

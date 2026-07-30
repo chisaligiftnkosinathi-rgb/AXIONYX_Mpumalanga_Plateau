@@ -200,6 +200,12 @@ const mockClients = [
       foodAndMaterialCosts: 180000.00,
       labourCosts: 2450000.00
     },
+    capitalLedger: {
+      initialInvestment: 13500000.00,
+      unitCost: 270000.00,
+      totalUnits: 50,
+      financingSource: 'SEED_EASTVAAL_MOTORS'
+    },
     labourGovernance: {
       shiftsTracked: 1500,
       minimumWageCompliant: true,
@@ -270,7 +276,6 @@ export default function HoldingsPage() {
       </header>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-         {/* Mother Company Panel */}
          <div className="xl:col-span-1 space-y-6">
             <div className="bg-slate-900 border-2 border-fuchsia-900/50 rounded-xl p-5 shadow-lg relative overflow-hidden">
                <div className="absolute top-0 right-0 px-3 py-1 bg-fuchsia-900/50 text-fuchsia-400 text-[10px] font-bold uppercase tracking-widest rounded-bl-lg">MOTHER COMPANY</div>
@@ -359,7 +364,6 @@ export default function HoldingsPage() {
             </div>
          </div>
 
-         {/* Corporate Tree Panel */}
          <div className="xl:col-span-2 space-y-6">
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg mb-6">
                <h2 className="text-lg font-bold text-white mb-4 flex items-center justify-between">
@@ -554,6 +558,28 @@ export default function HoldingsPage() {
                                  <svg className="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
                                  Fleet Tracker ({client.physicalAssets.length} Vehicles)
                                </div>
+                               {client.capitalLedger && (
+                                 <div className="mb-4 bg-sky-950/30 rounded-lg p-4 border border-sky-900/50">
+                                   <h5 className="text-[10px] text-sky-400 font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+                                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                     Fleet Origination Capital
+                                   </h5>
+                                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                     <div>
+                                       <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Total Investment</div>
+                                       <div className="text-sm font-mono text-sky-300">R {client.capitalLedger.initialInvestment.toLocaleString()}</div>
+                                     </div>
+                                     <div>
+                                       <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Unit Cost (x{client.capitalLedger.totalUnits})</div>
+                                       <div className="text-sm font-mono text-sky-300">R {client.capitalLedger.unitCost.toLocaleString()}</div>
+                                     </div>
+                                     <div className="md:col-span-2">
+                                       <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Capital Source Seed</div>
+                                       <div className="text-xs font-mono text-fuchsia-400 mt-1">{client.capitalLedger.financingSource.replace(/_/g, ' ')}</div>
+                                     </div>
+                                   </div>
+                                 </div>
+                               )}
                                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-2">
                                  {client.physicalAssets.map((asset: any) => (
                                    <div key={asset.assetId} className="bg-slate-950 border border-slate-800 p-2 rounded flex flex-col gap-1 items-center justify-center text-center hover:border-slate-600 transition-colors">
