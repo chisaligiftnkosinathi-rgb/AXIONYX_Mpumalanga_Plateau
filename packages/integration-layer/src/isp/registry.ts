@@ -57,6 +57,8 @@ export interface BusinessEntity {
   };
   errorSpaceRedundancies?: string[]; // Risk minimization and safety buffers
   workforceSize?: string; // Maps the growth/scale of the business
+  auditStatus?: 'CLEAN_AUDIT' | 'PENDING_REVIEW' | 'CRITICAL_RISK'; // 5th Gen Compliance Tracking
+  lastAuditDate?: string;
   contactDetails?: {
     clientCare: string;
     officePhone: string;
@@ -186,7 +188,7 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_WIRELESS'
     });
 
-    // 5. The Formal Pipeline: National Department of Basic Education (DBE)
+    // 6. The Formal Pipeline: National Department of Basic Education (DBE)
     this.entities.set('node_dbe_national', {
       entityId: 'node_dbe_national',
       role: 'INCUBATOR', // Incubating the nation's youth
@@ -285,7 +287,26 @@ export class BusinessEntityRegistry {
       workforceSize: '10,000+ (Global Enterprise Scale)'
     });
 
-    // 7. Early Talent & Aptitude Discovery Engine
+    // 10. The Watchdog: Independent Audit & Compliance Bureau
+    this.entities.set('node_audit_bureau', {
+      entityId: 'node_audit_bureau',
+      role: 'INCUBATOR',
+      legalName: 'National Bureau of Audits & Systems Compliance',
+      registrationNumber: 'GOV/AUDIT/000',
+      seedEntityId: 'global_holdings_root',
+      servicesOffered: ['SYSTEM_AUDITING', 'COMPLIANCE_ENFORCEMENT', 'RISK_ASSESSMENT'],
+      complianceStandards: ['INTERNATIONAL_AUDITING_STANDARDS', 'ISP_GROWTH_INSURANCE'],
+      laborArchetypes: ['Forensic Auditors', 'Systems Analysts', 'Risk Mitigators'],
+      isProtectedAsset: true,
+      paymentRouting: 'NONE', // Independent funding
+      declaredAssets: ['National Compliance Ledger', 'Forensic Data Vaults'],
+      serviceMethod: 'ISP_FIBER',
+      workforceSize: '500+ (Elite Forensic Scale)',
+      auditStatus: 'CLEAN_AUDIT',
+      lastAuditDate: '2026-07-30'
+    });
+
+    // 11. Early Talent & Aptitude Discovery Engine
     this.entities.set('node_talent_discovery', {
       entityId: 'node_talent_discovery',
       role: 'INCUBATOR',

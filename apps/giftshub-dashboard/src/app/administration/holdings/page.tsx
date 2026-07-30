@@ -269,6 +269,27 @@ const mockClients = [
     paymentRouting: 'DIRECT_COLLECTION',
     declaredAssets: ['YouTube Educational Channels', 'Spotify Podcast Network', 'Remote Learning Portals'],
     workforceSize: '10,000+ (Global Enterprise Scale)',
+    auditStatus: 'CLEAN_AUDIT',
+    lastAuditDate: '2026-07-30',
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'node_audit_bureau',
+    role: 'INCUBATOR',
+    legalName: 'National Bureau of Audits & Systems Compliance',
+    registrationNumber: 'GOV/AUDIT/000',
+    seedEntityId: 'global_holdings_root',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Global IT',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['INTERNATIONAL_AUDITING_STANDARDS', 'ISP_GROWTH_INSURANCE'],
+    laborArchetypes: ['Forensic Auditors', 'Systems Analysts', 'Risk Mitigators'],
+    isProtectedAsset: true,
+    paymentRouting: 'NONE',
+    declaredAssets: ['National Compliance Ledger', 'Forensic Data Vaults'],
+    workforceSize: '500+ (Elite Forensic Scale)',
+    auditStatus: 'CLEAN_AUDIT',
+    lastAuditDate: '2026-07-30',
     status: 'ACTIVE'
   },
   {
@@ -1084,8 +1105,33 @@ export default function HoldingsPage() {
                                   </div>
                                 </div>
                               )}
+                              
+                              {client.auditStatus && (
+                                <div className={`mt-3 p-2 border rounded-lg ${
+                                  client.auditStatus === 'CLEAN_AUDIT' ? 'bg-emerald-950/30 border-emerald-900/40' : 
+                                  client.auditStatus === 'PENDING_REVIEW' ? 'bg-amber-950/30 border-amber-900/40' : 
+                                  'bg-red-950/30 border-red-900/40'
+                                }`}>
+                                  <div className={`text-[10px] font-bold uppercase tracking-widest mb-1 flex items-center gap-1 ${
+                                    client.auditStatus === 'CLEAN_AUDIT' ? 'text-emerald-400' : 
+                                    client.auditStatus === 'PENDING_REVIEW' ? 'text-amber-400' : 
+                                    'text-red-400'
+                                  }`}>
+                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Compliance Audit
+                                  </div>
+                                  <div className={`text-[11px] font-medium flex justify-between ${
+                                    client.auditStatus === 'CLEAN_AUDIT' ? 'text-emerald-200' : 
+                                    client.auditStatus === 'PENDING_REVIEW' ? 'text-amber-200' : 
+                                    'text-red-200'
+                                  }`}>
+                                    <span>{client.auditStatus.replace('_', ' ')}</span>
+                                    {client.lastAuditDate && <span className="opacity-75">{client.lastAuditDate}</span>}
+                                  </div>
+                                </div>
+                              )}
 
-                             <div className="text-xs text-slate-300 font-bold mb-1">Assets:</div>
+                             <div className="text-xs text-slate-300 font-bold mb-1 mt-3">Assets:</div>
                              <div className="flex flex-col gap-2">
                                <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs w-fit">
                                  {client.declaredAssets.join(' • ')}
