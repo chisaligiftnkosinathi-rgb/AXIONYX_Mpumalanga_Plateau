@@ -430,17 +430,17 @@ export class BusinessEntityRegistry {
     this.entities.set('node_zinikeleni_secondary', {
       entityId: 'node_zinikeleni_secondary',
       role: 'INCUBATOR',
-      legalName: 'Zinikeleni Secondary School (Carolina Soil)',
+      legalName: 'Zinikeleni Secondary School (Human Calibration Center)',
       registrationNumber: 'EDU/CAR/ZIN01',
       parentEntityId: 'node_dbe_national', // Aligned with national education
       seedEntityId: 'client_002', // Supported/Planted by Carolina Coal Processing SLP
-      servicesOffered: ['SECONDARY_EDUCATION', 'GRADE_R_TO_12_INCUBATION'],
-      complianceStandards: ['SOUTH_AFRICAN_SCHOOLS_ACT', 'MINING_CHARTER_SLP'], 
+      servicesOffered: ['SECONDARY_EDUCATION', 'GRADE_R_TO_12_CALIBRATION'],
+      complianceStandards: ['ISO_17025_HUMAN_CALIBRATION', 'SOUTH_AFRICAN_SCHOOLS_ACT', 'MINING_CHARTER_SLP'], 
       certifyingSectors: ['BASIC_EDUCATION', 'COMMUNITY_DEVELOPMENT'],
-      laborArchetypes: ['DBE Educators', 'Local Carolina Youth'],
+      laborArchetypes: ['DBE Educators', 'Calibration Tutors', 'Local Carolina Youth'],
       isProtectedAsset: true,
       paymentRouting: 'NONE', 
-      declaredAssets: ['Public Classrooms', 'Coal SLP Science Labs'],
+      declaredAssets: ['Public Classrooms', 'Coal SLP Science Labs', 'ISO 17025 Baseline Metrics'],
       serviceMethod: 'ISP_FIBER',
       lifecyclePhase: 'INCUBATION' // Finite educational phase
     });
