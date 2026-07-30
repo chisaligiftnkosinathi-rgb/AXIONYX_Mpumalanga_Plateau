@@ -67,6 +67,22 @@ const generateImballyFleet = () => {
   }));
 };
 
+const generateSGSFleet = () => {
+  return Array.from({ length: 5 }).map((_, i) => ({
+    assetId: `SGS ${String(i + 1).padStart(3, '0')} MP`,
+    assetType: 'VEHICLE',
+    description: 'Mobile Environmental Lab (Toyota Hilux)',
+    seedOriginId: 'vendor_eastvaal_motors',
+    status: 'ACTIVE'
+  }));
+};
+
+const eastvaalFleet = [
+  { assetId: 'EVL 001 MP', assetType: 'VEHICLE', description: 'Heavy Vehicle Carrier', status: 'ACTIVE' },
+  { assetId: 'EVL 002 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE' },
+  { assetId: 'EVL 003 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE' }
+];
+
 const mockClients = [
   {
     entityId: 'seed_walala_wasala',
@@ -179,6 +195,7 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Carolina Dealership', 'Suzuki Ertiga Genesis Fleet'],
+    physicalAssets: eastvaalFleet,
     status: 'ACTIVE'
   },
   {
@@ -239,6 +256,7 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
+    physicalAssets: generateSGSFleet(),
     serviceMethod: 'ISP_FIBER',
     status: 'ACTIVE'
   },

@@ -247,6 +247,12 @@ export class BusinessEntityRegistry {
     });
 
     // 12. The Plant: Eastvaal Motors (Grown from the Seed)
+    const eastvaalFleet: PhysicalAsset[] = [
+      { assetId: 'EVL 001 MP', assetType: 'VEHICLE', description: 'Heavy Vehicle Carrier', status: 'ACTIVE' },
+      { assetId: 'EVL 002 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE' },
+      { assetId: 'EVL 003 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE' }
+    ];
+
     this.entities.set('vendor_eastvaal_motors', {
       entityId: 'vendor_eastvaal_motors',
       role: 'INCUBATOR',
@@ -259,6 +265,7 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Carolina Dealership', 'Suzuki Ertiga Genesis Fleet'],
+      physicalAssets: eastvaalFleet,
       serviceMethod: 'ISP_FIBER'
     });
 
@@ -318,6 +325,14 @@ export class BusinessEntityRegistry {
     });
 
     // 14. SGS (Linked to Imbally)
+    const sgsFleet: PhysicalAsset[] = Array.from({ length: 5 }).map((_, i) => ({
+      assetId: `SGS ${String(i + 1).padStart(3, '0')} MP`,
+      assetType: 'VEHICLE',
+      description: 'Mobile Environmental Lab (Toyota Hilux)',
+      seedOriginId: 'vendor_eastvaal_motors', // Birthed from the same automotive plant
+      status: 'ACTIVE'
+    }));
+
     this.entities.set('lab_sgs', {
       entityId: 'lab_sgs',
       role: 'SUBSIDIARY',
@@ -328,6 +343,7 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
+      physicalAssets: sgsFleet,
       serviceMethod: 'ISP_FIBER'
     });
 
