@@ -53,6 +53,7 @@ export interface BusinessEntity {
     totalEducators: string;
     totalFacilities: string;
     educationPhases: string[];
+    schoolCategories?: string[]; // e.g., Private, Combined, Local Public
   };
   contactDetails?: {
     clientCare: string;
@@ -182,19 +183,37 @@ export class BusinessEntityRegistry {
         totalLearners: '13.4 Million Learners',
         totalEducators: '450,000+ Educators',
         totalFacilities: '25,000+ Public Schools',
-        educationPhases: ['Foundation Phase (Gr R-3: 4 Subjects)', 'Intermediate Phase (Gr 4-6: 6 Subjects)', 'Senior Phase (Gr 7-9: 9 Subjects)', 'FET Phase (Gr 10-12: 7 Subjects)']
+        educationPhases: ['Foundation Phase (Gr R-3: 4 Subjects)', 'Intermediate Phase (Gr 4-6: 6 Subjects)', 'Senior Phase (Gr 7-9: 9 Subjects)', 'FET Phase (Gr 10-12: 7 Subjects)'],
+        schoolCategories: ['Private Independent (e.g. Curro)', 'Combined Schools', 'Local Public Schools']
       },
       declaredAssets: ['National Curriculum Assessment Database', 'Public School Infrastructure'],
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 6. The Training Ground: CBD Skills Incubator
+    // 6. Early Talent & Aptitude Discovery Engine
+    this.entities.set('node_talent_discovery', {
+      entityId: 'node_talent_discovery',
+      role: 'INCUBATOR',
+      legalName: 'Early Talent & Aptitude Discovery Engine',
+      registrationNumber: '2025/APT/001',
+      parentEntityId: 'node_dbe_national', // Happens during schooling (Senior Phase)
+      seedEntityId: 'global_holdings_root',
+      servicesOffered: ['PSYCHOMETRIC_TESTING', 'VOCATIONAL_ROUTING', 'TALENT_IDENTIFICATION'],
+      complianceStandards: ['ROOT_SYSTEM'],
+      laborArchetypes: ['Educational Psychologists', 'Career Guidance Counselors', 'Aptitude Testers'],
+      isProtectedAsset: true,
+      paymentRouting: 'NONE',
+      declaredAssets: ['Psychometric Testing Database', 'Career Mapping Algorithms'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 7. The Training Ground: CBD Skills Incubator
     this.entities.set('node_cbd_training', {
       entityId: 'node_cbd_training',
       role: 'INCUBATOR',
       legalName: 'CBD Vocational Training Hub',
       registrationNumber: '2025/EDU/001',
-      parentEntityId: 'node_dbe_national', // Graduates from DBE flow into Vocational Training
+      parentEntityId: 'node_talent_discovery', // Routed here by the Discovery Engine
       seedEntityId: 'client_stokvel_01', // Birthed by the Stokvel
       servicesOffered: ['VOCATIONAL_TRAINING', 'SKILLS_INCUBATION'],
       complianceStandards: ['ROOT_SYSTEM'],

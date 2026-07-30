@@ -175,9 +175,27 @@ const mockClients = [
         'Intermediate Phase (Gr 4-6: 6 Subjects)',
         'Senior Phase (Gr 7-9: 9 Subjects)',
         'FET Phase (Gr 10-12: 7 Subjects)'
-      ]
+      ],
+      schoolCategories: ['Private Independent (e.g. Curro)', 'Combined Schools', 'Local Public Schools']
     },
     declaredAssets: ['National Curriculum Assessment Database', 'Public School Infrastructure'],
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'node_talent_discovery',
+    role: 'INCUBATOR',
+    legalName: 'Early Talent & Aptitude Discovery Engine',
+    registrationNumber: '2025/APT/001',
+    parentEntityId: 'node_dbe_national',
+    seedEntityId: 'global_holdings_root',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Global IT',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ROOT_SYSTEM'],
+    laborArchetypes: ['Educational Psychologists', 'Career Guidance Counselors', 'Aptitude Testers'],
+    isProtectedAsset: true,
+    paymentRouting: 'NONE',
+    declaredAssets: ['Psychometric Testing Database', 'Career Mapping Algorithms'],
     status: 'ACTIVE'
   },
   {
@@ -185,7 +203,7 @@ const mockClients = [
     role: 'INCUBATOR',
     legalName: 'CBD Vocational Training Hub',
     registrationNumber: '2025/EDU/001',
-    parentEntityId: 'node_dbe_national',
+    parentEntityId: 'node_talent_discovery',
     seedEntityId: 'seed_walala_wasala',
     soilEntityId: 'global_holdings_root',
     seedName: 'Walala Wasala Genesis',
@@ -909,6 +927,20 @@ export default function HoldingsPage() {
                                       </div>
                                     ))}
                                   </div>
+                                  
+                                  {client.nationalStatistics.schoolCategories && (
+                                    <>
+                                      <div className="text-[9px] text-cyan-500 font-medium mb-1 mt-3">SCHOOL CATEGORIES:</div>
+                                      <div className="flex flex-col gap-1">
+                                        {client.nationalStatistics.schoolCategories.map((cat: string, idx: number) => (
+                                          <div key={idx} className="flex items-center gap-2">
+                                            <div className="w-1 h-1 rounded-sm bg-cyan-400"></div>
+                                            <span className="text-[10px] text-cyan-200">{cat}</span>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    </>
+                                  )}
                                 </div>
                               )}
 
