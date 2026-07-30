@@ -62,7 +62,7 @@ const generateImballyFleet = () => {
     assetId: `ERT ${String(i + 1).padStart(3, '0')} MP`,
     assetType: 'VEHICLE',
     description: 'Suzuki Ertiga',
-    seedOriginId: 'vendor_eastvaal_motors',
+    seedOriginId: 'client_001',
     status: 'ACTIVE',
     telematics: ['GPS', 'DUAL_DASHCAM', 'LIVE_VIDEO', 'PANIC_BUTTON', 'PASSENGER_WIFI']
   }));
@@ -86,8 +86,8 @@ const eastvaalFleet = [
 ];
 
 const timberFleet = [
-  { assetId: 'TMB 001 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] },
-  { assetId: 'TMB 002 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] }
+  { assetId: 'TMB 001 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', seedOriginId: 'client_001', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] },
+  { assetId: 'TMB 002 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', seedOriginId: 'client_001', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] }
 ];
 
 const mockClients = [
@@ -231,6 +231,8 @@ const mockClients = [
     role: 'VENDOR',
     legalName: 'Siphanda Phansi CC',
     registrationNumber: '1936/008963/06',
+    seedEntityId: 'client_001',
+    seedName: 'Imbally',
     serviceMethod: 'ISP_FIBER',
     complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001'],
     isProtectedAsset: true,
@@ -268,12 +270,12 @@ const mockClients = [
   },
   {
     entityId: 'client_001',
-    role: 'CLIENT',
+    role: 'SEED',
     legalName: 'Imbally',
     registrationNumber: '2019/123456/07',
-    seedEntityId: 'vendor_eastvaal_motors',
+    seedEntityId: 'client_001',
     soilEntityId: 'global_holdings_root',
-    seedName: 'Eastvaal Motors',
+    seedName: 'Imbally',
     complianceStandards: ['ISO_9001', 'IATF_16949_AUTOMOTIVE', 'SANS_10047_ROADWORTHINESS', 'SGS_SERVICE_GOVERNANCE_SELLER', 'BCEA_LABOUR_ACT', 'LRA_COMPLIANT'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',

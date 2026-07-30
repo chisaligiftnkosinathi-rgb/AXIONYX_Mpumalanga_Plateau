@@ -273,8 +273,8 @@ export class BusinessEntityRegistry {
 
     // --- FORESTRY & PULP INDUSTRY ---
     const timberFleet: PhysicalAsset[] = [
-      { assetId: 'TMB 001 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] },
-      { assetId: 'TMB 002 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] }
+      { assetId: 'TMB 001 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', seedOriginId: 'client_001', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] },
+      { assetId: 'TMB 002 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', seedOriginId: 'client_001', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] }
     ];
 
     this.entities.set('vendor_mpumalanga_pulp', {
@@ -282,6 +282,7 @@ export class BusinessEntityRegistry {
       role: 'VENDOR', // Industrial Manufacturer
       legalName: 'Siphanda Phansi CC',
       registrationNumber: '1936/008963/06',
+      seedEntityId: 'client_001', // Linked to Imbally
       complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
@@ -327,22 +328,22 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 13. The Fruit: Imbally (Yielded by the Plant)
+    // 13. The Seed: Imbally (Self-Contained)
     const imballyFleet: PhysicalAsset[] = Array.from({ length: 50 }).map((_, i) => ({
       assetId: `ERT ${String(i + 1).padStart(3, '0')} MP`,
       assetType: 'VEHICLE',
       description: 'Suzuki Ertiga',
-      seedOriginId: 'vendor_eastvaal_motors',
+      seedOriginId: 'client_001',
       status: 'ACTIVE',
       telematics: ['GPS', 'DUAL_DASHCAM', 'LIVE_VIDEO', 'PANIC_BUTTON', 'PASSENGER_WIFI']
     }));
 
     this.entities.set('client_001', {
       entityId: 'client_001',
-      role: 'CLIENT',
+      role: 'SEED', // Imbally is the seed
       legalName: 'Imbally',
       registrationNumber: '2019/123456/07',
-      seedEntityId: 'vendor_eastvaal_motors', // Incubated by the Plant
+      seedEntityId: 'client_001', // Mapped only to itself
       soilEntityId: 'global_holdings_root',
       complianceStandards: ['ISO_9001', 'IATF_16949_AUTOMOTIVE', 'SANS_10047_ROADWORTHINESS', 'SGS_SERVICE_GOVERNANCE_SELLER', 'BCEA_LABOUR_ACT', 'LRA_COMPLIANT'],
       isProtectedAsset: true,
