@@ -223,7 +223,24 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_WIRELESS'
     });
 
-    // 7. The Digital Alternative: Homeschooling & Publishing Network
+    // 7. The Sky Regulators: Civil Aviation Authority
+    this.entities.set('node_aviation_governance', {
+      entityId: 'node_aviation_governance',
+      role: 'INCUBATOR', // Incubates safety and airspace regulation
+      legalName: 'National Civil Aviation Authority (SACAA)',
+      registrationNumber: 'GOV/CAA/001',
+      seedEntityId: 'global_holdings_root',
+      servicesOffered: ['AIRSPACE_REGULATION', 'PILOT_LICENSING', 'AIRCRAFT_CERTIFICATION'],
+      complianceStandards: ['ICAO_STANDARDS', 'CIVIL_AVIATION_ACT'],
+      certifyingSectors: ['AVIATION_SAFETY', 'AEROSPACE_ENGINEERING'],
+      laborArchetypes: ['Air Traffic Controllers', 'Aviation Inspectors', 'Flight Examiners'],
+      isProtectedAsset: true,
+      paymentRouting: 'NONE', // Government funded / Regulatory Fees
+      declaredAssets: ['National Radar Grid', 'Aviation Safety Database'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 8. The Digital Alternative: Homeschooling & Publishing Network
     this.entities.set('node_digital_homeschool', {
       entityId: 'node_digital_homeschool',
       role: 'INCUBATOR',
@@ -655,7 +672,24 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 15. Real Estate & Retail: Highveld Property Group
+    // 15. Infrastructure: Regional Airport (KMIA)
+    this.entities.set('vendor_kmia_airport', {
+      entityId: 'vendor_kmia_airport',
+      role: 'VENDOR',
+      legalName: 'Kruger Mpumalanga International Airport',
+      registrationNumber: '2001/KMIA/09',
+      parentEntityId: 'node_aviation_governance', // Regulated by the Aviation Authority
+      complianceStandards: ['ICAO_STANDARDS', 'ISP_GROWTH_INSURANCE'],
+      certifyingSectors: ['AIRPORT_LOGISTICS', 'PASSENGER_TRANSIT'],
+      laborArchetypes: ['Ground Handlers', 'Baggage Operators', 'Aviation Security Personnel'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      transitRoutes: ['DOMESTIC_AIR_CORRIDOR', 'INTERNATIONAL_FLIGHT_PATH'],
+      declaredAssets: ['Runway 05/23', 'Cargo Terminal', 'Air Traffic Control Tower'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 16. Real Estate & Retail: Highveld Property Group
     this.entities.set('subsidiary_real_estate', {
       entityId: 'subsidiary_real_estate',
       role: 'SUBSIDIARY',

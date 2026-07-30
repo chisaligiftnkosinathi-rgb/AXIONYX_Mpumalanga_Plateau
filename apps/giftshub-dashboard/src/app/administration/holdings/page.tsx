@@ -215,6 +215,23 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'node_aviation_governance',
+    role: 'INCUBATOR',
+    legalName: 'National Civil Aviation Authority (SACAA)',
+    registrationNumber: 'GOV/CAA/001',
+    seedEntityId: 'global_holdings_root',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Global IT',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ICAO_STANDARDS', 'CIVIL_AVIATION_ACT'],
+    certifyingSectors: ['AVIATION_SAFETY', 'AEROSPACE_ENGINEERING'],
+    laborArchetypes: ['Air Traffic Controllers', 'Aviation Inspectors', 'Flight Examiners'],
+    isProtectedAsset: true,
+    paymentRouting: 'NONE',
+    declaredAssets: ['National Radar Grid', 'Aviation Safety Database'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'node_digital_homeschool',
     role: 'INCUBATOR',
     legalName: 'Digital Homeschooling & Publishing Network',
@@ -566,6 +583,22 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Middelburg Toll Plaza', 'Machadodorp Toll Plaza', 'N4 Highway Grid'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'vendor_kmia_airport',
+    role: 'VENDOR',
+    legalName: 'Kruger Mpumalanga International Airport',
+    registrationNumber: '2001/KMIA/09',
+    parentEntityId: 'node_aviation_governance',
+    complianceStandards: ['ICAO_STANDARDS', 'ISP_GROWTH_INSURANCE'],
+    certifyingSectors: ['AIRPORT_LOGISTICS', 'PASSENGER_TRANSIT'],
+    laborArchetypes: ['Ground Handlers', 'Baggage Operators', 'Aviation Security Personnel'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    transitRoutes: ['DOMESTIC_AIR_CORRIDOR', 'INTERNATIONAL_FLIGHT_PATH'],
+    declaredAssets: ['Runway 05/23', 'Cargo Terminal', 'Air Traffic Control Tower'],
     serviceMethod: 'ISP_FIBER',
     status: 'ACTIVE'
   },
