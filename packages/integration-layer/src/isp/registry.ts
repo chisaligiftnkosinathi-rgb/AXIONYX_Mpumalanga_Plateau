@@ -25,6 +25,17 @@ export interface BusinessEntity {
   };
   declaredAssets: string[];
   physicalAssets?: PhysicalAsset[];
+  costLedger?: {
+    fuelCosts: number;
+    maintenanceCosts: number;
+    foodAndMaterialCosts: number;
+    labourCosts: number;
+  };
+  labourGovernance?: {
+    shiftsTracked: number;
+    minimumWageCompliant: boolean;
+    bceaRegulated: boolean;
+  };
   serviceMethod: 'ISP_FIBER' | 'ISP_5G_ROUTER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
   contactDetails?: {
     clientCare: string;
@@ -261,12 +272,23 @@ export class BusinessEntityRegistry {
       registrationNumber: '2019/123456/07',
       seedEntityId: 'vendor_eastvaal_motors', // Incubated by the Plant
       soilEntityId: 'global_holdings_root',
-      complianceStandards: ['ISO_9001', 'IATF_16949_AUTOMOTIVE', 'SANS_10047_ROADWORTHINESS'],
+      complianceStandards: ['ISO_9001', 'IATF_16949_AUTOMOTIVE', 'SANS_10047_ROADWORTHINESS', 'SGS_SERVICE_GOVERNANCE_SELLER', 'BCEA_LABOUR_ACT', 'LRA_COMPLIANT'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
       physicalAssets: imballyFleet,
-      serviceMethod: 'ISP_5G_ROUTER'
+      costLedger: {
+        fuelCosts: 1250000.00, // ZAR per month
+        maintenanceCosts: 350000.00,
+        foodAndMaterialCosts: 180000.00,
+        labourCosts: 2450000.00
+      },
+      labourGovernance: {
+        shiftsTracked: 1500,
+        minimumWageCompliant: true,
+        bceaRegulated: true
+      },
+      serviceMethod: 'ISP_FIBER'
     });
 
     // 13. Umzamo Analytical Services (Linked to Imbally)

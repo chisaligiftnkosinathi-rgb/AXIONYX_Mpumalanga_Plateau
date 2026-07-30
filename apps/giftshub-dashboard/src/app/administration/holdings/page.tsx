@@ -189,12 +189,23 @@ const mockClients = [
     seedEntityId: 'vendor_eastvaal_motors',
     soilEntityId: 'global_holdings_root',
     seedName: 'Eastvaal Motors',
-    complianceStandards: ['ISO_9001', 'IATF_16949_AUTOMOTIVE', 'SANS_10047_ROADWORTHINESS'],
+    complianceStandards: ['ISO_9001', 'IATF_16949_AUTOMOTIVE', 'SANS_10047_ROADWORTHINESS', 'SGS_SERVICE_GOVERNANCE_SELLER', 'BCEA_LABOUR_ACT', 'LRA_COMPLIANT'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
-    physicalAssets: generateImballyFleet(),
-    serviceMethod: 'ISP_5G_ROUTER',
+    physicalAssets: imballyFleet,
+    costLedger: {
+      fuelCosts: 1250000.00,
+      maintenanceCosts: 350000.00,
+      foodAndMaterialCosts: 180000.00,
+      labourCosts: 2450000.00
+    },
+    labourGovernance: {
+      shiftsTracked: 1500,
+      minimumWageCompliant: true,
+      bceaRegulated: true
+    },
+    serviceMethod: 'ISP_FIBER',
     status: 'ACTIVE'
   },
   {
@@ -474,7 +485,7 @@ export default function HoldingsPage() {
                              {client.complianceStandards && (
                                 <div className="flex flex-wrap gap-1 mb-2">
                                   {client.complianceStandards.map((std: string) => (
-                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : std.includes('SAMBRA') || std.includes('RMI') ? 'bg-orange-950/40 text-orange-400 border-orange-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : std.includes('SAMBRA') || std.includes('RMI') ? 'bg-orange-950/40 text-orange-400 border-orange-900/50' : std.includes('SGS') || std.includes('LABOUR') || std.includes('LRA') ? 'bg-yellow-950/40 text-yellow-400 border-yellow-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
                                       {std === 'ISO_17025' ? (
                                         <span className="flex items-center gap-1">
                                           <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
@@ -493,6 +504,11 @@ export default function HoldingsPage() {
                                       ) : std.includes('SAMBRA') || std.includes('RMI') ? (
                                         <span className="flex items-center gap-1">
                                           <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                                          {std.replace(/_/g, ' ')}
+                                        </span>
+                                      ) : std.includes('SGS') || std.includes('LABOUR') || std.includes('LRA') ? (
+                                        <span className="flex items-center gap-1">
+                                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                           {std.replace(/_/g, ' ')}
                                         </span>
                                       ) : std.replace(/_/g, ' ')}
