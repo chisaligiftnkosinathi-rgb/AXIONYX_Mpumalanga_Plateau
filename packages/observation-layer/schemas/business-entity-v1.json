@@ -11,12 +11,16 @@
     },
     "role": {
       "type": "string",
-      "enum": ["MOTHER_COMPANY", "SUBSIDIARY", "CLIENT", "VENDOR", "PARTNER"],
+      "enum": ["MOTHER_COMPANY", "SUBSIDIARY", "CLIENT", "VENDOR", "PARTNER", "INCUBATOR"],
       "description": "The operational role of the business within AXIONYX"
     },
     "parentEntityId": {
       "type": "string",
       "description": "If this is a subsidiary, links back to the Mother Company UUID"
+    },
+    "seedEntityId": {
+      "type": "string",
+      "description": "If this is a Fruit, links back to the Originating Seed entity UUID"
     },
     "servicesOffered": {
       "type": "array",

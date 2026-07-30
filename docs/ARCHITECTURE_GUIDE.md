@@ -62,3 +62,9 @@ AXIONYX strictly enforces the operational rules of a Global Holding network:
 - **Financial Centralization**: All downstream payments and billing operations must route upward to the central Mother Company's banking infrastructure (`ROUTE_TO_MOTHER`).
 - **Decentralized Logistics**: While finance is centralized, each subsidiary entity maintains its own independent "shipping logic" and operational workflows.
 - **Mandatory Pre-Declaration**: No entity can join the Global network without fully declaring its owned assets (hardware, vehicles, real estate) prior to registration.
+
+## 12. Seed & Fruit Incubation Lineage
+AXIONYX tracks the provenance of wealth creation across the network using the "Seed and Fruit" linkage:
+- **The Seed (Origin)**: Community capital or foundational entities (e.g., a Stokvel) that provide the initial treasury or energy.
+- **The Fruit (Realization)**: The resultant corporate asset or business (e.g., Imbally) that grows from the Seed.
+- **The Lineage Map**: By linking the Fruit back to the Seed via `seedEntityId`, the platform mathematically proves how community wealth incubates structural corporate assets within the Global Holding network.

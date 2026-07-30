@@ -1,7 +1,8 @@
 export interface BusinessEntity {
   entityId: string;
   parentEntityId?: string;
-  role: 'MOTHER_COMPANY' | 'SUBSIDIARY' | 'CLIENT' | 'VENDOR' | 'PARTNER';
+  seedEntityId?: string;
+  role: 'MOTHER_COMPANY' | 'SUBSIDIARY' | 'CLIENT' | 'VENDOR' | 'PARTNER' | 'INCUBATOR';
   legalName: string;
   registrationNumber: string;
   servicesOffered?: string[];
@@ -90,16 +91,35 @@ export class BusinessEntityRegistry {
       serviceMethod: 'NONE'
     });
 
-    // 3. Client: Walala Wasala Stokvel
+    // 3. The Seed: Walala Wasala Stokvel
     this.entities.set('client_stokvel_01', {
       entityId: 'client_stokvel_01',
-      role: 'CLIENT',
+      role: 'INCUBATOR',
       legalName: 'Walala Wasala Stokvel',
       registrationNumber: '2024/STK/998',
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Stokvel Treasury Account', 'Community Hall (Leased)'],
       serviceMethod: 'ISP_WIRELESS'
+    });
+
+    // 4. The Fruit: Imbally (Incubated by the Stokvel)
+    this.entities.set('client_imbally_01', {
+      entityId: 'client_imbally_01',
+      parentEntityId: 'global_holdings_root',
+      seedEntityId: 'client_stokvel_01',
+      role: 'SUBSIDIARY',
+      legalName: 'Imbally',
+      registrationNumber: '2025/111999/07',
+      servicesOffered: ['COMMUNITY_LOGISTICS', 'AGRICULTURAL_ROUTING'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      shippingLogic: {
+        engineId: 'imbally_core_shipping_v1',
+        enabled: true
+      },
+      declaredAssets: ['Agricultural Cold Storage Unit', 'Imbally Transport Fleet'],
+      serviceMethod: 'ISP_5G_ROUTER'
     });
 
     // 4. Client: Acme Logistics

@@ -39,13 +39,26 @@ const mockSubsidiaries = [
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Fiber Backbone Ring (Mpumalanga)', 'Network Operations Vehicle (ND 123-456)'],
     status: 'ACTIVE'
+  },
+  {
+    entityId: 'client_imbally_01',
+    role: 'SUBSIDIARY',
+    legalName: 'Imbally',
+    registrationNumber: '2025/111999/07',
+    servicesOffered: ['COMMUNITY_LOGISTICS', 'AGRICULTURAL_ROUTING'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    seedEntityId: 'client_stokvel_01',
+    seedName: 'Walala Wasala Stokvel',
+    declaredAssets: ['Agricultural Cold Storage Unit', 'Imbally Transport Fleet'],
+    status: 'ACTIVE'
   }
 ];
 
 const mockClients = [
   {
     entityId: 'client_stokvel_01',
-    role: 'CLIENT',
+    role: 'INCUBATOR',
     legalName: 'Walala Wasala Stokvel',
     registrationNumber: '2024/STK/998',
     serviceMethod: 'ISP_WIRELESS',
@@ -195,6 +208,18 @@ export default function HoldingsPage() {
                          ))}
                        </div>
                        
+                       {sub.seedEntityId && (
+                         <div className="bg-fuchsia-950/30 border border-fuchsia-900/50 p-2 rounded mb-3 flex items-start gap-2">
+                           <div className="mt-0.5 text-fuchsia-400">
+                             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                           </div>
+                           <div>
+                             <div className="text-[9px] text-fuchsia-400 uppercase tracking-widest font-bold mb-0.5">Seed Provenance</div>
+                             <div className="text-xs text-fuchsia-200">Incubated by <span className="font-bold">{sub.seedName}</span></div>
+                           </div>
+                         </div>
+                       )}
+                       
                        <div className="border-t border-slate-800/50 pt-3 mt-3">
                          <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Financial Routing</div>
                          <div className="text-xs text-emerald-400 flex items-center gap-1 font-mono">
@@ -238,6 +263,12 @@ export default function HoldingsPage() {
                        <tr key={client.entityId} className="hover:bg-slate-800/30 transition-colors">
                          <td className="py-4 px-4 font-medium text-white">
                            {client.legalName}
+                           {client.role === 'INCUBATOR' && (
+                             <span className="ml-2 inline-flex items-center gap-1 bg-fuchsia-900/30 text-fuchsia-400 border border-fuchsia-800/50 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest">
+                               <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                               Seed Origin
+                             </span>
+                           )}
                            <div className="text-xs text-slate-500 font-mono mt-1">{client.registrationNumber}</div>
                          </td>
                          <td className="py-4 px-4">
