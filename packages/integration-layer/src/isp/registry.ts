@@ -270,6 +270,25 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
+    // --- FORESTRY & PULP INDUSTRY ---
+    const timberFleet: PhysicalAsset[] = [
+      { assetId: 'TMB 001 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] },
+      { assetId: 'TMB 002 MP', assetType: 'VEHICLE', description: 'Timber Haulage Truck', status: 'ACTIVE', telematics: ['GPS', 'FATIGUE_MONITOR', 'LIVE_VIDEO'] }
+    ];
+
+    this.entities.set('vendor_mpumalanga_pulp', {
+      entityId: 'vendor_mpumalanga_pulp',
+      role: 'VENDOR', // Industrial Manufacturer
+      legalName: 'Mpumalanga Pulp & Paper Ltd',
+      registrationNumber: '1936/008963/06',
+      complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Ngodwana Pulp Mill', 'Commercial Timber Plantations'],
+      physicalAssets: timberFleet,
+      serviceMethod: 'ISP_FIBER'
+    });
+
     // 11. The Seed: Walala Wasala
     this.entities.set('seed_walala_wasala', {
       entityId: 'seed_walala_wasala',
