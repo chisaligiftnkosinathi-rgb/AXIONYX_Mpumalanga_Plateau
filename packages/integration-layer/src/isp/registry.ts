@@ -218,11 +218,11 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 12. General Client: Acme Logistics (The Fruit of Auto Italia)
+    // 12. General Client: Bolt (The Fruit of Auto Italia)
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',
-      legalName: 'Acme Logistics South Africa',
+      legalName: 'Bolt',
       registrationNumber: '2019/123456/07',
       seedEntityId: 'vendor_auto_italia', // Incubated by Auto Italia
       complianceStandards: ['ISO_9001'],

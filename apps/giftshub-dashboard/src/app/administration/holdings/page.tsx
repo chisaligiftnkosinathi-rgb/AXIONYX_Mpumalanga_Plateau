@@ -157,7 +157,7 @@ const mockClients = [
   {
     entityId: 'client_001',
     role: 'CLIENT',
-    legalName: 'Acme Logistics South Africa',
+    legalName: 'Bolt',
     registrationNumber: '2019/123456/07',
     serviceMethod: 'ISP_5G_ROUTER',
     seedEntityId: 'vendor_auto_italia',
