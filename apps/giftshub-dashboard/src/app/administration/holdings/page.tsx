@@ -95,6 +95,18 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'client_food_01',
+    role: 'CLIENT',
+    legalName: 'Mpumalanga Food Safety Authority',
+    registrationNumber: '2021/778899/08',
+    serviceMethod: 'ISP_5G_ROUTER',
+    complianceStandards: ['ISO_17025', 'ISO_22000'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Microbiology Lab', 'Pathogen Detection Equipment'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_stokvel_01',
     role: 'INCUBATOR',
     legalName: 'Walala Wasala Stokvel',

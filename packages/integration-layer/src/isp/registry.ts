@@ -164,7 +164,20 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 8. General Client: Acme Logistics
+    // 8. Accredited Testing Lab: Mpumalanga Food Safety Authority
+    this.entities.set('client_food_01', {
+      entityId: 'client_food_01',
+      role: 'CLIENT',
+      legalName: 'Mpumalanga Food Safety Authority',
+      registrationNumber: '2021/778899/08',
+      complianceStandards: ['ISO_17025', 'ISO_22000'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Microbiology Lab', 'Pathogen Detection Equipment'],
+      serviceMethod: 'ISP_5G_ROUTER'
+    });
+
+    // 9. General Client: Acme Logistics
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',
