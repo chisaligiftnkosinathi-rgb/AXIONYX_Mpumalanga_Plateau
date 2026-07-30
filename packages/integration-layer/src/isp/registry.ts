@@ -56,6 +56,7 @@ export interface BusinessEntity {
     schoolCategories?: string[]; // e.g., Private, Combined, Local Public
   };
   errorSpaceRedundancies?: string[]; // Risk minimization and safety buffers
+  workforceSize?: string; // Maps the growth/scale of the business
   contactDetails?: {
     clientCare: string;
     officePhone: string;
@@ -164,7 +165,8 @@ export class BusinessEntityRegistry {
       isProtectedAsset: false,
       paymentRouting: 'CASH_COLLECTION',
       declaredAssets: ['Community Backyards', 'Donated Toys & Materials'],
-      serviceMethod: 'NONE' // Completely off the grid
+      serviceMethod: 'NONE', // Completely off the grid
+      workforceSize: '50 - 200 (Community / Startup Scale)'
     });
 
     // 5. The Formal Spark: Curiosity & Early Education Node
@@ -261,7 +263,8 @@ export class BusinessEntityRegistry {
       transitRoutes: ['N4_TOLL_ROUTE (Secure Convoy)', 'DOMESTIC_AIR_CORRIDOR (High Value Cargo)'],
       errorSpaceRedundancies: ['Armored Convoy Escorts', 'Satellite Tracking (Dual Band)', 'Geofenced Route Locks'],
       declaredAssets: ['Platinum Smelter A', 'Armored Transport Fleet'],
-      serviceMethod: 'ISP_FIBER'
+      serviceMethod: 'ISP_FIBER',
+      workforceSize: '5,500+ (Heavy Industry / Corporate Scale)'
     });
 
     // 9. The Digital Alternative: Homeschooling & Publishing Network
@@ -278,7 +281,8 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'DIRECT_COLLECTION',
       declaredAssets: ['YouTube Educational Channels', 'Spotify Podcast Network', 'Remote Learning Portals'],
-      serviceMethod: 'ISP_FIBER'
+      serviceMethod: 'ISP_FIBER',
+      workforceSize: '10,000+ (Global Enterprise Scale)'
     });
 
     // 7. Early Talent & Aptitude Discovery Engine
