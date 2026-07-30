@@ -177,7 +177,20 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_5G_ROUTER'
     });
 
-    // 9. General Client: Acme Logistics
+    // 9. Accredited Testing Lab: Mpumalanga Geotechnical Services
+    this.entities.set('client_soil_01', {
+      entityId: 'client_soil_01',
+      role: 'CLIENT',
+      legalName: 'Mpumalanga Geotechnical Services',
+      registrationNumber: '2022/990011/07',
+      complianceStandards: ['ISO_17025', 'SANS_3001'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Soil Core Analysis Rig', 'Geospatial Sensor Array'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 10. General Client: Acme Logistics
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',

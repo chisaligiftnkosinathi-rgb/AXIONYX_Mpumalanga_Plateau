@@ -107,6 +107,18 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'client_soil_01',
+    role: 'CLIENT',
+    legalName: 'Mpumalanga Geotechnical Services',
+    registrationNumber: '2022/990011/07',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ISO_17025', 'SANS_3001'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Soil Core Analysis Rig', 'Geospatial Sensor Array'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_stokvel_01',
     role: 'INCUBATOR',
     legalName: 'Walala Wasala Stokvel',
