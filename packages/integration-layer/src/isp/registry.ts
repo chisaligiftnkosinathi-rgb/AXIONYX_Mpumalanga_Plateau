@@ -139,7 +139,23 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_WIRELESS'
     });
 
-    // 4. The Fruit: Imbally (Incubated by the Stokvel)
+    // 4. The Training Ground: CBD Skills Incubator
+    this.entities.set('node_cbd_training', {
+      entityId: 'node_cbd_training',
+      role: 'INCUBATOR',
+      legalName: 'CBD Vocational Training Hub',
+      registrationNumber: '2025/EDU/001',
+      seedEntityId: 'client_stokvel_01', // Birthed by the Stokvel
+      servicesOffered: ['VOCATIONAL_TRAINING', 'SKILLS_INCUBATION'],
+      complianceStandards: ['ROOT_SYSTEM'],
+      laborArchetypes: ['Apprentice Plumbers', 'Trainee Nurses', 'Fitter Apprentices', 'All-Rounder Trainees'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['CBD Training Campus', 'Practical Simulation Labs'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 5. The Fruit: Imbally (Incubated by the Stokvel)
     this.entities.set('client_imbally_01', {
       entityId: 'client_imbally_01',
       parentEntityId: 'global_holdings_root',

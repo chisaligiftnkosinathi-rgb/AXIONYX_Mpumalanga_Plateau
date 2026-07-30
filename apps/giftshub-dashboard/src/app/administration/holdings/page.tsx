@@ -135,6 +135,22 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'node_cbd_training',
+    role: 'INCUBATOR',
+    legalName: 'CBD Vocational Training Hub',
+    registrationNumber: '2025/EDU/001',
+    seedEntityId: 'seed_walala_wasala',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Walala Wasala Genesis',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ROOT_SYSTEM'],
+    laborArchetypes: ['Apprentice Plumbers', 'Trainee Nurses', 'Fitter Apprentices', 'All-Rounder Trainees'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['CBD Training Campus', 'Practical Simulation Labs'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_002',
     role: 'CLIENT',
     legalName: 'Carolina Coal Processing',
