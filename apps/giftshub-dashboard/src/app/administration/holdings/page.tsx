@@ -199,6 +199,23 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'node_digital_homeschool',
+    role: 'INCUBATOR',
+    legalName: 'Digital Homeschooling & Publishing Network',
+    registrationNumber: 'GLOBAL/DIGITAL/001',
+    parentEntityId: 'node_informal_creche',
+    seedEntityId: 'global_holdings_root',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Global IT',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['STANDARD_PUBLISHING_AUTHORITY', 'ISP_GROWTH_INSURANCE'],
+    laborArchetypes: ['Content Creators', 'Digital Tutors', 'Homeschooling Parents'],
+    isProtectedAsset: true,
+    paymentRouting: 'DIRECT_COLLECTION',
+    declaredAssets: ['YouTube Educational Channels', 'Spotify Podcast Network', 'Remote Learning Portals'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'node_talent_discovery',
     role: 'INCUBATOR',
     legalName: 'Early Talent & Aptitude Discovery Engine',

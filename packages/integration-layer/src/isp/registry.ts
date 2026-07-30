@@ -207,7 +207,24 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 6. Early Talent & Aptitude Discovery Engine
+    // 6. The Digital Alternative: Homeschooling & Publishing Network
+    this.entities.set('node_digital_homeschool', {
+      entityId: 'node_digital_homeschool',
+      role: 'INCUBATOR',
+      legalName: 'Digital Homeschooling & Publishing Network',
+      registrationNumber: 'GLOBAL/DIGITAL/001',
+      parentEntityId: 'node_informal_creche', // Can bypass formal DBE
+      seedEntityId: 'global_holdings_root', // Powered by Global IT internet
+      servicesOffered: ['HOMESCHOOLING_SUPPORT', 'DIGITAL_CONTENT_PUBLISHING', 'REMOTE_LEARNING'],
+      complianceStandards: ['STANDARD_PUBLISHING_AUTHORITY', 'ISP_GROWTH_INSURANCE'],
+      laborArchetypes: ['Content Creators', 'Digital Tutors', 'Homeschooling Parents'],
+      isProtectedAsset: true,
+      paymentRouting: 'DIRECT_COLLECTION',
+      declaredAssets: ['YouTube Educational Channels', 'Spotify Podcast Network', 'Remote Learning Portals'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 7. Early Talent & Aptitude Discovery Engine
     this.entities.set('node_talent_discovery', {
       entityId: 'node_talent_discovery',
       role: 'INCUBATOR',
