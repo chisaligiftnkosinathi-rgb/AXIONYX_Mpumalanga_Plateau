@@ -1,0 +1,231 @@
+"use client";
+import React, { useState } from 'react';
+
+const mockProvider = {
+  entityId: 'global_holdings_root',
+  role: 'MOTHER_COMPANY',
+  legalName: 'Global IT and Business Solutions Pty Ltd',
+  registrationNumber: '2021/999569/07',
+  servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE'],
+  contactDetails: {
+    clientCare: '0860 30 92 50',
+    officePhone: '+27 11 302 0300',
+    email: 'BusinessBanking@mercantile.co.za',
+    website: 'mercantile.co.za',
+    physicalAddress: '142 West Street, Sandton, 2196',
+    postalAddress: 'PO Box 782699, Sandton, 2146'
+  },
+  bankingDetails: {
+    bankName: 'Mercantile Bank',
+    branchName: 'Witbank',
+    branchCode: '450105',
+    accountName: 'Global IT and Business Solutions Pty Ltd',
+    accountNumber: '1051030382',
+    swiftAddress: 'CABLZAJJ'
+  }
+};
+
+const mockSubsidiaries = [
+  {
+    entityId: 'gnc_subsidiary_01',
+    role: 'SUBSIDIARY',
+    legalName: 'Global Network Connect (Pty) Ltd',
+    registrationNumber: '2023/111222/07',
+    servicesOffered: ['ENTERPRISE_FIBER', 'CYBER_INSURANCE'],
+    status: 'ACTIVE'
+  }
+];
+
+const mockClients = [
+  {
+    entityId: 'client_001',
+    role: 'CLIENT',
+    legalName: 'Acme Logistics South Africa',
+    registrationNumber: '2019/123456/07',
+    serviceMethod: 'ISP_5G_ROUTER',
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'client_002',
+    role: 'CLIENT',
+    legalName: 'Carolina Coal Processing',
+    registrationNumber: '2015/654321/07',
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
+  }
+];
+
+export default function HoldingsPage() {
+  const [provider] = useState<any>(mockProvider);
+  const [subsidiaries] = useState<any[]>(mockSubsidiaries);
+  const [clients] = useState<any[]>(mockClients);
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans p-6 flex flex-col">
+      <header className="border-b border-slate-800 pb-4 mb-6 flex justify-between items-end">
+         <div>
+           <div className="text-sm font-bold text-sky-500 tracking-[0.3em] uppercase mb-2">Administration</div>
+           <h1 className="text-3xl font-black text-white">🏛️ Corporate Holdings & Insurance</h1>
+           <p className="text-slate-400 mt-2">Manage the Mother Company, Reinsurance, and Global Network Subsidiaries</p>
+         </div>
+      </header>
+
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+         {/* Mother Company Panel */}
+         <div className="xl:col-span-1 space-y-6">
+            <div className="bg-slate-900 border-2 border-fuchsia-900/50 rounded-xl p-5 shadow-lg relative overflow-hidden">
+               <div className="absolute top-0 right-0 px-3 py-1 bg-fuchsia-900/50 text-fuchsia-400 text-[10px] font-bold uppercase tracking-widest rounded-bl-lg">MOTHER COMPANY</div>
+               <h2 className="text-lg font-bold text-white mb-6">Supreme Entity Profile</h2>
+               
+               <div className="space-y-4">
+                 <div>
+                   <label className="text-xs text-slate-500 uppercase tracking-widest block mb-1">Legal Entity</label>
+                   <div className="text-sm font-medium text-white">{provider.legalName}</div>
+                 </div>
+                 <div>
+                   <label className="text-xs text-slate-500 uppercase tracking-widest block mb-1">Registration</label>
+                   <div className="text-sm font-mono text-slate-300">{provider.registrationNumber}</div>
+                 </div>
+                 <div>
+                   <label className="text-xs text-slate-500 uppercase tracking-widest block mb-1 mt-4">Corporate Offerings</label>
+                   <div className="flex gap-2 mt-1">
+                     {provider.servicesOffered.map((svc: string) => (
+                        <span key={svc} className="bg-fuchsia-950 border border-fuchsia-800 text-fuchsia-300 px-2 py-1 rounded text-[10px] uppercase font-bold tracking-widest">{svc}</span>
+                     ))}
+                   </div>
+                 </div>
+
+                 <div className="mt-6 pt-4 border-t border-slate-800">
+                   <h3 className="text-sm font-bold text-sky-400 mb-3 flex items-center gap-2">
+                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                     </svg>
+                     Head Office Contact
+                   </h3>
+                   <div className="space-y-2 text-xs bg-slate-950 p-4 rounded border border-slate-800">
+                     <div className="flex justify-between">
+                       <span className="text-slate-500">Client Care</span>
+                       <span className="text-white font-medium">{provider.contactDetails.clientCare}</span>
+                     </div>
+                     <div className="flex justify-between">
+                       <span className="text-slate-500">Office</span>
+                       <span className="text-white">{provider.contactDetails.officePhone}</span>
+                     </div>
+                     <div className="flex justify-between">
+                       <span className="text-slate-500">Email</span>
+                       <span className="text-sky-400">{provider.contactDetails.email}</span>
+                     </div>
+                     <div className="flex justify-between">
+                       <span className="text-slate-500">Website</span>
+                       <span className="text-sky-400">{provider.contactDetails.website}</span>
+                     </div>
+                     <div className="flex flex-col mt-2 pt-2 border-t border-slate-800/50">
+                       <span className="text-slate-500 mb-1">Physical Address</span>
+                       <span className="text-slate-300">{provider.contactDetails.physicalAddress}</span>
+                     </div>
+                     <div className="flex flex-col mt-2">
+                       <span className="text-slate-500 mb-1">Postal Address</span>
+                       <span className="text-slate-300">{provider.contactDetails.postalAddress}</span>
+                     </div>
+                   </div>
+                 </div>
+                 
+                 <div className="mt-6 pt-4 border-t border-slate-800">
+                   <h3 className="text-sm font-bold text-emerald-400 mb-3 flex items-center gap-2">
+                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                     </svg>
+                     Verified Banking Details
+                   </h3>
+                   <div className="space-y-2 text-sm bg-slate-950 p-4 rounded border border-emerald-900/50">
+                     <div className="flex justify-between">
+                       <span className="text-slate-500">Bank</span>
+                       <span className="text-white font-medium">{provider.bankingDetails.bankName}</span>
+                     </div>
+                     <div className="flex justify-between">
+                       <span className="text-slate-500">Branch</span>
+                       <span className="text-white">{provider.bankingDetails.branchName} ({provider.bankingDetails.branchCode})</span>
+                     </div>
+                     <div className="flex justify-between">
+                       <span className="text-slate-500">Account</span>
+                       <span className="text-white font-mono">{provider.bankingDetails.accountNumber}</span>
+                     </div>
+                     <div className="flex justify-between">
+                       <span className="text-slate-500">SWIFT</span>
+                       <span className="text-white font-mono">{provider.bankingDetails.swiftAddress}</span>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+
+         {/* Corporate Tree Panel */}
+         <div className="xl:col-span-2 space-y-6">
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg mb-6">
+               <h2 className="text-lg font-bold text-white mb-4 flex items-center justify-between">
+                 <span>Global Network Companies (Subsidiaries)</span>
+               </h2>
+               
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 {subsidiaries.map(sub => (
+                    <div key={sub.entityId} className="bg-slate-950 border border-slate-800 rounded p-4 relative">
+                       <div className="absolute -top-3 -left-3 bg-slate-800 w-6 h-6 rounded-br-xl border-t border-l border-slate-700 hidden"></div>
+                       <h3 className="font-bold text-sky-400 mb-1">{sub.legalName}</h3>
+                       <div className="text-xs text-slate-500 font-mono mb-3">{sub.registrationNumber}</div>
+                       <div className="flex flex-wrap gap-2">
+                         {sub.servicesOffered.map((svc: string) => (
+                           <span key={svc} className="bg-slate-900 border border-slate-700 text-slate-300 px-2 py-1 rounded text-[10px] uppercase tracking-widest">{svc.replace('_', ' ')}</span>
+                         ))}
+                       </div>
+                    </div>
+                 ))}
+               </div>
+            </div>
+
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg h-full">
+               <h2 className="text-lg font-bold text-white mb-4 flex items-center justify-between">
+                 <span>External Clients & Partners</span>
+                 <button className="bg-sky-600 hover:bg-sky-500 text-white text-xs px-4 py-2 rounded uppercase tracking-widest font-bold transition-colors">
+                   + Register Client
+                 </button>
+               </h2>
+               
+               <div className="overflow-x-auto">
+                 <table className="w-full text-left border-collapse">
+                   <thead>
+                     <tr className="border-b border-slate-800 text-xs uppercase tracking-widest text-slate-500">
+                       <th className="py-3 px-4 font-normal">Business Name</th>
+                       <th className="py-3 px-4 font-normal">Registration</th>
+                       <th className="py-3 px-4 font-normal">Services Consumed</th>
+                       <th className="py-3 px-4 font-normal">Status</th>
+                     </tr>
+                   </thead>
+                   <tbody className="text-sm divide-y divide-slate-800/50">
+                     {clients.map(client => (
+                       <tr key={client.entityId} className="hover:bg-slate-800/30 transition-colors">
+                         <td className="py-4 px-4 font-medium text-white">{client.legalName}</td>
+                         <td className="py-4 px-4 font-mono text-slate-400">{client.registrationNumber}</td>
+                         <td className="py-4 px-4">
+                           <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs">
+                             {client.serviceMethod.replace('ISP_', '')}
+                           </span>
+                         </td>
+                         <td className="py-4 px-4">
+                           <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest ${
+                             client.status === 'ACTIVE' ? 'bg-emerald-900/50 text-emerald-400' : 'bg-amber-900/50 text-amber-400'
+                           }`}>
+                             {client.status}
+                           </span>
+                         </td>
+                       </tr>
+                     ))}
+                   </tbody>
+                 </table>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+  );
+}

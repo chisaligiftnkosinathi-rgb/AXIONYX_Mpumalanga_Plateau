@@ -1,9 +1,19 @@
 export interface BusinessEntity {
   entityId: string;
-  role: 'PROVIDER' | 'CLIENT' | 'VENDOR' | 'PARTNER';
+  parentEntityId?: string;
+  role: 'MOTHER_COMPANY' | 'SUBSIDIARY' | 'CLIENT' | 'VENDOR' | 'PARTNER';
   legalName: string;
   registrationNumber: string;
+  servicesOffered?: string[];
   serviceMethod: 'ISP_5G_ROUTER' | 'ISP_FIBER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
+  contactDetails?: {
+    clientCare: string;
+    officePhone: string;
+    email: string;
+    website: string;
+    physicalAddress: string;
+    postalAddress: string;
+  };
   bankingDetails?: {
     bankName: string;
     branchName: string;
@@ -15,8 +25,8 @@ export interface BusinessEntity {
 }
 
 /**
- * In-memory mock registry for ISP Operations.
- * Demonstrates AXIONYX tracking clients and routing billing via a central Provider.
+ * In-memory mock registry for Commercial Operations.
+ * Demonstrates AXIONYX tracking a global holding company network.
  */
 export class BusinessEntityRegistry {
   private entities: Map<string, BusinessEntity> = new Map();
@@ -26,13 +36,22 @@ export class BusinessEntityRegistry {
   }
 
   private seedRegistry() {
-    // 1. The Root ISP Provider (Global IT and Business Solutions Pty Ltd)
-    this.entities.set('isp_root_01', {
-      entityId: 'isp_root_01',
-      role: 'PROVIDER',
+    // 1. The Root Mother Company (Global IT and Business Solutions Pty Ltd)
+    this.entities.set('global_holdings_root', {
+      entityId: 'global_holdings_root',
+      role: 'MOTHER_COMPANY',
       legalName: 'Global IT and Business Solutions Pty Ltd',
       registrationNumber: '2021/999569/07',
+      servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE_MANAGEMENT'],
       serviceMethod: 'NONE',
+      contactDetails: {
+        clientCare: '0860 30 92 50',
+        officePhone: '+27 11 302 0300',
+        email: 'BusinessBanking@mercantile.co.za',
+        website: 'mercantile.co.za',
+        physicalAddress: '142 West Street, Sandton, 2196',
+        postalAddress: 'PO Box 782699, Sandton, 2146'
+      },
       bankingDetails: {
         bankName: 'Mercantile Bank',
         branchName: 'Witbank',
@@ -43,7 +62,18 @@ export class BusinessEntityRegistry {
       }
     });
 
-    // 2. Sample ISP Clients mapped to connectivity methods
+    // 2. Subsidiary: A Global Network Company
+    this.entities.set('gnc_subsidiary_01', {
+      entityId: 'gnc_subsidiary_01',
+      parentEntityId: 'global_holdings_root',
+      role: 'SUBSIDIARY',
+      legalName: 'Global Network Connect (Pty) Ltd',
+      registrationNumber: '2023/111222/07',
+      servicesOffered: ['ENTERPRISE_FIBER', 'CYBER_INSURANCE'],
+      serviceMethod: 'NONE'
+    });
+
+    // 3. Sample Clients buying services
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',
@@ -59,14 +89,6 @@ export class BusinessEntityRegistry {
       registrationNumber: '2015/654321/07',
       serviceMethod: 'ISP_FIBER'
     });
-
-    this.entities.set('client_003', {
-      entityId: 'client_003',
-      role: 'CLIENT',
-      legalName: 'Mpumalanga Rural Ops',
-      registrationNumber: '2022/987654/07',
-      serviceMethod: 'ISP_WIRELESS'
-    });
   }
 
   public getEntity(id: string): BusinessEntity | undefined {
@@ -81,8 +103,12 @@ export class BusinessEntityRegistry {
     return this.getAllEntities().filter(e => e.role === 'CLIENT');
   }
 
-  public getProvider(): BusinessEntity | undefined {
-    return this.getAllEntities().find(e => e.role === 'PROVIDER');
+  public getMotherCompany(): BusinessEntity | undefined {
+    return this.getAllEntities().find(e => e.role === 'MOTHER_COMPANY');
+  }
+  
+  public getSubsidiaries(): BusinessEntity[] {
+    return this.getAllEntities().filter(e => e.role === 'SUBSIDIARY');
   }
 }
 

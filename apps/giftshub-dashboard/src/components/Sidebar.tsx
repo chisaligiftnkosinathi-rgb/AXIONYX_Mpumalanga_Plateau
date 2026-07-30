@@ -41,7 +41,7 @@ export default function Sidebar() {
     {
       title: 'Administration',
       links: [
-        { name: 'ISP Billing', path: '/administration/isp-billing' },
+        { name: 'Holdings', path: '/administration/holdings' },
         { name: 'Schemas', path: '/administration/schemas' },
         { name: 'Policies', path: '/administration/policies' },
       ]

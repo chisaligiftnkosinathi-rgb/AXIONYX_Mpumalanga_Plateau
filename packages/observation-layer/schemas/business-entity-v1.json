@@ -11,8 +11,17 @@
     },
     "role": {
       "type": "string",
-      "enum": ["PROVIDER", "CLIENT", "VENDOR", "PARTNER"],
+      "enum": ["MOTHER_COMPANY", "SUBSIDIARY", "CLIENT", "VENDOR", "PARTNER"],
       "description": "The operational role of the business within AXIONYX"
+    },
+    "parentEntityId": {
+      "type": "string",
+      "description": "If this is a subsidiary, links back to the Mother Company UUID"
+    },
+    "servicesOffered": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Services this entity provides (e.g. ['REINSURANCE', 'ISP_INFRASTRUCTURE'])"
     },
     "legalName": {
       "type": "string",
@@ -26,6 +35,17 @@
       "type": "string",
       "enum": ["ISP_5G_ROUTER", "ISP_FIBER", "ISP_WIRELESS", "ISP_LTE", "NONE"],
       "description": "The primary service provisioning method (used for Clients)"
+    },
+    "contactDetails": {
+      "type": "object",
+      "properties": {
+        "clientCare": { "type": "string" },
+        "officePhone": { "type": "string" },
+        "email": { "type": "string" },
+        "website": { "type": "string" },
+        "physicalAddress": { "type": "string" },
+        "postalAddress": { "type": "string" }
+      }
     },
     "bankingDetails": {
       "type": "object",
