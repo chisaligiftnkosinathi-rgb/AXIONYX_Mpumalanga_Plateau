@@ -279,7 +279,7 @@ export class BusinessEntityRegistry {
     this.entities.set('vendor_mpumalanga_pulp', {
       entityId: 'vendor_mpumalanga_pulp',
       role: 'VENDOR', // Industrial Manufacturer
-      legalName: 'Mpumalanga Pulp & Paper Ltd',
+      legalName: 'Siphanda Phansi CC',
       registrationNumber: '1936/008963/06',
       complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001'],
       isProtectedAsset: true,

@@ -229,7 +229,7 @@ const mockClients = [
   {
     entityId: 'vendor_mpumalanga_pulp',
     role: 'VENDOR',
-    legalName: 'Mpumalanga Pulp & Paper Ltd',
+    legalName: 'Siphanda Phansi CC',
     registrationNumber: '1936/008963/06',
     serviceMethod: 'ISP_FIBER',
     complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001'],
