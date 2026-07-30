@@ -320,6 +320,21 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
+    // 11.6. The Uplifting (Branches): Siyaphakamisa
+    this.entities.set('node_siyaphakamisa', {
+      entityId: 'node_siyaphakamisa',
+      role: 'INCUBATOR', // The rising branches/uplifting phase
+      legalName: 'Siyaphakamisa (The Upliftment)',
+      registrationNumber: 'CONCEPTUAL',
+      soilEntityId: 'global_holdings_root',
+      seedEntityId: 'node_iphande', // Grows from iPhande
+      complianceStandards: ['ROOT_SYSTEM'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['The Canopy Network', 'Upliftment Algorithms'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
     // 12. The Plant: Eastvaal Motors (Grown from the Seed)
     const eastvaalFleet: PhysicalAsset[] = [
       { assetId: 'EVL 001 MP', assetType: 'VEHICLE', description: 'Heavy Vehicle Carrier', status: 'ACTIVE', telematics: ['GPS', 'LIVE_VIDEO', 'ASSET_TRACKING'] },

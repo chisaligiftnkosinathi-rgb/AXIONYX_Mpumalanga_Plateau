@@ -120,6 +120,21 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'node_siyaphakamisa',
+    role: 'INCUBATOR',
+    legalName: 'Siyaphakamisa (The Upliftment)',
+    registrationNumber: 'CONCEPTUAL',
+    seedEntityId: 'node_iphande',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'iPhande (The Growth)',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ROOT_SYSTEM'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['The Canopy Network', 'Upliftment Algorithms'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_002',
     role: 'CLIENT',
     legalName: 'Carolina Coal Processing',
