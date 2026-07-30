@@ -293,6 +293,24 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'vendor_bureau_veritas',
+    role: 'VENDOR',
+    legalName: 'Bureau Veritas Inspectorate (TIC)',
+    registrationNumber: 'INT/TIC/001',
+    parentEntityId: 'node_audit_bureau',
+    complianceStandards: ['ISO_17025', 'MELOKUHLE_SAMPLING_STANDARD'],
+    certifyingSectors: ['MINING', 'MARITIME_LOGISTICS'],
+    laborArchetypes: ['Marine Surveyors', 'Chemical Analysts', 'Quality Auditors'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Independent Assay Laboratories', 'Mobile Inspection Fleets'],
+    serviceMethod: 'ISP_FIBER',
+    workforceSize: '1,500+ (Regional Inspection Scale)',
+    auditStatus: 'CLEAN_AUDIT',
+    lastAuditDate: '2026-07-30',
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'node_talent_discovery',
     role: 'INCUBATOR',
     legalName: 'Early Talent & Aptitude Discovery Engine',

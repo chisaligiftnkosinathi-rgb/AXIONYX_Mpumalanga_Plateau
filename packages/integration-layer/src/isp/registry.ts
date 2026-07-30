@@ -306,7 +306,27 @@ export class BusinessEntityRegistry {
       lastAuditDate: '2026-07-30'
     });
 
-    // 11. Early Talent & Aptitude Discovery Engine
+    // 11. Third-Party Quality Assurance: Bureau Veritas
+    this.entities.set('vendor_bureau_veritas', {
+      entityId: 'vendor_bureau_veritas',
+      role: 'VENDOR',
+      legalName: 'Bureau Veritas Inspectorate (TIC)',
+      registrationNumber: 'INT/TIC/001',
+      parentEntityId: 'node_audit_bureau', // Submits compliance reports to the national watchdog
+      servicesOffered: ['MINERAL_ASSAYING', 'MARITIME_INSPECTION', 'QUALITY_ASSURANCE'],
+      complianceStandards: ['ISO_17025', 'MELOKUHLE_SAMPLING_STANDARD'],
+      certifyingSectors: ['MINING', 'MARITIME_LOGISTICS'],
+      laborArchetypes: ['Marine Surveyors', 'Chemical Analysts', 'Quality Auditors'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER', // Independent contracting fees
+      declaredAssets: ['Independent Assay Laboratories', 'Mobile Inspection Fleets'],
+      serviceMethod: 'ISP_FIBER',
+      workforceSize: '1,500+ (Regional Inspection Scale)',
+      auditStatus: 'CLEAN_AUDIT',
+      lastAuditDate: '2026-07-30'
+    });
+
+    // 12. Early Talent & Aptitude Discovery Engine
     this.entities.set('node_talent_discovery', {
       entityId: 'node_talent_discovery',
       role: 'INCUBATOR',
