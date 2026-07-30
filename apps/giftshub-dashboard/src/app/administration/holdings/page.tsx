@@ -398,7 +398,15 @@ const mockClients = [
     laborArchetypes: ['DBE Educators', 'Calibration Tutors', 'Local Carolina Youth'],
     isProtectedAsset: true,
     paymentRouting: 'NONE',
-    declaredAssets: ['Public Classrooms', 'Coal SLP Science Labs', 'ISO 17025 Baseline Metrics'],
+    declaredAssets: [
+      'Public Classrooms', 
+      'Coal SLP Science Labs', 
+      'Human ISO Metrics: Calorific Drive (CV)',
+      'Human ISO Metrics: Ash Inefficiency',
+      'Human ISO Metrics: Volatile Reactivity',
+      'Human ISO Metrics: Sulfur Toxicity',
+      'Human ISO Metrics: Fixed Discipline (FC)'
+    ],
     serviceMethod: 'ISP_FIBER',
     lifecyclePhase: 'INCUBATION',
     status: 'ACTIVE'
