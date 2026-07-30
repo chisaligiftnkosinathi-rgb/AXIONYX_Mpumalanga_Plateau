@@ -151,6 +151,7 @@ const mockClients = [
     paymentRouting: 'CASH_COLLECTION',
     declaredAssets: ['Community Backyards', 'Donated Toys & Materials'],
     workforceSize: '50 - 200 (Community / Startup Scale)',
+    makwandeScale: '2.5 Million Unregistered Kids',
     status: 'ACTIVE'
   },
   {
@@ -197,6 +198,7 @@ const mockClients = [
       schoolCategories: ['Private Independent', 'Combined Schools', 'Local Public Schools', 'Faith-Based Schools']
     },
     declaredAssets: ['National Curriculum Assessment Database', 'Public School Infrastructure'],
+    makwandeScale: '13.4 Million Learners',
     status: 'ACTIVE'
   },
   {
@@ -213,6 +215,7 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'CASH_COLLECTION',
     declaredAssets: ['Places of Worship', 'Community Halls', 'Faith-Based Schools'],
+    makwandeScale: '40 Million Active Congregants',
     status: 'ACTIVE'
   },
   {
@@ -325,6 +328,7 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'NONE',
     declaredAssets: ['Psychometric Testing Database', 'Career Mapping Algorithms'],
+    makwandeScale: '1.2 Million Assessees Annually',
     status: 'ACTIVE'
   },
   {
@@ -342,6 +346,7 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['CBD Training Campus', 'Practical Simulation Labs'],
+    makwandeScale: '400,000 Apprentices & Artisans',
     status: 'ACTIVE'
   },
   {
@@ -1163,6 +1168,18 @@ export default function HoldingsPage() {
                                   </div>
                                   <div className="text-[11px] text-emerald-200 font-medium">
                                     {client.workforceSize}
+                                  </div>
+                                </div>
+                              )}
+
+                               {client.makwandeScale && (
+                                <div className="mt-3 p-2 bg-indigo-950/30 border border-indigo-900/40 rounded-lg">
+                                  <div className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-1 flex items-center gap-1">
+                                    <svg className="w-3 h-3 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                                    Makwande (Human Growth Scale)
+                                  </div>
+                                  <div className="text-[11px] text-indigo-200 font-bold">
+                                    {client.makwandeScale}
                                   </div>
                                 </div>
                               )}

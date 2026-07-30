@@ -57,6 +57,7 @@ export interface BusinessEntity {
   };
   errorSpaceRedundancies?: string[]; // Risk minimization and safety buffers
   workforceSize?: string; // Maps the growth/scale of the business
+  makwandeScale?: string; // Maps the human growth multiplier (Learners, Kids, Members)
   auditStatus?: 'CLEAN_AUDIT' | 'PENDING_REVIEW' | 'CRITICAL_RISK'; // 5th Gen Compliance Tracking
   lastAuditDate?: string;
   contactDetails?: {
@@ -168,7 +169,8 @@ export class BusinessEntityRegistry {
       paymentRouting: 'CASH_COLLECTION',
       declaredAssets: ['Community Backyards', 'Donated Toys & Materials'],
       serviceMethod: 'NONE', // Completely off the grid
-      workforceSize: '50 - 200 (Community / Startup Scale)'
+      workforceSize: '50 - 200 (Community / Startup Scale)',
+      makwandeScale: '2.5 Million Unregistered Kids'
     });
 
     // 5. The Formal Spark: Curiosity & Early Education Node
@@ -185,7 +187,8 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Community Library', 'Early Learning Center'],
-      serviceMethod: 'ISP_WIRELESS'
+      serviceMethod: 'ISP_WIRELESS',
+      makwandeScale: '1.8 Million Early Learners'
     });
 
     // 6. The Formal Pipeline: National Department of Basic Education (DBE)
@@ -209,7 +212,8 @@ export class BusinessEntityRegistry {
         schoolCategories: ['Private Independent', 'Combined Schools', 'Local Public Schools', 'Faith-Based Schools']
       },
       declaredAssets: ['National Curriculum Assessment Database', 'Public School Infrastructure'],
-      serviceMethod: 'ISP_FIBER'
+      serviceMethod: 'ISP_FIBER',
+      makwandeScale: '13.4 Million Learners'
     });
 
     // 6. The Moral Compass: Faith & Spiritual Network
@@ -225,7 +229,8 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'CASH_COLLECTION', // Tithes and offerings
       declaredAssets: ['Places of Worship', 'Community Halls', 'Faith-Based Schools'],
-      serviceMethod: 'ISP_WIRELESS'
+      serviceMethod: 'ISP_WIRELESS',
+      makwandeScale: '40 Million Active Congregants'
     });
 
     // 7. The Sky Regulators: Civil Aviation Authority
@@ -284,7 +289,8 @@ export class BusinessEntityRegistry {
       paymentRouting: 'DIRECT_COLLECTION',
       declaredAssets: ['YouTube Educational Channels', 'Spotify Podcast Network', 'Remote Learning Portals'],
       serviceMethod: 'ISP_FIBER',
-      workforceSize: '10,000+ (Global Enterprise Scale)'
+      workforceSize: '10,000+ (Global Enterprise Scale)',
+      makwandeScale: '3 Million Remote Learners'
     });
 
     // 10. The Watchdog: Independent Audit & Compliance Bureau
@@ -340,7 +346,8 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'NONE',
       declaredAssets: ['Psychometric Testing Database', 'Career Mapping Algorithms'],
-      serviceMethod: 'ISP_FIBER'
+      serviceMethod: 'ISP_FIBER',
+      makwandeScale: '1.2 Million Assessees Annually'
     });
 
     // 7. The Training Ground: CBD Skills Incubator
@@ -357,7 +364,8 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['CBD Training Campus', 'Practical Simulation Labs'],
-      serviceMethod: 'ISP_FIBER'
+      serviceMethod: 'ISP_FIBER',
+      makwandeScale: '400,000 Apprentices & Artisans'
     });
 
     // 5. The Fruit: Imbally (Incubated by the Stokvel)
