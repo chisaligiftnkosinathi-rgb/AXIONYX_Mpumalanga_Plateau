@@ -162,7 +162,7 @@ export class BusinessEntityRegistry {
       registrationNumber: 'UNREGISTERED_INFORMAL',
       seedEntityId: 'client_stokvel_01', // Sustained by the local Stokvel/Community
       servicesOffered: ['CHILDMINDING', 'EARLY_SOCIALIZATION', 'INFORMAL_LEARNING'],
-      complianceStandards: ['COMMUNITY_TRUST'], // No formal government compliance
+      complianceStandards: ['COMMUNITY_TRUST', 'MAKWANDE_GROWTH_INDEX'], // No formal government compliance
       laborArchetypes: ['Community Mothers', 'Local Childminders', 'Elders'],
       isProtectedAsset: false,
       paymentRouting: 'CASH_COLLECTION',

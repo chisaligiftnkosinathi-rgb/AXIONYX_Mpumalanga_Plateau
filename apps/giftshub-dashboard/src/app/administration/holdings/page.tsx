@@ -145,7 +145,7 @@ const mockClients = [
     soilEntityId: 'global_holdings_root',
     seedName: 'Walala Wasala Genesis',
     serviceMethod: 'NONE',
-    complianceStandards: ['COMMUNITY_TRUST'],
+    complianceStandards: ['COMMUNITY_TRUST', 'MAKWANDE_GROWTH_INDEX'],
     laborArchetypes: ['Community Mothers', 'Local Childminders', 'Elders'],
     isProtectedAsset: false,
     paymentRouting: 'CASH_COLLECTION',
