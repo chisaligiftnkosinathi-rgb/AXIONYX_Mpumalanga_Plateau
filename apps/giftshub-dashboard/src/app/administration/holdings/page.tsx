@@ -119,6 +119,18 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'client_medical_01',
+    role: 'CLIENT',
+    legalName: 'Mpumalanga Clinical Pathology Labs',
+    registrationNumber: '2023/554433/07',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ISO_15189', 'ISO_17025'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Automated Hematology Analyzer', 'BSL-3 Containment Unit'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_stokvel_01',
     role: 'INCUBATOR',
     legalName: 'Walala Wasala Stokvel',
@@ -274,10 +286,15 @@ export default function HoldingsPage() {
                        {sub.complianceStandards && (
                          <div className="flex flex-wrap gap-2 mb-3">
                            {sub.complianceStandards.map((std: string) => (
-                             <span key={std} className={`px-2 py-1 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                             <span key={std} className={`px-2 py-1 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
                                {std === 'ISO_17025' ? (
                                  <span className="flex items-center gap-1">
                                    <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                   {std.replace('_', ' ')}
+                                 </span>
+                               ) : std === 'ISO_15189' ? (
+                                 <span className="flex items-center gap-1">
+                                   <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                                    {std.replace('_', ' ')}
                                  </span>
                                ) : std.replace('_', ' ')}
@@ -353,10 +370,15 @@ export default function HoldingsPage() {
                            {client.complianceStandards && (
                              <div className="flex flex-wrap gap-1 mb-2">
                                {client.complianceStandards.map((std: string) => (
-                                 <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                                 <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
                                    {std === 'ISO_17025' ? (
                                      <span className="flex items-center gap-1">
                                        <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                       {std.replace('_', ' ')}
+                                     </span>
+                                   ) : std === 'ISO_15189' ? (
+                                     <span className="flex items-center gap-1">
+                                       <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                                        {std.replace('_', ' ')}
                                      </span>
                                    ) : std.replace('_', ' ')}

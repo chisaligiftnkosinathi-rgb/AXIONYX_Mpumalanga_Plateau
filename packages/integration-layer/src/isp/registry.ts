@@ -190,7 +190,20 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 10. General Client: Acme Logistics
+    // 10. Accredited Medical Lab: Mpumalanga Clinical Pathology
+    this.entities.set('client_medical_01', {
+      entityId: 'client_medical_01',
+      role: 'CLIENT',
+      legalName: 'Mpumalanga Clinical Pathology Labs',
+      registrationNumber: '2023/554433/07',
+      complianceStandards: ['ISO_15189', 'ISO_17025'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Automated Hematology Analyzer', 'BSL-3 Containment Unit'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 11. General Client: Acme Logistics
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',
