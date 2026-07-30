@@ -233,6 +233,43 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
+    // --- AUTOMOTIVE BRAND MAKERS (OEMs) ---
+    this.entities.set('oem_suzuki_sa', {
+      entityId: 'oem_suzuki_sa',
+      role: 'VENDOR', // Automotive Manufacturer
+      legalName: 'Suzuki Auto South Africa',
+      registrationNumber: '2007/021200/07',
+      complianceStandards: ['IATF_16949_AUTOMOTIVE', 'ISO_9001'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Ertiga Assembly Lines', 'National Parts Distribution Centre'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    this.entities.set('oem_toyota_sa', {
+      entityId: 'oem_toyota_sa',
+      role: 'VENDOR',
+      legalName: 'Toyota South Africa Motors',
+      registrationNumber: '1961/001358/07',
+      complianceStandards: ['IATF_16949_AUTOMOTIVE', 'ISO_14001_ENVIRONMENTAL'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Prospecton Manufacturing Plant', 'Hilux Assembly Line'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    this.entities.set('oem_ford_sa', {
+      entityId: 'oem_ford_sa',
+      role: 'VENDOR',
+      legalName: 'Ford Motor Company of Southern Africa',
+      registrationNumber: '1923/000789/07',
+      complianceStandards: ['IATF_16949_AUTOMOTIVE', 'ISO_9001'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Silverton Assembly Plant', 'Ranger Production Line'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
     // 11. The Seed: Walala Wasala
     this.entities.set('seed_walala_wasala', {
       entityId: 'seed_walala_wasala',

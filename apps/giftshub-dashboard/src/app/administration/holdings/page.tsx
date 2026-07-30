@@ -174,6 +174,54 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'client_blood_01',
+    role: 'CLIENT',
+    legalName: 'Highveld Blood Testing Center',
+    registrationNumber: '1998/001122/08',
+    serviceMethod: 'ISP_WIRELESS',
+    complianceStandards: ['ISO_15189', 'SANS_10339_BLOOD'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Cold Chain Transport Fleet', 'Centrifuge Array'],
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'oem_suzuki_sa',
+    role: 'VENDOR',
+    legalName: 'Suzuki Auto South Africa',
+    registrationNumber: '2007/021200/07',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['IATF_16949_AUTOMOTIVE', 'ISO_9001'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Ertiga Assembly Lines', 'National Parts Distribution Centre'],
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'oem_toyota_sa',
+    role: 'VENDOR',
+    legalName: 'Toyota South Africa Motors',
+    registrationNumber: '1961/001358/07',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['IATF_16949_AUTOMOTIVE', 'ISO_14001_ENVIRONMENTAL'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Prospecton Manufacturing Plant', 'Hilux Assembly Line'],
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'oem_ford_sa',
+    role: 'VENDOR',
+    legalName: 'Ford Motor Company of Southern Africa',
+    registrationNumber: '1923/000789/07',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['IATF_16949_AUTOMOTIVE', 'ISO_9001'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Silverton Assembly Plant', 'Ranger Production Line'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_stokvel_01',
     role: 'INCUBATOR',
     legalName: 'Walala Wasala Stokvel',
