@@ -57,12 +57,12 @@ const mockSubsidiaries = [
   }
 ];
 
-const generateBoltFleet = () => {
+const generateImballyFleet = () => {
   return Array.from({ length: 50 }).map((_, i) => ({
     assetId: `ERT ${String(i + 1).padStart(3, '0')} MP`,
     assetType: 'VEHICLE',
     description: 'Suzuki Ertiga',
-    seedOriginId: 'vendor_auto_italia',
+    seedOriginId: 'vendor_eastvaal_motors',
     status: 'ACTIVE'
   }));
 };
@@ -152,9 +152,9 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
-    entityId: 'vendor_auto_italia',
+    entityId: 'vendor_eastvaal_motors',
     role: 'INCUBATOR',
-    legalName: 'Auto Italia',
+    legalName: 'Eastvaal Motors',
     registrationNumber: '1968/005218/07',
     vatNumber: '4190102030',
     serviceMethod: 'ISP_FIBER',
@@ -167,16 +167,16 @@ const mockClients = [
   {
     entityId: 'client_001',
     role: 'CLIENT',
-    legalName: 'Bolt',
+    legalName: 'Imbally',
     registrationNumber: '2019/123456/07',
-    serviceMethod: 'ISP_5G_ROUTER',
-    seedEntityId: 'vendor_auto_italia',
-    seedName: 'Auto Italia',
+    seedEntityId: 'vendor_eastvaal_motors',
+    seedName: 'Eastvaal Motors',
     complianceStandards: ['ISO_9001'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
-    physicalAssets: generateBoltFleet(),
+    physicalAssets: generateImballyFleet(),
+    serviceMethod: 'ISP_5G_ROUTER',
     status: 'ACTIVE'
   }
 ];

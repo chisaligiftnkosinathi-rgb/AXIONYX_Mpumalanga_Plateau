@@ -213,11 +213,11 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 11. The Original DNA Seed: Auto Italia
-    this.entities.set('vendor_auto_italia', {
-      entityId: 'vendor_auto_italia',
+    // 11. The Original DNA Seed: Eastvaal Motors
+    this.entities.set('vendor_eastvaal_motors', {
+      entityId: 'vendor_eastvaal_motors',
       role: 'INCUBATOR',
-      legalName: 'Auto Italia',
+      legalName: 'Eastvaal Motors',
       registrationNumber: '1968/005218/07',
       vatNumber: '4190102030',
       complianceStandards: ['ROOT_SYSTEM'], // Automotive infrastructure
@@ -227,26 +227,26 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 12. General Client: Bolt (The Fruit of Auto Italia)
-    const boltFleet: PhysicalAsset[] = Array.from({ length: 50 }).map((_, i) => ({
+    // 12. General Client: Imbally (The Fruit of Eastvaal Motors)
+    const imballyFleet: PhysicalAsset[] = Array.from({ length: 50 }).map((_, i) => ({
       assetId: `ERT ${String(i + 1).padStart(3, '0')} MP`,
       assetType: 'VEHICLE',
       description: 'Suzuki Ertiga',
-      seedOriginId: 'vendor_auto_italia',
+      seedOriginId: 'vendor_eastvaal_motors',
       status: 'ACTIVE'
     }));
 
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',
-      legalName: 'Bolt',
+      legalName: 'Imbally',
       registrationNumber: '2019/123456/07',
-      seedEntityId: 'vendor_auto_italia', // Incubated by Auto Italia
+      seedEntityId: 'vendor_eastvaal_motors', // Incubated by Eastvaal Motors
       complianceStandards: ['ISO_9001'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
-      physicalAssets: boltFleet,
+      physicalAssets: imballyFleet,
       serviceMethod: 'ISP_5G_ROUTER'
     });
   }
