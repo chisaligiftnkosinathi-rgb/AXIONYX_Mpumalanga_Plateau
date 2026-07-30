@@ -258,7 +258,8 @@ export class BusinessEntityRegistry {
       role: 'CLIENT',
       legalName: 'Kingdom_Mali (Oceanic Heavy Fleet)',
       registrationNumber: 'INT/MALI/001',
-      parentEntityId: 'client_002', // Linked directly to Carolina Coal Processing for fuel
+      parentEntityId: 'node_eskom_national', // Powered by the national grid
+      seedEntityId: 'client_002', // Fueled by Coal Processing
       servicesOffered: ['TRANS_OCEANIC_FREIGHT', 'PGM_EXPORT_NETWORK', 'COAL_LOGISTICS'],
       complianceStandards: ['MELOKUHLE_SAMPLING_STANDARD', 'INTERNATIONAL_MARITIME_ORG'],
       certifyingSectors: ['HEAVY_MINING', 'MARITIME_LOGISTICS'],
@@ -274,6 +275,26 @@ export class BusinessEntityRegistry {
       declaredAssets: ['Ocean Fleet (Mansa Class)', 'Processed PGM Bullion', 'Carbon Credit Commission'],
       serviceMethod: 'ISP_FIBER',
       workforceSize: '15,000+ (Imperial Fleet Scale)'
+    });
+
+    // 8.5 The National Power Grid: ESKOM (Linked to Coal & PGM)
+    this.entities.set('node_eskom_national', {
+      entityId: 'node_eskom_national',
+      role: 'INCUBATOR', // Incubates the nation's energy
+      legalName: 'ESKOM Megawatt Park (National Grid)',
+      registrationNumber: 'GOV/POWER/001',
+      parentEntityId: 'client_002', // Dependent on Carolina Coal Processing for fuel
+      servicesOffered: ['BASELOAD_POWER_GENERATION', 'GRID_TRANSMISSION'],
+      complianceStandards: ['NATIONAL_ENERGY_REGULATOR', 'MELOKUHLE_SAMPLING_STANDARD'],
+      certifyingSectors: ['POWER_GENERATION', 'HEAVY_INDUSTRY'],
+      laborArchetypes: ['Grid Engineers', 'Substation Technicians', 'Nuclear Scientists'],
+      isProtectedAsset: true,
+      paymentRouting: 'DIRECT_COLLECTION',
+      transitRoutes: ['NATIONAL_HIGH_VOLTAGE_LINES'],
+      errorSpaceRedundancies: ['Load Shedding (Grid Protection)', 'Pumped Storage Hydro', 'Diesel OCGT Reserve'],
+      declaredAssets: ['Kusile Power Station', 'Medupi Power Station', 'National Transmission Grid'],
+      serviceMethod: 'ISP_FIBER',
+      workforceSize: '40,000+ (National Utility Scale)'
     });
 
     // 9. The Digital Alternative: Homeschooling & Publishing Network
