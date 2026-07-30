@@ -47,6 +47,7 @@ export interface BusinessEntity {
   certifyingSectors?: string[]; // e.g. AGRICULTURE, PULP_AND_PAPER, SHIPPING_LOGISTICS
   serviceMethod: 'ISP_FIBER' | 'ISP_5G_ROUTER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
   transitRoutes?: string[]; // e.g. 'N4_TOLL_ROUTE', 'N12_HIGHWAY', 'N17_FREIGHT_CORRIDOR'
+  realEstateHoldings?: string[]; // E.g., 'Retail Shops', 'Commercial Offices', 'Warehouses'
   contactDetails?: {
     clientCare: string;
     officePhone: string;
@@ -88,6 +89,7 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'DIRECT_COLLECTION', // Root collects payments
       declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
+      realEstateHoldings: ['Sandton Corporate HQ', 'Witbank Industrial Park'],
       serviceMethod: 'NONE',
       contactDetails: {
         clientCare: '0860 30 92 50',
@@ -137,6 +139,7 @@ export class BusinessEntityRegistry {
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Stokvel Treasury Account', 'Community Hall (Leased)'],
+      realEstateHoldings: ['CBD Retail Complex', 'Community Hall'],
       serviceMethod: 'ISP_WIRELESS'
     });
 
@@ -554,7 +557,24 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 15. The Auto Body Spinoff (Birthed by Global IT)
+    // 15. Real Estate & Retail: Highveld Property Group
+    this.entities.set('subsidiary_real_estate', {
+      entityId: 'subsidiary_real_estate',
+      role: 'SUBSIDIARY',
+      legalName: 'Highveld Commercial Properties',
+      registrationNumber: '2019/332211/07',
+      seedEntityId: 'global_holdings_root',
+      complianceStandards: ['PROPERTY_MANAGEMENT_ACT'],
+      certifyingSectors: ['REAL_ESTATE', 'RETAIL_LEASING'],
+      laborArchetypes: ['Property Managers', 'Leasing Agents', 'Maintenance Technicians'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      realEstateHoldings: ['Witbank Mall Retail Spaces', 'Middelburg Industrial Units', 'Nelspruit Office Parks'],
+      declaredAssets: ['Commercial Leasing Database', 'Facilities Management Fleet'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 16. The Auto Body Spinoff (Birthed by Global IT)
     this.entities.set('vendor_panelbeater_01', {
       entityId: 'vendor_panelbeater_01',
       role: 'SUBSIDIARY',

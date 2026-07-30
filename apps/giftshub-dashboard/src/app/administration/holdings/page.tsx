@@ -11,6 +11,7 @@ const mockProvider = {
   isProtectedAsset: true,
   paymentRouting: 'DIRECT_COLLECTION',
   declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
+  realEstateHoldings: ['Sandton Corporate HQ', 'Witbank Industrial Park'],
   contactDetails: {
     clientCare: '0860 30 92 50',
     officePhone: '+27 11 302 0300',
@@ -101,6 +102,7 @@ const mockClients = [
     isProtectedAsset: true,
     paymentRouting: 'NONE',
     declaredAssets: ['The Core Idea'],
+    realEstateHoldings: ['CBD Retail Complex', 'Community Hall'],
     serviceMethod: 'NONE',
     status: 'ACTIVE'
   },
@@ -472,6 +474,22 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'subsidiary_real_estate',
+    role: 'SUBSIDIARY',
+    legalName: 'Highveld Commercial Properties',
+    registrationNumber: '2019/332211/07',
+    seedEntityId: 'global_holdings_root',
+    complianceStandards: ['PROPERTY_MANAGEMENT_ACT'],
+    certifyingSectors: ['REAL_ESTATE', 'RETAIL_LEASING'],
+    laborArchetypes: ['Property Managers', 'Leasing Agents', 'Maintenance Technicians'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    realEstateHoldings: ['Witbank Mall Retail Spaces', 'Middelburg Industrial Units', 'Nelspruit Office Parks'],
+    declaredAssets: ['Commercial Leasing Database', 'Facilities Management Fleet'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'vendor_panelbeater_01',
     role: 'SUBSIDIARY',
     legalName: 'Global Auto Body & Panelbeaters',
@@ -802,7 +820,7 @@ export default function HoldingsPage() {
                                 </div>
                               )}
 
-                              {client.transitRoutes && (
+                       {client.transitRoutes && (
                                 <div className="mb-3 p-2 bg-amber-950/30 border border-amber-900/40 rounded-lg">
                                   <div className="text-[10px] text-amber-400 font-bold uppercase tracking-widest mb-1.5 flex items-center gap-1">
                                     <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
@@ -812,6 +830,22 @@ export default function HoldingsPage() {
                                     {client.transitRoutes.map((route: string) => (
                                       <span key={route} className="px-2 py-0.5 bg-amber-950/60 text-amber-300 border border-amber-800/50 rounded-md text-[9px] uppercase tracking-wider font-medium">
                                         {route.replace(/_/g, ' ')}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
+                              {client.realEstateHoldings && (
+                                <div className="mb-3 p-2 bg-emerald-950/30 border border-emerald-900/40 rounded-lg">
+                                  <div className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-1.5 flex items-center gap-1">
+                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                                    Real Estate & Retail
+                                  </div>
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {client.realEstateHoldings.map((estate: string) => (
+                                      <span key={estate} className="px-2 py-0.5 bg-emerald-950/60 text-emerald-300 border border-emerald-800/50 rounded-md text-[9px] uppercase tracking-wider font-medium">
+                                        {estate}
                                       </span>
                                     ))}
                                   </div>
