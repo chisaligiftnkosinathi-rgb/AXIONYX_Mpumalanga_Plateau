@@ -452,7 +452,22 @@ const mockClients = [
     laborArchetypes: ['Phlebotomists', 'Clinical Pathologists', 'Lab Technicians'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
+    transitRoutes: ['N4_TOLL_ROUTE', 'N12_HIGHWAY', 'N17_FREIGHT_CORRIDOR'],
     declaredAssets: ['Mpumalanga Regional Laboratory', 'Phlebotomy Fleet'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'vendor_national_toll',
+    role: 'VENDOR',
+    legalName: 'Trans-African Concessions (TRAC N4)',
+    registrationNumber: '1997/005536/06',
+    complianceStandards: ['NATIONAL_ROAD_AGENCY_APPROVED', 'ISP_GROWTH_INSURANCE'],
+    certifyingSectors: ['ROAD_INFRASTRUCTURE', 'TOLLGATE_GOVERNANCE'],
+    laborArchetypes: ['Tollgate Operators', 'Highway Patrol Officers', 'Road Maintenance Crews'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Middelburg Toll Plaza', 'Machadodorp Toll Plaza', 'N4 Highway Grid'],
     serviceMethod: 'ISP_FIBER',
     status: 'ACTIVE'
   },
@@ -781,6 +796,22 @@ export default function HoldingsPage() {
                                     {client.laborArchetypes.map((archetype: string) => (
                                       <span key={archetype} className="px-2 py-0.5 bg-fuchsia-950/60 text-fuchsia-300 border border-fuchsia-800/50 rounded-md text-[9px] uppercase tracking-wider font-medium">
                                         {archetype.replace(/_/g, ' ')}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
+                              {client.transitRoutes && (
+                                <div className="mb-3 p-2 bg-amber-950/30 border border-amber-900/40 rounded-lg">
+                                  <div className="text-[10px] text-amber-400 font-bold uppercase tracking-widest mb-1.5 flex items-center gap-1">
+                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                                    National Transit Routes
+                                  </div>
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {client.transitRoutes.map((route: string) => (
+                                      <span key={route} className="px-2 py-0.5 bg-amber-950/60 text-amber-300 border border-amber-800/50 rounded-md text-[9px] uppercase tracking-wider font-medium">
+                                        {route.replace(/_/g, ' ')}
                                       </span>
                                     ))}
                                   </div>

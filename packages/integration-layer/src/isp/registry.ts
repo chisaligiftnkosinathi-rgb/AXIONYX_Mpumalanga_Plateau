@@ -46,6 +46,7 @@ export interface BusinessEntity {
   laborArchetypes?: string[]; // E.g., 'Phlebotomists', 'Field Samplers', 'Fiber Technicians'
   certifyingSectors?: string[]; // e.g. AGRICULTURE, PULP_AND_PAPER, SHIPPING_LOGISTICS
   serviceMethod: 'ISP_FIBER' | 'ISP_5G_ROUTER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
+  transitRoutes?: string[]; // e.g. 'N4_TOLL_ROUTE', 'N12_HIGHWAY', 'N17_FREIGHT_CORRIDOR'
   contactDetails?: {
     clientCare: string;
     officePhone: string;
@@ -188,6 +189,7 @@ export class BusinessEntityRegistry {
         engineId: 'imbally_core_shipping_v1',
         enabled: true
       },
+      transitRoutes: ['N4_TOLL_ROUTE', 'N12_HIGHWAY'],
       declaredAssets: ['Agricultural Cold Storage Unit', 'Imbally Transport Fleet'],
       serviceMethod: 'ISP_FIBER'
     });
@@ -201,6 +203,7 @@ export class BusinessEntityRegistry {
       complianceStandards: ['ISO_17025', 'MELOKUHLE_SAMPLING_STANDARD'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
+      transitRoutes: ['N12_HIGHWAY', 'N17_FREIGHT_CORRIDOR'], // Heavy haulage toll route
       declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System'],
       serviceMethod: 'ISP_FIBER'
     });
@@ -330,6 +333,7 @@ export class BusinessEntityRegistry {
       laborArchetypes: ['Forestry Harvesters', 'Heavy Haulage Drivers', 'Pulp Mill Operators'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
+      transitRoutes: ['N4_TOLL_ROUTE', 'R539_FORESTRY_LINK'], // Freight trucks cross tollgates
       declaredAssets: ['Ngodwana Pulp Mill', 'Commercial Timber Plantations'],
       physicalAssets: timberFleet,
       serviceMethod: 'ISP_FIBER'
@@ -509,6 +513,7 @@ export class BusinessEntityRegistry {
       laborArchetypes: ['Mobile Field Samplers', 'Soil Analysts', 'Testing Kit Technicians'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
+      transitRoutes: ['N4_TOLL_ROUTE', 'N12_HIGHWAY'], // Mobile fleet routes
       declaredAssets: ['Mobile Sampling Fleet', 'Pulp Testing Kits'],
       serviceMethod: 'ISP_FIBER'
     });
@@ -529,7 +534,23 @@ export class BusinessEntityRegistry {
         engineId: 'blood_transit_logic',
         enabled: true
       },
+      transitRoutes: ['N4_TOLL_ROUTE', 'N12_HIGHWAY', 'N17_FREIGHT_CORRIDOR'], // Medical logistics fleet
       declaredAssets: ['Mpumalanga Regional Laboratory', 'Phlebotomy Fleet'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 14. Infrastructure: National Toll Concession
+    this.entities.set('vendor_national_toll', {
+      entityId: 'vendor_national_toll',
+      role: 'VENDOR',
+      legalName: 'Trans-African Concessions (TRAC N4)',
+      registrationNumber: '1997/005536/06',
+      complianceStandards: ['NATIONAL_ROAD_AGENCY_APPROVED', 'ISP_GROWTH_INSURANCE'],
+      certifyingSectors: ['ROAD_INFRASTRUCTURE', 'TOLLGATE_GOVERNANCE'],
+      laborArchetypes: ['Tollgate Operators', 'Highway Patrol Officers', 'Road Maintenance Crews'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Middelburg Toll Plaza', 'Machadodorp Toll Plaza', 'N4 Highway Grid'],
       serviceMethod: 'ISP_FIBER'
     });
 
