@@ -261,7 +261,7 @@ export class BusinessEntityRegistry {
       registrationNumber: '2019/123456/07',
       seedEntityId: 'vendor_eastvaal_motors', // Incubated by the Plant
       soilEntityId: 'global_holdings_root',
-      complianceStandards: ['ISO_9001'],
+      complianceStandards: ['ISO_9001', 'IATF_16949_AUTOMOTIVE', 'SANS_10047_ROADWORTHINESS'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],

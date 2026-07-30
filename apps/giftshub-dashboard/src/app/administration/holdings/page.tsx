@@ -189,7 +189,7 @@ const mockClients = [
     seedEntityId: 'vendor_eastvaal_motors',
     soilEntityId: 'global_holdings_root',
     seedName: 'Eastvaal Motors',
-    complianceStandards: ['ISO_9001'],
+    complianceStandards: ['ISO_9001', 'IATF_16949_AUTOMOTIVE', 'SANS_10047_ROADWORTHINESS'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
@@ -456,23 +456,28 @@ export default function HoldingsPage() {
                            </td>
                            <td className="py-4 px-4">
                              {client.complianceStandards && (
-                               <div className="flex flex-wrap gap-1 mb-2">
-                                 {client.complianceStandards.map((std: string) => (
-                                   <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
-                                     {std === 'ISO_17025' ? (
-                                       <span className="flex items-center gap-1">
-                                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                                         {std.replace('_', ' ')}
-                                       </span>
-                                     ) : std === 'ISO_15189' ? (
-                                       <span className="flex items-center gap-1">
-                                         <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                                         {std.replace('_', ' ')}
-                                       </span>
-                                     ) : std.replace('_', ' ')}
-                                   </span>
-                                 ))}
-                               </div>
+                                <div className="flex flex-wrap gap-1 mb-2">
+                                  {client.complianceStandards.map((std: string) => (
+                                    <span key={std} className={`px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest font-bold border ${std === 'ISO_17025' ? 'bg-cyan-950/40 text-cyan-400 border-cyan-900/50' : std === 'ISO_15189' ? 'bg-rose-950/40 text-rose-400 border-rose-900/50' : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? 'bg-violet-950/40 text-violet-400 border-violet-900/50' : 'bg-slate-800 text-slate-400 border-slate-700'}`}>
+                                      {std === 'ISO_17025' ? (
+                                        <span className="flex items-center gap-1">
+                                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                          {std.replace(/_/g, ' ')}
+                                        </span>
+                                      ) : std === 'ISO_15189' ? (
+                                        <span className="flex items-center gap-1">
+                                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                                          {std.replace(/_/g, ' ')}
+                                        </span>
+                                      ) : std.includes('AUTOMOTIVE') || std.includes('ROADWORTHINESS') ? (
+                                        <span className="flex items-center gap-1">
+                                          <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h8a2 2 0 012 2v6m-2 2H6m14-2a2 2 0 11-4 0 2 2 0 014 0zM6 15a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                          {std.replace(/_/g, ' ')}
+                                        </span>
+                                      ) : std.replace(/_/g, ' ')}
+                                    </span>
+                                  ))}
+                                </div>
                              )}
                              <div className="text-xs text-slate-300 font-bold mb-1">Assets:</div>
                              <div className="flex flex-col gap-2">
