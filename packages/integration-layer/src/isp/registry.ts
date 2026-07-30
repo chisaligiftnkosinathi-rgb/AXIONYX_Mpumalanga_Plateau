@@ -10,7 +10,8 @@ export interface BusinessEntity {
   entityId: string;
   parentEntityId?: string;
   seedEntityId?: string;
-  role: 'MOTHER_COMPANY' | 'SUBSIDIARY' | 'CLIENT' | 'VENDOR' | 'PARTNER' | 'INCUBATOR';
+  soilEntityId?: string; // The fertile ground it was planted in
+  role: 'MOTHER_COMPANY' | 'SUBSIDIARY' | 'CLIENT' | 'VENDOR' | 'PARTNER' | 'INCUBATOR' | 'SEED' | 'SOIL';
   legalName: string;
   registrationNumber: string;
   vatNumber?: string;
@@ -55,10 +56,10 @@ export class BusinessEntityRegistry {
   }
 
   private seedRegistry() {
-    // 1. The Root Mother Company (Global IT and Business Solutions Pty Ltd)
+    // 1. The Fertile Soil (Root Foundation)
     this.entities.set('global_holdings_root', {
       entityId: 'global_holdings_root',
-      role: 'MOTHER_COMPANY',
+      role: 'SOIL',
       legalName: 'Global IT and Business Solutions Pty Ltd',
       registrationNumber: '2021/999569/07',
       servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE_MANAGEMENT'],
@@ -214,13 +215,29 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 11. The Original DNA Seed: Eastvaal Motors
+    // 11. The Seed: Walala Wasala
+    this.entities.set('seed_walala_wasala', {
+      entityId: 'seed_walala_wasala',
+      role: 'SEED',
+      legalName: 'Walala Wasala Genesis',
+      registrationNumber: 'CONCEPTUAL',
+      soilEntityId: 'global_holdings_root',
+      complianceStandards: ['ROOT_SYSTEM'],
+      isProtectedAsset: true,
+      paymentRouting: 'NONE',
+      declaredAssets: ['The Core Idea'],
+      serviceMethod: 'NONE'
+    });
+
+    // 12. The Plant: Eastvaal Motors (Grown from the Seed)
     this.entities.set('vendor_eastvaal_motors', {
       entityId: 'vendor_eastvaal_motors',
       role: 'INCUBATOR',
       legalName: 'Eastvaal Motors',
       registrationNumber: '1968/005218/07',
       vatNumber: '4190102030',
+      seedEntityId: 'seed_walala_wasala',
+      soilEntityId: 'global_holdings_root',
       complianceStandards: ['ROOT_SYSTEM'], // Automotive infrastructure
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
@@ -228,7 +245,7 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 12. General Client: Imbally (The Fruit of Eastvaal Motors)
+    // 13. The Fruit: Imbally (Yielded by the Plant)
     const imballyFleet: PhysicalAsset[] = Array.from({ length: 50 }).map((_, i) => ({
       assetId: `ERT ${String(i + 1).padStart(3, '0')} MP`,
       assetType: 'VEHICLE',
@@ -242,7 +259,8 @@ export class BusinessEntityRegistry {
       role: 'CLIENT',
       legalName: 'Imbally',
       registrationNumber: '2019/123456/07',
-      seedEntityId: 'vendor_eastvaal_motors', // Incubated by Eastvaal Motors
+      seedEntityId: 'vendor_eastvaal_motors', // Incubated by the Plant
+      soilEntityId: 'global_holdings_root',
       complianceStandards: ['ISO_9001'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',

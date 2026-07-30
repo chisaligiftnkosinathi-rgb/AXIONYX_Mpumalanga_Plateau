@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const mockProvider = {
   entityId: 'global_holdings_root',
-  role: 'MOTHER_COMPANY',
+  role: 'SOIL',
   legalName: 'Global IT and Business Solutions Pty Ltd',
   registrationNumber: '2021/999569/07',
   servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE'],
@@ -68,6 +68,19 @@ const generateImballyFleet = () => {
 };
 
 const mockClients = [
+  {
+    entityId: 'seed_walala_wasala',
+    role: 'SEED',
+    legalName: 'Walala Wasala Genesis',
+    registrationNumber: 'CONCEPTUAL',
+    soilEntityId: 'global_holdings_root',
+    complianceStandards: ['ROOT_SYSTEM'],
+    isProtectedAsset: true,
+    paymentRouting: 'NONE',
+    declaredAssets: ['The Core Idea'],
+    serviceMethod: 'NONE',
+    status: 'ACTIVE'
+  },
   {
     entityId: 'client_002',
     role: 'CLIENT',
@@ -159,6 +172,8 @@ const mockClients = [
     legalName: 'Eastvaal Motors',
     registrationNumber: '1968/005218/07',
     vatNumber: '4190102030',
+    seedEntityId: 'seed_walala_wasala',
+    soilEntityId: 'global_holdings_root',
     serviceMethod: 'ISP_FIBER',
     complianceStandards: ['ROOT_SYSTEM'],
     isProtectedAsset: true,
@@ -172,6 +187,7 @@ const mockClients = [
     legalName: 'Imbally',
     registrationNumber: '2019/123456/07',
     seedEntityId: 'vendor_eastvaal_motors',
+    soilEntityId: 'global_holdings_root',
     seedName: 'Eastvaal Motors',
     complianceStandards: ['ISO_9001'],
     isProtectedAsset: true,
@@ -415,10 +431,22 @@ export default function HoldingsPage() {
                          <tr className="hover:bg-slate-800/30 transition-colors">
                            <td className="py-4 px-4 font-medium text-white">
                              {client.legalName}
-                             {client.role === 'INCUBATOR' && (
+                             {client.role === 'SOIL' && (
+                                <span className="ml-2 inline-flex items-center gap-1 bg-amber-900/30 text-amber-400 border border-amber-800/50 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest">
+                                  <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                                  Fertile Soil
+                                </span>
+                              )}
+                              {client.role === 'SEED' && (
+                                <span className="ml-2 inline-flex items-center gap-1 bg-lime-900/30 text-lime-400 border border-lime-800/50 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest">
+                                  <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                                  Genesis Seed
+                                </span>
+                              )}
+                              {client.role === 'INCUBATOR' && (
                                <span className="ml-2 inline-flex items-center gap-1 bg-fuchsia-900/30 text-fuchsia-400 border border-fuchsia-800/50 px-1.5 py-0.5 rounded text-[9px] uppercase tracking-widest">
                                  <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
-                                 Seed Origin
+                                 Plant / Incubator
                                </span>
                              )}
                              <div className="text-xs text-slate-500 font-mono mt-1">
@@ -452,11 +480,11 @@ export default function HoldingsPage() {
                                  {client.serviceMethod.replace('ISP_', '')}
                                </span>
                                {client.seedEntityId && (
-                                 <div className="bg-fuchsia-950/30 border border-fuchsia-900/50 px-2 py-1 rounded text-[10px] flex items-center gap-1 text-fuchsia-200">
-                                   <svg className="w-2.5 h-2.5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
-                                   Incubated by <span className="font-bold">{client.seedName}</span>
-                                 </div>
-                               )}
+                                  <div className="bg-fuchsia-950/30 border border-fuchsia-900/50 px-2 py-1 rounded text-[10px] flex items-center gap-1 text-fuchsia-200">
+                                    <svg className="w-2.5 h-2.5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                                    Linked to <span className="font-bold">{client.seedName || client.seedEntityId}</span>
+                                  </div>
+                                )}
                                <div className="text-[10px] text-slate-400 mt-1">
                                  {client.declaredAssets.length} Declared Assets
                                </div>
