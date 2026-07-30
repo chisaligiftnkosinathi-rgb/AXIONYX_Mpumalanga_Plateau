@@ -386,6 +386,24 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'node_carolina_academy',
+    role: 'INCUBATOR',
+    legalName: 'Carolina Next-Gen Academy (SLP Seed)',
+    registrationNumber: 'EDU/CAR/001',
+    parentEntityId: 'node_dbe_national',
+    seedEntityId: 'client_002',
+    servicesOffered: ['STEM_INCUBATION', 'YOUTH_EMPOWERMENT', 'BURSARY_ROUTING'],
+    complianceStandards: ['MAKWANDE_GROWTH_INDEX', 'MINING_CHARTER_SLP'],
+    certifyingSectors: ['BASIC_EDUCATION', 'COMMUNITY_DEVELOPMENT'],
+    laborArchetypes: ['STEM Educators', 'Mine-Sponsored Tutors', 'Local Youth'],
+    isProtectedAsset: true,
+    paymentRouting: 'NONE',
+    declaredAssets: ['Advanced Science Labs', 'Community Connectivity Grid'],
+    serviceMethod: 'ISP_FIBER',
+    makwandeScale: '2,500 Local Learners (The New Generation)',
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_water_01',
     role: 'CLIENT',
     legalName: 'Mpumalanga Water Quality Board',

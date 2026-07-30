@@ -426,6 +426,25 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
+    // 5.5 The New Seed: Carolina Next-Gen Academy (SLP Education)
+    this.entities.set('node_carolina_academy', {
+      entityId: 'node_carolina_academy',
+      role: 'INCUBATOR',
+      legalName: 'Carolina Next-Gen Academy (SLP Seed)',
+      registrationNumber: 'EDU/CAR/001',
+      parentEntityId: 'node_dbe_national', // Aligned with national education
+      seedEntityId: 'client_002', // Planted and funded by Carolina Coal Processing
+      servicesOffered: ['STEM_INCUBATION', 'YOUTH_EMPOWERMENT', 'BURSARY_ROUTING'],
+      complianceStandards: ['MAKWANDE_GROWTH_INDEX', 'MINING_CHARTER_SLP'], // Growing humans via mining profits
+      certifyingSectors: ['BASIC_EDUCATION', 'COMMUNITY_DEVELOPMENT'],
+      laborArchetypes: ['STEM Educators', 'Mine-Sponsored Tutors', 'Local Youth'],
+      isProtectedAsset: true,
+      paymentRouting: 'NONE', // Funded by Coal Commission
+      declaredAssets: ['Advanced Science Labs', 'Community Connectivity Grid'],
+      serviceMethod: 'ISP_FIBER',
+      makwandeScale: '2,500 Local Learners (The New Generation)'
+    });
+
     // 6. Accredited Testing Lab: Mpumalanga Water Quality
     this.entities.set('client_water_01', {
       entityId: 'client_water_01',
