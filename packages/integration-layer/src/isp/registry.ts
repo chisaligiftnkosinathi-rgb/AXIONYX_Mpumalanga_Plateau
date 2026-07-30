@@ -43,6 +43,7 @@ export interface BusinessEntity {
     minimumWageCompliant: boolean;
     bceaRegulated: boolean;
   };
+  laborArchetypes?: string[]; // E.g., 'Phlebotomists', 'Field Samplers', 'Fiber Technicians'
   certifyingSectors?: string[]; // e.g. AGRICULTURE, PULP_AND_PAPER, SHIPPING_LOGISTICS
   serviceMethod: 'ISP_FIBER' | 'ISP_5G_ROUTER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
   contactDetails?: {
@@ -114,6 +115,7 @@ export class BusinessEntityRegistry {
       registrationNumber: '2023/111222/07',
       servicesOffered: ['ENTERPRISE_FIBER', 'CYBER_INSURANCE'],
       complianceStandards: ['ISP_GROWTH_INSURANCE'],
+      laborArchetypes: ['Fiber Optic Technicians', 'Cybersecurity Engineers', 'NOC Analysts'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       shippingLogic: {
@@ -285,6 +287,7 @@ export class BusinessEntityRegistry {
       registrationNumber: '1936/008963/06',
       seedEntityId: 'client_001', // Linked to Imbally
       complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001'],
+      laborArchetypes: ['Forestry Harvesters', 'Heavy Haulage Drivers', 'Pulp Mill Operators'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Ngodwana Pulp Mill', 'Commercial Timber Plantations'],
@@ -433,6 +436,7 @@ export class BusinessEntityRegistry {
       seedEntityId: 'client_001', // Imbally
       complianceStandards: ['ISO_17025', 'ISO_9001'],
       certifyingSectors: ['AGRICULTURE_SOIL_TESTING', 'PULP_AND_PAPER_INSPECTION', 'SHIPPING_LOGISTICS', 'MINING_ANALYSIS'],
+      laborArchetypes: ['Environmental Samplers', 'Quality Assurance Auditors', 'Logistics Inspectors'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
@@ -462,6 +466,7 @@ export class BusinessEntityRegistry {
       seedEntityId: 'client_001', // Under Imbally/SGS ecosystem
       certifyingSectors: ['PULP_AND_PAPER_SAMPLING', 'PJS_OPERATIONS_SAMPLING'],
       complianceStandards: ['ISO_17025'],
+      laborArchetypes: ['Mobile Field Samplers', 'Soil Analysts', 'Testing Kit Technicians'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Mobile Sampling Fleet', 'Pulp Testing Kits'],
@@ -476,6 +481,7 @@ export class BusinessEntityRegistry {
       registrationNumber: '1999/001234/09',
       complianceStandards: ['ISO_15189'], // Medical laboratory standards
       certifyingSectors: ['CLINICAL_PATHOLOGY', 'BLOOD_SAMPLING', 'MOLECULAR_TESTING'],
+      laborArchetypes: ['Phlebotomists', 'Clinical Pathologists', 'Lab Technicians'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Mpumalanga Regional Laboratory', 'Phlebotomy Fleet'],

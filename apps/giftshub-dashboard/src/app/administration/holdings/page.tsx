@@ -265,6 +265,7 @@ const mockClients = [
     seedName: 'Imbally',
     serviceMethod: 'ISP_FIBER',
     complianceStandards: ['FSC_CERTIFIED_FORESTRY', 'ISO_14001_ENVIRONMENTAL', 'ISO_9001'],
+    laborArchetypes: ['Forestry Harvesters', 'Heavy Haulage Drivers', 'Pulp Mill Operators'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Ngodwana Pulp Mill', 'Commercial Timber Plantations'],
@@ -355,6 +356,7 @@ const mockClients = [
     seedName: 'Imbally',
     complianceStandards: ['ISO_17025', 'ISO_9001'],
     certifyingSectors: ['AGRICULTURE_SOIL_TESTING', 'PULP_AND_PAPER_INSPECTION', 'SHIPPING_LOGISTICS', 'MINING_ANALYSIS'],
+    laborArchetypes: ['Environmental Samplers', 'Quality Assurance Auditors', 'Logistics Inspectors'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
@@ -383,6 +385,7 @@ const mockClients = [
     seedName: 'Imbally',
     complianceStandards: ['ISO_17025'],
     certifyingSectors: ['PULP_AND_PAPER_SAMPLING', 'PJS_OPERATIONS_SAMPLING'],
+    laborArchetypes: ['Mobile Field Samplers', 'Soil Analysts', 'Testing Kit Technicians'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Mobile Sampling Fleet', 'Pulp Testing Kits'],
@@ -396,6 +399,7 @@ const mockClients = [
     registrationNumber: '1999/001234/09',
     complianceStandards: ['ISO_15189'],
     certifyingSectors: ['CLINICAL_PATHOLOGY', 'BLOOD_SAMPLING', 'MOLECULAR_TESTING'],
+    laborArchetypes: ['Phlebotomists', 'Clinical Pathologists', 'Lab Technicians'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Mpumalanga Regional Laboratory', 'Phlebotomy Fleet'],
@@ -701,6 +705,22 @@ export default function HoldingsPage() {
                                     {client.certifyingSectors.map((sector: string) => (
                                       <span key={sector} className="px-2 py-0.5 bg-indigo-950/60 text-indigo-300 border border-indigo-800/50 rounded-md text-[9px] uppercase tracking-wider font-medium">
                                         {sector.replace(/_/g, ' ')}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
+                             {client.laborArchetypes && (
+                                <div className="mb-3 p-2 bg-fuchsia-950/30 border border-fuchsia-900/40 rounded-lg">
+                                  <div className="text-[10px] text-fuchsia-400 font-bold uppercase tracking-widest mb-1.5 flex items-center gap-1">
+                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                    Labor Archetypes
+                                  </div>
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {client.laborArchetypes.map((archetype: string) => (
+                                      <span key={archetype} className="px-2 py-0.5 bg-fuchsia-950/60 text-fuchsia-300 border border-fuchsia-800/50 rounded-md text-[9px] uppercase tracking-wider font-medium">
+                                        {archetype.replace(/_/g, ' ')}
                                       </span>
                                     ))}
                                   </div>
