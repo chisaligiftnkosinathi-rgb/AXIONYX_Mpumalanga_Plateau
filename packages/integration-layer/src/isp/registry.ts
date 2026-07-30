@@ -150,12 +150,29 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_WIRELESS'
     });
 
-    // 4. The Spark: Curiosity & Early Education Node
+    // 4. The Grassroots Feeder: Unregistered Local Crèches
+    this.entities.set('node_informal_creche', {
+      entityId: 'node_informal_creche',
+      role: 'INCUBATOR',
+      legalName: 'Informal Community Crèche Network',
+      registrationNumber: 'UNREGISTERED_INFORMAL',
+      seedEntityId: 'client_stokvel_01', // Sustained by the local Stokvel/Community
+      servicesOffered: ['CHILDMINDING', 'EARLY_SOCIALIZATION', 'INFORMAL_LEARNING'],
+      complianceStandards: ['COMMUNITY_TRUST'], // No formal government compliance
+      laborArchetypes: ['Community Mothers', 'Local Childminders', 'Elders'],
+      isProtectedAsset: false,
+      paymentRouting: 'CASH_COLLECTION',
+      declaredAssets: ['Community Backyards', 'Donated Toys & Materials'],
+      serviceMethod: 'NONE' // Completely off the grid
+    });
+
+    // 5. The Formal Spark: Curiosity & Early Education Node
     this.entities.set('node_curiosity_education', {
       entityId: 'node_curiosity_education',
       role: 'INCUBATOR',
       legalName: 'Curiosity Learning Initiative',
       registrationNumber: '2025/EDU/000',
+      parentEntityId: 'node_informal_creche', // Children move from informal crèches to formal ECD
       seedEntityId: 'client_stokvel_01', // Seeded by Stokvel community
       servicesOffered: ['CURIOSITY_INCUBATION', 'EARLY_EDUCATION'],
       complianceStandards: ['ROOT_SYSTEM'],

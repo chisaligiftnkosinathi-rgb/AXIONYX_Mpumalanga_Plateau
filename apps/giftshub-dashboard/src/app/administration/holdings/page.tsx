@@ -137,10 +137,27 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'node_informal_creche',
+    role: 'INCUBATOR',
+    legalName: 'Informal Community Crèche Network',
+    registrationNumber: 'UNREGISTERED_INFORMAL',
+    seedEntityId: 'seed_walala_wasala',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Walala Wasala Genesis',
+    serviceMethod: 'NONE',
+    complianceStandards: ['COMMUNITY_TRUST'],
+    laborArchetypes: ['Community Mothers', 'Local Childminders', 'Elders'],
+    isProtectedAsset: false,
+    paymentRouting: 'CASH_COLLECTION',
+    declaredAssets: ['Community Backyards', 'Donated Toys & Materials'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'node_curiosity_education',
     role: 'INCUBATOR',
     legalName: 'Curiosity Learning Initiative',
     registrationNumber: '2025/EDU/000',
+    parentEntityId: 'node_informal_creche',
     seedEntityId: 'seed_walala_wasala',
     soilEntityId: 'global_holdings_root',
     seedName: 'Walala Wasala Genesis',
