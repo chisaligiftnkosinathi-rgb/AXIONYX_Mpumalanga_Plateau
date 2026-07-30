@@ -1184,6 +1184,18 @@ export default function HoldingsPage() {
                                 </div>
                               )}
 
+                              {client.lifecyclePhase === 'HARVESTED_FRUIT' && (
+                                <div className="mt-3 p-2 bg-amber-950/40 border border-amber-900/60 rounded-lg">
+                                  <div className="text-[10px] text-amber-400 font-bold uppercase tracking-widest mb-1 flex items-center gap-1">
+                                    <svg className="w-3 h-3 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                                    Harvested Entity (Autonomous)
+                                  </div>
+                                  <div className="text-[11px] text-amber-200/80 font-medium">
+                                    Subtracted from the core incubation tree. Operating independently.
+                                  </div>
+                                </div>
+                              )}
+
                                {client.seedEntityId && (
                                   <div className="bg-fuchsia-950/30 border border-fuchsia-900/50 px-2 py-1 rounded text-[10px] flex items-center gap-1 text-fuchsia-200">
                                     <svg className="w-2.5 h-2.5 text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>

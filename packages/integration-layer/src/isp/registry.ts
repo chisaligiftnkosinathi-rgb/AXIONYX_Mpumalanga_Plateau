@@ -58,6 +58,7 @@ export interface BusinessEntity {
   errorSpaceRedundancies?: string[]; // Risk minimization and safety buffers
   workforceSize?: string; // Maps the growth/scale of the business
   makwandeScale?: string; // Maps the human growth multiplier (Learners, Kids, Members)
+  lifecyclePhase?: 'SEED' | 'ROOT' | 'INCUBATION' | 'MATURITY' | 'HARVESTED_FRUIT'; // Maps the phase of the entity
   auditStatus?: 'CLEAN_AUDIT' | 'PENDING_REVIEW' | 'CRITICAL_RISK'; // 5th Gen Compliance Tracking
   lastAuditDate?: string;
   contactDetails?: {
@@ -368,25 +369,24 @@ export class BusinessEntityRegistry {
       makwandeScale: '400,000 Apprentices & Artisans'
     });
 
-    // 5. The Fruit: Imbally (Incubated by the Stokvel)
+    // 14. The Fruit: Imbally (Incubated by the Stokvel, Harvested from the Tree)
     this.entities.set('client_imbally_01', {
       entityId: 'client_imbally_01',
-      parentEntityId: 'global_holdings_root',
-      seedEntityId: 'client_stokvel_01',
-      role: 'SUBSIDIARY',
-      legalName: 'Imbally',
-      registrationNumber: '2025/111999/07',
-      servicesOffered: ['SCIENTIFIC_CALIBRATION', 'AGRICULTURAL_ROUTING'],
-      complianceStandards: ['ISO_17025', 'STANDARD_PUBLISHING_AUTHORITY'],
-      isProtectedAsset: true,
-      paymentRouting: 'ROUTE_TO_MOTHER',
-      shippingLogic: {
-        engineId: 'imbally_core_shipping_v1',
-        enabled: true
-      },
-      transitRoutes: ['N4_TOLL_ROUTE', 'N12_HIGHWAY'],
-      declaredAssets: ['Agricultural Cold Storage Unit', 'Imbally Transport Fleet'],
-      serviceMethod: 'ISP_FIBER'
+      role: 'CLIENT',
+      legalName: 'Imbally Youth Network (The Harvest)',
+      registrationNumber: 'ID/000000000',
+      parentEntityId: 'NONE', // SUBTRACTED FROM THE TREE (Autonomous)
+      seedEntityId: 'client_stokvel_01', // Birthed by the Stokvel
+      soilEntityId: 'node_dbe_national', // Nurtured in DBE soil
+      seedName: 'Imbally (The Youth)',
+      servicesOffered: ['FREELANCE_ARTISANRY', 'DIGITAL_NOMADISM', 'INNOVATION'],
+      complianceStandards: ['MAKWANDE_GROWTH_INDEX'], // Free to grow
+      laborArchetypes: ['The Graduated Mind', 'The Skilled Artisan', 'The Autonomous Founder'],
+      isProtectedAsset: false, // The fruit is out in the open market
+      paymentRouting: 'DIRECT_COLLECTION',
+      declaredAssets: ['Independent Intellectual Property', 'Trade Tools'],
+      serviceMethod: 'ISP_WIRELESS',
+      lifecyclePhase: 'HARVESTED_FRUIT'
     });
 
     // 5. Accredited Testing Lab: Carolina Coal Processing
