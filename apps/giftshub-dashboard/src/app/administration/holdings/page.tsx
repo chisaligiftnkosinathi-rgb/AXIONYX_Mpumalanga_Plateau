@@ -193,9 +193,25 @@ const mockClients = [
         'Senior Phase (Gr 7-9: 9 Subjects)',
         'FET Phase (Gr 10-12: 7 Subjects)'
       ],
-      schoolCategories: ['Private Independent (e.g. Curro)', 'Combined Schools', 'Local Public Schools']
+      schoolCategories: ['Private Independent', 'Combined Schools', 'Local Public Schools', 'Faith-Based Schools']
     },
     declaredAssets: ['National Curriculum Assessment Database', 'Public School Infrastructure'],
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'node_faith_network',
+    role: 'INCUBATOR',
+    legalName: 'Community Faith & Spiritual Network',
+    registrationNumber: 'NPO/FAITH/001',
+    seedEntityId: 'seed_walala_wasala',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Walala Wasala Genesis',
+    serviceMethod: 'ISP_WIRELESS',
+    complianceStandards: ['COMMUNITY_TRUST'],
+    laborArchetypes: ['Clergy', 'Spiritual Leaders', 'Youth Pastors'],
+    isProtectedAsset: true,
+    paymentRouting: 'CASH_COLLECTION',
+    declaredAssets: ['Places of Worship', 'Community Halls', 'Faith-Based Schools'],
     status: 'ACTIVE'
   },
   {

@@ -201,13 +201,29 @@ export class BusinessEntityRegistry {
         totalEducators: '450,000+ Educators',
         totalFacilities: '25,000+ Public Schools',
         educationPhases: ['Foundation Phase (Gr R-3: 4 Subjects)', 'Intermediate Phase (Gr 4-6: 6 Subjects)', 'Senior Phase (Gr 7-9: 9 Subjects)', 'FET Phase (Gr 10-12: 7 Subjects)'],
-        schoolCategories: ['Private Independent (e.g. Curro)', 'Combined Schools', 'Local Public Schools']
+        schoolCategories: ['Private Independent', 'Combined Schools', 'Local Public Schools', 'Faith-Based Schools']
       },
       declaredAssets: ['National Curriculum Assessment Database', 'Public School Infrastructure'],
       serviceMethod: 'ISP_FIBER'
     });
 
-    // 6. The Digital Alternative: Homeschooling & Publishing Network
+    // 6. The Moral Compass: Faith & Spiritual Network
+    this.entities.set('node_faith_network', {
+      entityId: 'node_faith_network',
+      role: 'INCUBATOR',
+      legalName: 'Community Faith & Spiritual Network',
+      registrationNumber: 'NPO/FAITH/001',
+      seedEntityId: 'client_stokvel_01', // Deeply tied to the Stokvel community structure
+      servicesOffered: ['SPIRITUAL_GUIDANCE', 'MORAL_INCUBATION', 'COMMUNITY_OUTREACH'],
+      complianceStandards: ['COMMUNITY_TRUST'],
+      laborArchetypes: ['Clergy', 'Spiritual Leaders', 'Youth Pastors'],
+      isProtectedAsset: true,
+      paymentRouting: 'CASH_COLLECTION', // Tithes and offerings
+      declaredAssets: ['Places of Worship', 'Community Halls', 'Faith-Based Schools'],
+      serviceMethod: 'ISP_WIRELESS'
+    });
+
+    // 7. The Digital Alternative: Homeschooling & Publishing Network
     this.entities.set('node_digital_homeschool', {
       entityId: 'node_digital_homeschool',
       role: 'INCUBATOR',
