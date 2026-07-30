@@ -23,6 +23,28 @@
       "items": { "type": "string" },
       "description": "Services this entity provides (e.g. ['REINSURANCE', 'ISP_INFRASTRUCTURE'])"
     },
+    "isProtectedAsset": {
+      "type": "boolean",
+      "description": "Indicates this company is treated as a protected asset within the network"
+    },
+    "paymentRouting": {
+      "type": "string",
+      "enum": ["ROUTE_TO_MOTHER", "DIRECT_COLLECTION"],
+      "description": "Forces all billing and payments to route upward to the Mother Company"
+    },
+    "shippingLogic": {
+      "type": "object",
+      "properties": {
+        "engineId": { "type": "string" },
+        "enabled": { "type": "boolean" }
+      },
+      "description": "Decentralized operational logistics rules for the subsidiary"
+    },
+    "declaredAssets": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Mandatory prior declaration of owned physical/digital assets"
+    },
     "legalName": {
       "type": "string",
       "description": "Registered legal entity name"
@@ -60,5 +82,15 @@
       "required": ["bankName", "branchCode", "accountNumber"]
     }
   },
-  "required": ["entityId", "role", "legalName", "registrationNumber"]
+  "required": [
+    "entityId", 
+    "role", 
+    "legalName", 
+    "registrationNumber", 
+    "serviceMethod",
+    "isProtectedAsset",
+    "paymentRouting",
+    "declaredAssets"
+  ],
+  "additionalProperties": false
 }

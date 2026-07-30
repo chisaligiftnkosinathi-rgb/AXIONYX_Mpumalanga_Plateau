@@ -5,6 +5,13 @@ export interface BusinessEntity {
   legalName: string;
   registrationNumber: string;
   servicesOffered?: string[];
+  isProtectedAsset: boolean;
+  paymentRouting: 'ROUTE_TO_MOTHER' | 'DIRECT_COLLECTION';
+  shippingLogic?: {
+    engineId: string;
+    enabled: boolean;
+  };
+  declaredAssets: string[];
   serviceMethod: 'ISP_5G_ROUTER' | 'ISP_FIBER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
   contactDetails?: {
     clientCare: string;
@@ -43,6 +50,9 @@ export class BusinessEntityRegistry {
       legalName: 'Global IT and Business Solutions Pty Ltd',
       registrationNumber: '2021/999569/07',
       servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE_MANAGEMENT'],
+      isProtectedAsset: true,
+      paymentRouting: 'DIRECT_COLLECTION', // Root collects payments
+      declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
       serviceMethod: 'NONE',
       contactDetails: {
         clientCare: '0860 30 92 50',
@@ -70,15 +80,37 @@ export class BusinessEntityRegistry {
       legalName: 'Global Network Connect (Pty) Ltd',
       registrationNumber: '2023/111222/07',
       servicesOffered: ['ENTERPRISE_FIBER', 'CYBER_INSURANCE'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      shippingLogic: {
+        engineId: 'logic_engine_cyber_01',
+        enabled: true
+      },
+      declaredAssets: ['Fiber Backbone Ring (Mpumalanga)', 'Network Operations Vehicle (ND 123-456)'],
       serviceMethod: 'NONE'
     });
 
-    // 3. Sample Clients buying services
+    // 3. Client: Walala Wasala Stokvel
+    this.entities.set('client_stokvel_01', {
+      entityId: 'client_stokvel_01',
+      role: 'CLIENT',
+      legalName: 'Walala Wasala Stokvel',
+      registrationNumber: '2024/STK/998',
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Stokvel Treasury Account', 'Community Hall (Leased)'],
+      serviceMethod: 'ISP_WIRELESS'
+    });
+
+    // 4. Client: Acme Logistics
     this.entities.set('client_001', {
       entityId: 'client_001',
       role: 'CLIENT',
       legalName: 'Acme Logistics South Africa',
       registrationNumber: '2019/123456/07',
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
       serviceMethod: 'ISP_5G_ROUTER'
     });
 
@@ -87,6 +119,9 @@ export class BusinessEntityRegistry {
       role: 'CLIENT',
       legalName: 'Carolina Coal Processing',
       registrationNumber: '2015/654321/07',
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Coal Washing Plant B', 'Heavy Duty Conveyor System'],
       serviceMethod: 'ISP_FIBER'
     });
   }

@@ -7,6 +7,9 @@ const mockProvider = {
   legalName: 'Global IT and Business Solutions Pty Ltd',
   registrationNumber: '2021/999569/07',
   servicesOffered: ['REINSURANCE', 'ISP_INFRASTRUCTURE'],
+  isProtectedAsset: true,
+  paymentRouting: 'DIRECT_COLLECTION',
+  declaredAssets: ['Global IT Datacenter (Witbank)', 'Network Core Switch A1'],
   contactDetails: {
     clientCare: '0860 30 92 50',
     officePhone: '+27 11 302 0300',
@@ -32,25 +35,34 @@ const mockSubsidiaries = [
     legalName: 'Global Network Connect (Pty) Ltd',
     registrationNumber: '2023/111222/07',
     servicesOffered: ['ENTERPRISE_FIBER', 'CYBER_INSURANCE'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Fiber Backbone Ring (Mpumalanga)', 'Network Operations Vehicle (ND 123-456)'],
     status: 'ACTIVE'
   }
 ];
 
 const mockClients = [
   {
+    entityId: 'client_stokvel_01',
+    role: 'CLIENT',
+    legalName: 'Walala Wasala Stokvel',
+    registrationNumber: '2024/STK/998',
+    serviceMethod: 'ISP_WIRELESS',
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Stokvel Treasury Account', 'Community Hall (Leased)'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_001',
     role: 'CLIENT',
     legalName: 'Acme Logistics South Africa',
     registrationNumber: '2019/123456/07',
     serviceMethod: 'ISP_5G_ROUTER',
-    status: 'ACTIVE'
-  },
-  {
-    entityId: 'client_002',
-    role: 'CLIENT',
-    legalName: 'Carolina Coal Processing',
-    registrationNumber: '2015/654321/07',
-    serviceMethod: 'ISP_FIBER',
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Fleet of 50 Suzuki Ertigas', 'Johannesburg Depot'],
     status: 'ACTIVE'
   }
 ];
@@ -170,13 +182,34 @@ export default function HoldingsPage() {
                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                  {subsidiaries.map(sub => (
                     <div key={sub.entityId} className="bg-slate-950 border border-slate-800 rounded p-4 relative">
-                       <div className="absolute -top-3 -left-3 bg-slate-800 w-6 h-6 rounded-br-xl border-t border-l border-slate-700 hidden"></div>
-                       <h3 className="font-bold text-sky-400 mb-1">{sub.legalName}</h3>
+                       {sub.isProtectedAsset && (
+                         <div className="absolute top-2 right-2 text-fuchsia-400">
+                           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.642 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.358-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clipRule="evenodd" /></svg>
+                         </div>
+                       )}
+                       <h3 className="font-bold text-sky-400 mb-1 pr-6">{sub.legalName}</h3>
                        <div className="text-xs text-slate-500 font-mono mb-3">{sub.registrationNumber}</div>
-                       <div className="flex flex-wrap gap-2">
+                       <div className="flex flex-wrap gap-2 mb-3">
                          {sub.servicesOffered.map((svc: string) => (
                            <span key={svc} className="bg-slate-900 border border-slate-700 text-slate-300 px-2 py-1 rounded text-[10px] uppercase tracking-widest">{svc.replace('_', ' ')}</span>
                          ))}
+                       </div>
+                       
+                       <div className="border-t border-slate-800/50 pt-3 mt-3">
+                         <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Financial Routing</div>
+                         <div className="text-xs text-emerald-400 flex items-center gap-1 font-mono">
+                           <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+                           {sub.paymentRouting}
+                         </div>
+                       </div>
+                       
+                       <div className="border-t border-slate-800/50 pt-3 mt-3">
+                         <div className="text-[10px] text-slate-500 uppercase tracking-widest mb-1">Declared Assets</div>
+                         <ul className="list-disc list-inside text-xs text-slate-400">
+                           {sub.declaredAssets.map((asset: string, i: number) => (
+                             <li key={i}>{asset}</li>
+                           ))}
+                         </ul>
                        </div>
                     </div>
                  ))}
@@ -196,27 +229,40 @@ export default function HoldingsPage() {
                    <thead>
                      <tr className="border-b border-slate-800 text-xs uppercase tracking-widest text-slate-500">
                        <th className="py-3 px-4 font-normal">Business Name</th>
-                       <th className="py-3 px-4 font-normal">Registration</th>
-                       <th className="py-3 px-4 font-normal">Services Consumed</th>
-                       <th className="py-3 px-4 font-normal">Status</th>
+                       <th className="py-3 px-4 font-normal">Services / Assets</th>
+                       <th className="py-3 px-4 font-normal">Governance</th>
                      </tr>
                    </thead>
                    <tbody className="text-sm divide-y divide-slate-800/50">
                      {clients.map(client => (
                        <tr key={client.entityId} className="hover:bg-slate-800/30 transition-colors">
-                         <td className="py-4 px-4 font-medium text-white">{client.legalName}</td>
-                         <td className="py-4 px-4 font-mono text-slate-400">{client.registrationNumber}</td>
-                         <td className="py-4 px-4">
-                           <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs">
-                             {client.serviceMethod.replace('ISP_', '')}
-                           </span>
+                         <td className="py-4 px-4 font-medium text-white">
+                           {client.legalName}
+                           <div className="text-xs text-slate-500 font-mono mt-1">{client.registrationNumber}</div>
                          </td>
                          <td className="py-4 px-4">
-                           <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase tracking-widest ${
-                             client.status === 'ACTIVE' ? 'bg-emerald-900/50 text-emerald-400' : 'bg-amber-900/50 text-amber-400'
-                           }`}>
-                             {client.status}
-                           </span>
+                           <div className="flex flex-col gap-2">
+                             <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs w-fit">
+                               {client.serviceMethod.replace('ISP_', '')}
+                             </span>
+                             <div className="text-[10px] text-slate-400 mt-1">
+                               {client.declaredAssets.length} Declared Assets
+                             </div>
+                           </div>
+                         </td>
+                         <td className="py-4 px-4">
+                           <div className="flex flex-col gap-2">
+                             {client.isProtectedAsset && (
+                               <span className="text-[10px] text-fuchsia-400 font-bold uppercase tracking-widest flex items-center gap-1">
+                                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.642 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.358-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clipRule="evenodd" /></svg>
+                                 Protected
+                               </span>
+                             )}
+                             <span className="text-[10px] text-emerald-400 font-mono flex items-center gap-1">
+                               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+                               {client.paymentRouting}
+                             </span>
+                           </div>
                          </td>
                        </tr>
                      ))}

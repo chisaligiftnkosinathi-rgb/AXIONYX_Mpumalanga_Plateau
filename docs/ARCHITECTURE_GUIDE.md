@@ -52,7 +52,13 @@ Integration with the physical world is handled through decoupled **Adapters** in
 - **First-Class Versioning**: Every mission, constraint, and decision policy is strictly versioned (`effectiveFrom`, `author`, `approval`) to allow perfect historical replay and auditing.
 
 ## 10. Deployment Architecture
-AXIONYX is designed as a modular monorepo.
 - `packages/*`: Core logic engines (OVL, MOC, Decision, Observation).
 - `apps/*`: Presentation layers and Role-based UX (Dashboards).
 - The platform can run entirely offline or air-gapped on edge hardware inside industrial facilities, maintaining strict data sovereignty.
+
+## 11. Global Holding Governance
+AXIONYX strictly enforces the operational rules of a Global Holding network:
+- **Asset Protection**: Every registered business entity is fundamentally treated as a protected asset monitored by the constraint engine.
+- **Financial Centralization**: All downstream payments and billing operations must route upward to the central Mother Company's banking infrastructure (`ROUTE_TO_MOTHER`).
+- **Decentralized Logistics**: While finance is centralized, each subsidiary entity maintains its own independent "shipping logic" and operational workflows.
+- **Mandatory Pre-Declaration**: No entity can join the Global network without fully declaring its owned assets (hardware, vehicles, real estate) prior to registration.
