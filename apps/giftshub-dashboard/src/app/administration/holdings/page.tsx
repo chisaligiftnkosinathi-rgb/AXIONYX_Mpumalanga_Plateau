@@ -393,10 +393,27 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'client_blood_01',
+    role: 'SUBSIDIARY',
+    legalName: 'Highveld Blood Testing Center',
+    registrationNumber: '2020/445566/08',
+    seedEntityId: 'client_001',
+    seedName: 'Imbally',
+    complianceStandards: ['ISO_15189', 'WHO_GMP'],
+    certifyingSectors: ['BLOOD_STORAGE', 'CRYOGENIC_PRESERVATION'],
+    laborArchetypes: ['Cryogenic Specialists', 'Blood Bank Technicians'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Cryogenic Storage Unit A', 'Centrifuge Array'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'lab_ampath',
     role: 'VENDOR',
     legalName: 'Ampath Trust',
     registrationNumber: '1999/001234/09',
+    parentEntityId: 'client_blood_01',
     complianceStandards: ['ISO_15189'],
     certifyingSectors: ['CLINICAL_PATHOLOGY', 'BLOOD_SAMPLING', 'MOLECULAR_TESTING'],
     laborArchetypes: ['Phlebotomists', 'Clinical Pathologists', 'Lab Technicians'],

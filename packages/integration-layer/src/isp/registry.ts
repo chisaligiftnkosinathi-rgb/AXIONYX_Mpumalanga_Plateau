@@ -193,8 +193,14 @@ export class BusinessEntityRegistry {
       registrationNumber: '2020/445566/08',
       seedEntityId: 'client_001', // Imbally
       complianceStandards: ['ISO_15189', 'WHO_GMP'],
+      certifyingSectors: ['BLOOD_STORAGE', 'CRYOGENIC_PRESERVATION'],
+      laborArchetypes: ['Cryogenic Specialists', 'Blood Bank Technicians'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
+      shippingLogic: {
+        engineId: 'blood_transit_logic',
+        enabled: true
+      },
       declaredAssets: ['Cryogenic Storage Unit A', 'Centrifuge Array'],
       serviceMethod: 'ISP_FIBER'
     });
@@ -480,11 +486,16 @@ export class BusinessEntityRegistry {
       role: 'VENDOR', // Medical Pathology Vendor
       legalName: 'Ampath Trust',
       registrationNumber: '1999/001234/09',
+      parentEntityId: 'client_blood_01', // Linked to the Blood Bank
       complianceStandards: ['ISO_15189'], // Medical laboratory standards
       certifyingSectors: ['CLINICAL_PATHOLOGY', 'BLOOD_SAMPLING', 'MOLECULAR_TESTING'],
       laborArchetypes: ['Phlebotomists', 'Clinical Pathologists', 'Lab Technicians'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
+      shippingLogic: {
+        engineId: 'blood_transit_logic',
+        enabled: true
+      },
       declaredAssets: ['Mpumalanga Regional Laboratory', 'Phlebotomy Fleet'],
       serviceMethod: 'ISP_FIBER'
     });
