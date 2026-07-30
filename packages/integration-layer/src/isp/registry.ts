@@ -439,6 +439,34 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
+    // 14.1 PJS
+    this.entities.set('vendor_pjs', {
+      entityId: 'vendor_pjs',
+      role: 'VENDOR',
+      legalName: 'PJS',
+      registrationNumber: 'PENDING',
+      complianceStandards: ['ISO_9001'],
+      isProtectedAsset: false,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['PJS Operations'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
+    // 14.2 Melokuhle Sampling Services
+    this.entities.set('lab_melokuhle', {
+      entityId: 'lab_melokuhle',
+      role: 'SUBSIDIARY',
+      legalName: 'Melokuhle Sampling Services',
+      registrationNumber: 'PENDING',
+      seedEntityId: 'client_001', // Under Imbally/SGS ecosystem
+      certifyingSectors: ['PULP_AND_PAPER_SAMPLING', 'PJS_OPERATIONS_SAMPLING'],
+      complianceStandards: ['ISO_17025'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Mobile Sampling Fleet', 'Pulp Testing Kits'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
     // 15. The Auto Body Spinoff (Birthed by Global IT)
     this.entities.set('vendor_panelbeater_01', {
       entityId: 'vendor_panelbeater_01',

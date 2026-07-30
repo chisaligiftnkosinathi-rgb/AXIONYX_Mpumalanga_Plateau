@@ -363,6 +363,33 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'vendor_pjs',
+    role: 'VENDOR',
+    legalName: 'PJS',
+    registrationNumber: 'PENDING',
+    complianceStandards: ['ISO_9001'],
+    isProtectedAsset: false,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['PJS Operations'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
+  },
+  {
+    entityId: 'lab_melokuhle',
+    role: 'SUBSIDIARY',
+    legalName: 'Melokuhle Sampling Services',
+    registrationNumber: 'PENDING',
+    seedEntityId: 'client_001',
+    seedName: 'Imbally',
+    complianceStandards: ['ISO_17025'],
+    certifyingSectors: ['PULP_AND_PAPER_SAMPLING', 'PJS_OPERATIONS_SAMPLING'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Mobile Sampling Fleet', 'Pulp Testing Kits'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'vendor_panelbeater_01',
     role: 'SUBSIDIARY',
     legalName: 'Global Auto Body & Panelbeaters',
