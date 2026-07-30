@@ -305,6 +305,21 @@ export class BusinessEntityRegistry {
       serviceMethod: 'NONE'
     });
 
+    // 11.5. The Root (Growth): iPhande
+    this.entities.set('node_iphande', {
+      entityId: 'node_iphande',
+      role: 'SOIL', // The spreading root system
+      legalName: 'iPhande (The Growth)',
+      registrationNumber: 'CONCEPTUAL',
+      soilEntityId: 'global_holdings_root',
+      seedEntityId: 'seed_walala_wasala',
+      complianceStandards: ['ROOT_SYSTEM'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['The Growth Network', 'Nutrient Distribution Logic'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
     // 12. The Plant: Eastvaal Motors (Grown from the Seed)
     const eastvaalFleet: PhysicalAsset[] = [
       { assetId: 'EVL 001 MP', assetType: 'VEHICLE', description: 'Heavy Vehicle Carrier', status: 'ACTIVE', telematics: ['GPS', 'LIVE_VIDEO', 'ASSET_TRACKING'] },

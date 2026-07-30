@@ -105,6 +105,21 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'node_iphande',
+    role: 'SOIL',
+    legalName: 'iPhande (The Growth)',
+    registrationNumber: 'CONCEPTUAL',
+    seedEntityId: 'seed_walala_wasala',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Walala Wasala Genesis',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ROOT_SYSTEM'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['The Growth Network', 'Nutrient Distribution Logic'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'client_002',
     role: 'CLIENT',
     legalName: 'Carolina Coal Processing',
