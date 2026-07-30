@@ -440,6 +440,7 @@ export class BusinessEntityRegistry {
       laborArchetypes: ['DBE Educators', 'Calibration Tutors', 'Local Carolina Youth'],
       isProtectedAsset: true,
       paymentRouting: 'NONE', 
+      transitRoutes: ['ISO_17025_STANDARD_LEARNING_ROUTE', 'CAPS_NATIONAL_CURRICULUM'],
       declaredAssets: [
         'Public Classrooms', 
         'Coal SLP Science Labs', 
