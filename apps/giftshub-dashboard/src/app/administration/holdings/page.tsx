@@ -63,7 +63,8 @@ const generateImballyFleet = () => {
     assetType: 'VEHICLE',
     description: 'Suzuki Ertiga',
     seedOriginId: 'vendor_eastvaal_motors',
-    status: 'ACTIVE'
+    status: 'ACTIVE',
+    telematics: ['GPS', 'DUAL_DASHCAM', 'LIVE_VIDEO', 'PANIC_BUTTON', 'PASSENGER_WIFI']
   }));
 };
 
@@ -73,14 +74,15 @@ const generateSGSFleet = () => {
     assetType: 'VEHICLE',
     description: 'Mobile Environmental Lab (Toyota Hilux)',
     seedOriginId: 'vendor_eastvaal_motors',
-    status: 'ACTIVE'
+    status: 'ACTIVE',
+    telematics: ['GPS', 'LIVE_VIDEO', 'COLD_CHAIN_MONITOR', 'SATELLITE_UPLINK']
   }));
 };
 
 const eastvaalFleet = [
-  { assetId: 'EVL 001 MP', assetType: 'VEHICLE', description: 'Heavy Vehicle Carrier', status: 'ACTIVE' },
-  { assetId: 'EVL 002 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE' },
-  { assetId: 'EVL 003 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE' }
+  { assetId: 'EVL 001 MP', assetType: 'VEHICLE', description: 'Heavy Vehicle Carrier', status: 'ACTIVE', telematics: ['GPS', 'LIVE_VIDEO', 'ASSET_TRACKING'] },
+  { assetId: 'EVL 002 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE', telematics: ['GPS'] },
+  { assetId: 'EVL 003 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE', telematics: ['GPS'] }
 ];
 
 const mockClients = [
@@ -598,19 +600,33 @@ export default function HoldingsPage() {
                                    </div>
                                  </div>
                                )}
-                               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-2">
-                                 {client.physicalAssets.map((asset: any) => (
-                                   <div key={asset.assetId} className="bg-slate-950 border border-slate-800 p-2 rounded flex flex-col gap-1 items-center justify-center text-center hover:border-slate-600 transition-colors">
-                                     <div className="text-[9px] text-slate-500 font-mono tracking-widest">{asset.assetId}</div>
-                                     <div className="text-[10px] font-medium text-slate-300">{asset.description}</div>
-                                     {asset.seedOriginId && (
-                                        <div className="text-[8px] bg-fuchsia-950/40 text-fuchsia-400 border border-fuchsia-900/50 px-1 rounded uppercase mt-1">
-                                          Seed: {client.seedName}
+                               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3">
+                                  {client.physicalAssets.map((asset: any) => (
+                                    <div key={asset.assetId} className="bg-slate-950 border border-slate-800 p-3 rounded flex flex-col gap-2 items-start justify-center hover:border-slate-600 transition-colors">
+                                      <div className="flex justify-between w-full items-center">
+                                        <div className="text-[10px] text-slate-400 font-mono tracking-widest">{asset.assetId}</div>
+                                        <div className={`w-2 h-2 rounded-full ${asset.status === 'ACTIVE' ? 'bg-emerald-500' : 'bg-red-500'}`}></div>
+                                      </div>
+                                      <div className="text-xs font-bold text-slate-200 leading-tight">{asset.description}</div>
+                                      
+                                      {asset.telematics && asset.telematics.length > 0 && (
+                                        <div className="flex flex-wrap gap-1 mt-1">
+                                          {asset.telematics.map((feat: string, i: number) => (
+                                            <span key={i} className="text-[8px] bg-slate-800 text-slate-300 px-1 py-0.5 rounded border border-slate-700">
+                                              {feat.replace(/_/g, ' ')}
+                                            </span>
+                                          ))}
                                         </div>
-                                     )}
-                                   </div>
-                                 ))}
-                               </div>
+                                      )}
+
+                                      {asset.seedOriginId && (
+                                         <div className="text-[8px] bg-fuchsia-950/40 text-fuchsia-400 border border-fuchsia-900/50 px-1.5 py-0.5 rounded uppercase mt-auto w-full text-center">
+                                           Seed: {client.seedName || client.seedEntityId}
+                                         </div>
+                                      )}
+                                    </div>
+                                  ))}
+                                </div>
                              </td>
                            </tr>
                          )}

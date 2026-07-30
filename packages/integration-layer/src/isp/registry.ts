@@ -4,6 +4,7 @@ export interface PhysicalAsset {
   description: string;
   seedOriginId?: string;
   status: 'ACTIVE' | 'IN_MAINTENANCE' | 'FLAGGED';
+  telematics?: string[]; // E.g., 'GPS', 'DUAL_DASHCAM', 'LIVE_VIDEO', 'PANIC_BUTTON'
 }
 
 export interface BusinessEntity {
@@ -248,9 +249,9 @@ export class BusinessEntityRegistry {
 
     // 12. The Plant: Eastvaal Motors (Grown from the Seed)
     const eastvaalFleet: PhysicalAsset[] = [
-      { assetId: 'EVL 001 MP', assetType: 'VEHICLE', description: 'Heavy Vehicle Carrier', status: 'ACTIVE' },
-      { assetId: 'EVL 002 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE' },
-      { assetId: 'EVL 003 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE' }
+      { assetId: 'EVL 001 MP', assetType: 'VEHICLE', description: 'Heavy Vehicle Carrier', status: 'ACTIVE', telematics: ['GPS', 'LIVE_VIDEO', 'ASSET_TRACKING'] },
+      { assetId: 'EVL 002 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE', telematics: ['GPS'] },
+      { assetId: 'EVL 003 MP', assetType: 'VEHICLE', description: 'Dealership Demo (Ertiga)', status: 'ACTIVE', telematics: ['GPS'] }
     ];
 
     this.entities.set('vendor_eastvaal_motors', {
@@ -275,7 +276,8 @@ export class BusinessEntityRegistry {
       assetType: 'VEHICLE',
       description: 'Suzuki Ertiga',
       seedOriginId: 'vendor_eastvaal_motors',
-      status: 'ACTIVE'
+      status: 'ACTIVE',
+      telematics: ['GPS', 'DUAL_DASHCAM', 'LIVE_VIDEO', 'PANIC_BUTTON', 'PASSENGER_WIFI']
     }));
 
     this.entities.set('client_001', {
@@ -330,7 +332,8 @@ export class BusinessEntityRegistry {
       assetType: 'VEHICLE',
       description: 'Mobile Environmental Lab (Toyota Hilux)',
       seedOriginId: 'vendor_eastvaal_motors', // Birthed from the same automotive plant
-      status: 'ACTIVE'
+      status: 'ACTIVE',
+      telematics: ['GPS', 'LIVE_VIDEO', 'COLD_CHAIN_MONITOR', 'SATELLITE_UPLINK']
     }));
 
     this.entities.set('lab_sgs', {
