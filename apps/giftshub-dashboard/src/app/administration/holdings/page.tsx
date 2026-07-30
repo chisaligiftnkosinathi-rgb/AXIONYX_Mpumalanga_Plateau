@@ -233,6 +233,25 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'client_pgm_mining_01',
+    role: 'CLIENT',
+    legalName: 'Bushveld Complex PGM Smelters',
+    registrationNumber: '2010/PGM/05',
+    seedEntityId: 'global_holdings_root',
+    soilEntityId: 'global_holdings_root',
+    seedName: 'Global IT',
+    serviceMethod: 'ISP_FIBER',
+    complianceStandards: ['ISO_9001', 'ISP_GROWTH_INSURANCE', 'MELOKUHLE_SAMPLING_STANDARD'],
+    certifyingSectors: ['MINING', 'PRECIOUS_METALS'],
+    laborArchetypes: ['Underground Miners', 'Smelter Operators', 'Tactical Security Teams'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    transitRoutes: ['N4_TOLL_ROUTE (Secure Convoy)', 'DOMESTIC_AIR_CORRIDOR (High Value Cargo)'],
+    errorSpaceRedundancies: ['Armored Convoy Escorts', 'Satellite Tracking (Dual Band)', 'Geofenced Route Locks'],
+    declaredAssets: ['Platinum Smelter A', 'Armored Transport Fleet'],
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'node_digital_homeschool',
     role: 'INCUBATOR',
     legalName: 'Digital Homeschooling & Publishing Network',
