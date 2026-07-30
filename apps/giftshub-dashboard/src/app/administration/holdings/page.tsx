@@ -296,6 +296,7 @@ const mockClients = [
       minimumWageCompliant: true,
       bceaRegulated: true
     },
+    certifyingSectors: [],
     serviceMethod: 'ISP_FIBER',
     status: 'ACTIVE'
   },
@@ -321,6 +322,7 @@ const mockClients = [
     seedEntityId: 'client_001',
     seedName: 'Imbally',
     complianceStandards: ['ISO_17025', 'ISO_9001'],
+    certifyingSectors: ['AGRICULTURE_SOIL_TESTING', 'PULP_AND_PAPER_INSPECTION', 'SHIPPING_LOGISTICS', 'MINING_ANALYSIS'],
     isProtectedAsset: true,
     paymentRouting: 'ROUTE_TO_MOTHER',
     declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
@@ -611,6 +613,23 @@ export default function HoldingsPage() {
                                   ))}
                                 </div>
                              )}
+                             
+                             {client.certifyingSectors && (
+                                <div className="mb-3 p-2 bg-indigo-950/30 border border-indigo-900/40 rounded-lg">
+                                  <div className="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-1.5 flex items-center gap-1">
+                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Testing & Certification Sectors
+                                  </div>
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {client.certifyingSectors.map((sector: string) => (
+                                      <span key={sector} className="px-2 py-0.5 bg-indigo-950/60 text-indigo-300 border border-indigo-800/50 rounded-md text-[9px] uppercase tracking-wider font-medium">
+                                        {sector.replace(/_/g, ' ')}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+
                              <div className="text-xs text-slate-300 font-bold mb-1">Assets:</div>
                              <div className="flex flex-col gap-2">
                                <span className="bg-slate-950 border border-slate-700 text-slate-300 px-2 py-1 rounded text-xs w-fit">

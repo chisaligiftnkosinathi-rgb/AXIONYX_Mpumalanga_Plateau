@@ -43,6 +43,7 @@ export interface BusinessEntity {
     minimumWageCompliant: boolean;
     bceaRegulated: boolean;
   };
+  certifyingSectors?: string[]; // e.g. AGRICULTURE, PULP_AND_PAPER, SHIPPING_LOGISTICS
   serviceMethod: 'ISP_FIBER' | 'ISP_5G_ROUTER' | 'ISP_WIRELESS' | 'ISP_LTE' | 'NONE';
   contactDetails?: {
     clientCare: string;
@@ -399,6 +400,7 @@ export class BusinessEntityRegistry {
       registrationNumber: '1949/032643/07',
       seedEntityId: 'client_001', // Imbally
       complianceStandards: ['ISO_17025', 'ISO_9001'],
+      certifyingSectors: ['AGRICULTURE_SOIL_TESTING', 'PULP_AND_PAPER_INSPECTION', 'SHIPPING_LOGISTICS', 'MINING_ANALYSIS'],
       isProtectedAsset: true,
       paymentRouting: 'ROUTE_TO_MOTHER',
       declaredAssets: ['Mpumalanga Testing Facility', 'Environmental Sampling Fleet'],
