@@ -390,6 +390,19 @@ const mockClients = [
     status: 'ACTIVE'
   },
   {
+    entityId: 'lab_ampath',
+    role: 'VENDOR',
+    legalName: 'Ampath Trust',
+    registrationNumber: '1999/001234/09',
+    complianceStandards: ['ISO_15189'],
+    certifyingSectors: ['CLINICAL_PATHOLOGY', 'BLOOD_SAMPLING', 'MOLECULAR_TESTING'],
+    isProtectedAsset: true,
+    paymentRouting: 'ROUTE_TO_MOTHER',
+    declaredAssets: ['Mpumalanga Regional Laboratory', 'Phlebotomy Fleet'],
+    serviceMethod: 'ISP_FIBER',
+    status: 'ACTIVE'
+  },
+  {
     entityId: 'vendor_panelbeater_01',
     role: 'SUBSIDIARY',
     legalName: 'Global Auto Body & Panelbeaters',

@@ -467,6 +467,20 @@ export class BusinessEntityRegistry {
       serviceMethod: 'ISP_FIBER'
     });
 
+    // 14.3 Ampath (Blood Sampling & Pathology)
+    this.entities.set('lab_ampath', {
+      entityId: 'lab_ampath',
+      role: 'VENDOR', // Medical Pathology Vendor
+      legalName: 'Ampath Trust',
+      registrationNumber: '1999/001234/09',
+      complianceStandards: ['ISO_15189'], // Medical laboratory standards
+      certifyingSectors: ['CLINICAL_PATHOLOGY', 'BLOOD_SAMPLING', 'MOLECULAR_TESTING'],
+      isProtectedAsset: true,
+      paymentRouting: 'ROUTE_TO_MOTHER',
+      declaredAssets: ['Mpumalanga Regional Laboratory', 'Phlebotomy Fleet'],
+      serviceMethod: 'ISP_FIBER'
+    });
+
     // 15. The Auto Body Spinoff (Birthed by Global IT)
     this.entities.set('vendor_panelbeater_01', {
       entityId: 'vendor_panelbeater_01',
