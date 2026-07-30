@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://axionyx.imbally.com/schemas/business-entity-v1.json",
+  "title": "Business Entity Profile",
+  "description": "A universal schema for representing commercial business entities (providers, clients, vendors) and their billing/banking details within AXIONYX.",
+  "type": "object",
+  "properties": {
+    "entityId": {
+      "type": "string",
+      "description": "Unique UUID for the business entity"
+    },
+    "role": {
+      "type": "string",
+      "enum": ["PROVIDER", "CLIENT", "VENDOR", "PARTNER"],
+      "description": "The operational role of the business within AXIONYX"
+    },
+    "legalName": {
+      "type": "string",
+      "description": "Registered legal entity name"
+    },
+    "registrationNumber": {
+      "type": "string",
+      "description": "Company registration number (e.g., CIPC format 2021/999569/07)"
+    },
+    "serviceMethod": {
+      "type": "string",
+      "enum": ["ISP_5G_ROUTER", "ISP_FIBER", "ISP_WIRELESS", "ISP_LTE", "NONE"],
+      "description": "The primary service provisioning method (used for Clients)"
+    },
+    "bankingDetails": {
+      "type": "object",
+      "properties": {
+        "bankName": { "type": "string" },
+        "branchName": { "type": "string" },
+        "branchCode": { "type": "string" },
+        "accountName": { "type": "string" },
+        "accountNumber": { "type": "string" },
+        "swiftAddress": { "type": "string" }
+      },
+      "required": ["bankName", "branchCode", "accountNumber"]
+    }
+  },
+  "required": ["entityId", "role", "legalName", "registrationNumber"]
+}
