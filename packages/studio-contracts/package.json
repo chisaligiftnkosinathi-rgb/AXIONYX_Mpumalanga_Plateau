@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/studio-contracts",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for studio-contracts",
+  "main": "src/index.ts"
+}

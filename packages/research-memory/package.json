@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/research-memory",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for research-memory",
+  "main": "src/index.ts"
+}

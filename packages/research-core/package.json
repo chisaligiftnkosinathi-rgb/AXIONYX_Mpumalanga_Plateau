@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/research-core",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for research-core",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/giftshub-dispatcher",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for giftshub-dispatcher",
+  "main": "src/index.ts"
+}

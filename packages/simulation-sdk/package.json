@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/simulation-sdk",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for simulation-sdk",
+  "main": "src/index.ts"
+}

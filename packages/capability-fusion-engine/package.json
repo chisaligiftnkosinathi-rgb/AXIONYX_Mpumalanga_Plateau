@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/capability-fusion-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for capability-fusion-engine",
+  "main": "src/index.ts"
+}

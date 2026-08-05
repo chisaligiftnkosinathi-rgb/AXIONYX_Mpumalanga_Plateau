@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/ai-memory",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for ai-memory",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/assessment",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for assessment",
+  "main": "src/index.ts"
+}

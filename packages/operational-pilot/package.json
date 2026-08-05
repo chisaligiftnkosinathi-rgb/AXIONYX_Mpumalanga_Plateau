@@ -2,7 +2,7 @@
   "name": "@axionyx/operational-pilot",
   "version": "1.0.0",
   "dependencies": {
-    "@axionyx/observability": "*"
+    "@axionyx/observability": "workspace:*"
   },
   "devDependencies": {
     "vitest": "^0.34.0"

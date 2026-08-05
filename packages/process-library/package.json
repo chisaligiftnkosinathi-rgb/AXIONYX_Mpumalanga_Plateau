@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/process-library",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for process-library",
+  "main": "src/index.ts"
+}

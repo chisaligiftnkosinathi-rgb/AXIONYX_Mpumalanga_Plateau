@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/impact-accounting-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for impact-accounting-engine",
+  "main": "src/index.ts"
+}

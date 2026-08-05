@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-gateway",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-gateway",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/cloud-runtime",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for cloud-runtime",
+  "main": "src/index.ts"
+}

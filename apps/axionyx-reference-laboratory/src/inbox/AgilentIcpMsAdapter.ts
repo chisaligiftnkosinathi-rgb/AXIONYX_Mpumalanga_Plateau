@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { IEventBus } from '@axionyx/event-bus';
+import * as crypto from 'crypto';
 
 export interface AgilentIcpMsRow {
   sampleId: string;
@@ -36,11 +37,12 @@ export class AgilentIcpMsAdapter {
 
         // Forward valid observations to the Reality Inbox
         this.eventBus.publish({
-          type: 'PhysicalObservationAcquired',
+          eventId: crypto.randomUUID(),
+          eventType: 'PhysicalObservationAcquired',
           aggregateId: sampleId,
           payload: observation,
-          timestamp: new Date()
-        });
+          emittedAt: new Date()
+        } as any);
       }
     } catch (e) {
       console.error(`[Adapter] Failed to parse CSV: ${filePath}`);

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/quantum-market-evidence-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for quantum-market-evidence-engine",
+  "main": "src/index.ts"
+}

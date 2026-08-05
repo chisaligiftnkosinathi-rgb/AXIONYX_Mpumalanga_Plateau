@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/economic-crystal-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for economic-crystal-engine",
+  "main": "src/index.ts"
+}

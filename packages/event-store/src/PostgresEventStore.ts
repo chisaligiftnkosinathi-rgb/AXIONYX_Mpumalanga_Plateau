@@ -9,11 +9,10 @@ export class PostgresEventStore implements IEventStore {
 
   async append(event: DomainEvent): Promise<void> {
     await this.db.insert(eventStore).values({
-      type: event.type,
+      type: event.eventType,
       aggregateId: event.aggregateId,
       payload: event.payload as any,
-      metadata: event.metadata as any,
-      timestamp: event.timestamp
+      timestamp: event.emittedAt
     });
   }
 
@@ -25,12 +24,11 @@ export class PostgresEventStore implements IEventStore {
       .orderBy(asc(eventStore.timestamp));
 
     return records.map(r => ({
-      id: r.id,
-      type: r.type,
+      eventId: r.id,
+      eventType: r.type,
       aggregateId: r.aggregateId,
       payload: r.payload,
-      metadata: r.metadata,
-      timestamp: r.timestamp
+      emittedAt: r.timestamp
     })) as DomainEvent[];
   }
 
@@ -43,12 +41,11 @@ export class PostgresEventStore implements IEventStore {
       
     for (const record of records) {
       await handler({
-        id: record.id,
-        type: record.type,
+        eventId: record.id,
+        eventType: record.type,
         aggregateId: record.aggregateId,
         payload: record.payload,
-        metadata: record.metadata,
-        timestamp: record.timestamp
+        emittedAt: record.timestamp
       } as DomainEvent);
     }
   }

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/observation-layer",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for observation-layer",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/challenge-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for challenge-engine",
+  "main": "src/index.ts"
+}

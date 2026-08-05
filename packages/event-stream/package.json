@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/event-stream",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for event-stream",
+  "main": "src/index.ts"
+}

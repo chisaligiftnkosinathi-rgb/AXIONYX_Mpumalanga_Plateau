@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/reference-worlds",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for reference-worlds",
+  "main": "src/index.ts"
+}

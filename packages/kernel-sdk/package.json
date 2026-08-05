@@ -1,0 +1,13 @@
+{
+  "name": "@axionyx/kernel-sdk",
+  "version": "1.0.0",
+  "description": "AXIONYX Kernel SDK - Official Computational Language and Primitives",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

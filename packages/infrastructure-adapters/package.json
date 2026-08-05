@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/infrastructure-adapters",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for infrastructure-adapters",
+  "main": "src/index.ts"
+}

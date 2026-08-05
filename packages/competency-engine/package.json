@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/competency-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for competency-engine",
+  "main": "src/index.ts"
+}

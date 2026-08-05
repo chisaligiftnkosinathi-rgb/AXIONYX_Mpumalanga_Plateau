@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "dependencies": {
+    "mqtt": "^5.15.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

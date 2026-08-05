@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/sensor-library",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for sensor-library",
+  "main": "src/index.ts"
+}

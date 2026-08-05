@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/capability-operating-network",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for capability-operating-network",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-research-environment",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-research-environment",
+  "main": "src/index.ts"
+}

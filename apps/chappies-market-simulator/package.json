@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/chappies-market-simulator",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for chappies-market-simulator",
+  "main": "src/index.ts"
+}

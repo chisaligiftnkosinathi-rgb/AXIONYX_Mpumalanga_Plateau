@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/security-knowledge-graph",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for security-knowledge-graph",
+  "main": "src/index.ts"
+}

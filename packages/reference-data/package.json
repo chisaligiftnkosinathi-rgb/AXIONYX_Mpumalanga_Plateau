@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/reference-data",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for reference-data",
+  "main": "src/index.ts"
+}

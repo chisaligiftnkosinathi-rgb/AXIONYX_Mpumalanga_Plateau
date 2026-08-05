@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/pilot-deployment-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for pilot-deployment-engine",
+  "main": "src/index.ts"
+}

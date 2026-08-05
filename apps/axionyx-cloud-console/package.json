@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-cloud-console",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-cloud-console",
+  "main": "src/index.ts"
+}

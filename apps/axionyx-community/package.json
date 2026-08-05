@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-community",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-community",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/knowledge-governance-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for knowledge-governance-engine",
+  "main": "src/index.ts"
+}

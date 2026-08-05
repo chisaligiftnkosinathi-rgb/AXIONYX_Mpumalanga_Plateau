@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/knowledge",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for knowledge",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,28 @@
+# Gate 3.3 - Messaging (MQTT)
+
+## Objective
+Validate MQTT configuration parsing, network connectivity, and graceful degradation capability.
+
+## Evidence 1 & 2: Configuration Source and Effective Value
+- **Source of truth:** `apps/axionyx-reference-laboratory/docker-compose.yml`
+- **Configured Environment:**
+  - Mosquitto bound to port 1883
+- **Effective MQTT_URL:** `mqtt://localhost:1883`
+- Loaded via `dotenv` in `apps/axionyx-reference-laboratory/.env`.
+
+## Command executed
+```bash
+npx tsx src/index.ts
+```
+
+## Result
+**Kernel behavior: PASS**
+**Infrastructure integration: NOT VERIFIED**
+- MQTT connection timed out (due to docker-compose failing to pull the `eclipse-mosquitto:2` image).
+- The KernelRuntime gracefully caught the timeout, logged `✗ MQTT connection failed`, and fell back to `InMemoryEventBus`.
+
+## Analysis
+The Kernel's explicit `initialize()` model proved its value here. By isolating side effects from the constructor, the application was able to absorb the absence of infrastructure, degrade gracefully to memory-backed adapters, and continue the boot sequence.
+
+## Next gate
+Gate 3.4 - HTTP (Fastify) Health Check.

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/units-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for units-engine",
+  "main": "src/index.ts"
+}

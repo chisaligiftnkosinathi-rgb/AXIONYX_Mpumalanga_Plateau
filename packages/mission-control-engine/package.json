@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/mission-control-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for mission-control-engine",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/security",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for security",
+  "main": "src/index.ts"
+}

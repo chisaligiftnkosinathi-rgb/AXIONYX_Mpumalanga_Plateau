@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/knowledge-economy-core",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for knowledge-economy-core",
+  "main": "src/index.ts"
+}

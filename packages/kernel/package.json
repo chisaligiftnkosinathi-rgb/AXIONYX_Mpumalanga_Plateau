@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/kernel",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for kernel",
+  "main": "src/index.ts"
+}

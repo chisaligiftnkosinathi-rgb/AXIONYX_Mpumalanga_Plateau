@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/global-demand-simulator",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for global-demand-simulator",
+  "main": "src/index.ts"
+}

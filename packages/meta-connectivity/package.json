@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/meta-connectivity",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for meta-connectivity",
+  "main": "src/index.ts"
+}

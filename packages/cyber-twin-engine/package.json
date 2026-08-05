@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/cyber-twin-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for cyber-twin-engine",
+  "main": "src/index.ts"
+}

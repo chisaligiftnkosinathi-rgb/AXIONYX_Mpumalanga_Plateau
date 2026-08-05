@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/shipment-intelligence",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for shipment-intelligence",
+  "main": "src/index.ts"
+}

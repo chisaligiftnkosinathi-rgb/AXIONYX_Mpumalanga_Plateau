@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/database",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for database",
+  "main": "src/index.ts"
+}

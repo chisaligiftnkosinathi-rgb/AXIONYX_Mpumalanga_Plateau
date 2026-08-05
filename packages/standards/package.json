@@ -1,0 +1,9 @@
+{
+  "name": "@axionyx/standards",
+  "version": "1.0.0",
+  "description": "AXIONYX Global Standards Repository",
+  "main": "iso17025/src/index.ts",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

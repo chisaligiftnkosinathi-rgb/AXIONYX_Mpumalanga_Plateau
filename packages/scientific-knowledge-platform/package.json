@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/scientific-knowledge-platform",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for scientific-knowledge-platform",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-certification",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-certification",
+  "main": "src/index.ts"
+}

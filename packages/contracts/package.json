@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/contracts",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for contracts",
+  "main": "src/index.ts"
+}

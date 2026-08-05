@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/connectors",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for connectors",
+  "main": "src/index.ts"
+}

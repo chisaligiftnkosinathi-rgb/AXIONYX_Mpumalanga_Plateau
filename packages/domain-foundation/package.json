@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/domain-foundation",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for domain-foundation",
+  "main": "src/index.ts"
+}

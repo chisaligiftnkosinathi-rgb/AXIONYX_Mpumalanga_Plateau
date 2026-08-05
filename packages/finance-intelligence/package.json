@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/finance-intelligence",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for finance-intelligence",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/academy",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for academy",
+  "main": "src/index.ts"
+}

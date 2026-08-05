@@ -14,3 +14,4 @@ export interface IEventBus {
 }
 
 export * from './providers/InMemoryEventBus';
+export * from './providers/MqttEventBus';

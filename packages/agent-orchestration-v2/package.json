@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/agent-orchestration-v2",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for agent-orchestration-v2",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/tooling-sdk",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for tooling-sdk",
+  "main": "src/index.ts"
+}

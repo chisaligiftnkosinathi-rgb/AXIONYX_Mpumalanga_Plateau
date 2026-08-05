@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/enterprise-agent-gateway",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for enterprise-agent-gateway",
+  "main": "src/index.ts"
+}

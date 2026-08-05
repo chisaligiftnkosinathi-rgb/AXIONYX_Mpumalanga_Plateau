@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/portfolio",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for portfolio",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/ui",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for ui",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/universal-failure-library",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for universal-failure-library",
+  "main": "src/index.ts"
+}

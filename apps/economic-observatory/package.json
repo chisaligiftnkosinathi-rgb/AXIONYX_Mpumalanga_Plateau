@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/economic-observatory",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for economic-observatory",
+  "main": "src/index.ts"
+}

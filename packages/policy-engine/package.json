@@ -1,0 +1,9 @@
+{
+  "name": "@axionyx/policy-engine",
+  "version": "1.0.0",
+  "description": "AXIONYX Kernel Policy Engine",
+  "main": "src/index.ts",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

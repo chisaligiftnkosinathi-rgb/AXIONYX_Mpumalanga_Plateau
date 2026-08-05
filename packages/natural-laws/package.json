@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/natural-laws",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for natural-laws",
+  "main": "src/index.ts"
+}

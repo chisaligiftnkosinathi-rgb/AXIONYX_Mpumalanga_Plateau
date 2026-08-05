@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/enterprise-adapters",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for enterprise-adapters",
+  "main": "src/index.ts"
+}

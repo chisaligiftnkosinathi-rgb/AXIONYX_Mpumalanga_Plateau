@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/payment-intelligence",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for payment-intelligence",
+  "main": "src/index.ts"
+}

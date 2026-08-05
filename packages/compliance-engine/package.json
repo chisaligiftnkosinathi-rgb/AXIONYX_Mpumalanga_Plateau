@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/compliance-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for compliance-engine",
+  "main": "src/index.ts"
+}

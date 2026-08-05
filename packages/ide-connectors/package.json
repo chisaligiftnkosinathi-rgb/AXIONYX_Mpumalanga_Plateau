@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/ide-connectors",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for ide-connectors",
+  "main": "src/index.ts"
+}

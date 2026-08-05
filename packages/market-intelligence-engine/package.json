@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/market-intelligence-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for market-intelligence-engine",
+  "main": "src/index.ts"
+}

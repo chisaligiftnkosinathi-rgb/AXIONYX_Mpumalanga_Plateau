@@ -1,0 +1,14 @@
+{
+  "id": "obs-123",
+  "source": "icpms-1",
+  "observedAt": "2026-08-04T12:00:00Z",
+  "payload": {
+    "instrument": "ICPMS-Alpha",
+    "sampleId": "LAB-001",
+    "analyte": "Lead",
+    "value": 0.15,
+    "unit": "mg/L",
+    "operator": "Alice",
+    "timestamp": "2026-08-04T12:00:00Z"
+  }
+}

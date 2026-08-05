@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/studio-runtime",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for studio-runtime",
+  "main": "src/index.ts"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/iot-intelligence",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for iot-intelligence",
+  "main": "src/index.ts"
+}

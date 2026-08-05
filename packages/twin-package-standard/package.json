@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/twin-package-standard",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for twin-package-standard",
+  "main": "src/index.ts"
+}

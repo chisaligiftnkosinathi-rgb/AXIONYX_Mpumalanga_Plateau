@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/continental-atlas-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for continental-atlas-engine",
+  "main": "src/index.ts"
+}

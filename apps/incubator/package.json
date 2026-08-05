@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/incubator",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for incubator",
+  "main": "src/index.ts"
+}

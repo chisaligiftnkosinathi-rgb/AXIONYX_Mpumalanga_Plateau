@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/industrial-emergence-simulator",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for industrial-emergence-simulator",
+  "main": "src/index.ts"
+}

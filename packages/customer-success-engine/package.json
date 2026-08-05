@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/customer-success-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for customer-success-engine",
+  "main": "src/index.ts"
+}

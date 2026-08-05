@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/pack-statssa",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for pack-statssa",
+  "main": "src/index.ts"
+}

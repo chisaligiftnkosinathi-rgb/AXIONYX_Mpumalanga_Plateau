@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/instrumentation-intelligence",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for instrumentation-intelligence",
+  "main": "src/index.ts"
+}

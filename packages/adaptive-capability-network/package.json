@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/adaptive-capability-network",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for adaptive-capability-network",
+  "main": "src/index.ts"
+}

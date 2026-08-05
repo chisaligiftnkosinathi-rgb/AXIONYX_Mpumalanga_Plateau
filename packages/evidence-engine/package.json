@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/evidence-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for evidence-engine",
+  "main": "src/index.ts"
+}

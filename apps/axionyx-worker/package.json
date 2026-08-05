@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-worker",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-worker",
+  "main": "src/index.ts"
+}

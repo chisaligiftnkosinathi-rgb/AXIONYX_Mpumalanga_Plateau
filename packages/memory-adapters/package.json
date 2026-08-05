@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/memory-adapters",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for memory-adapters",
+  "main": "src/index.ts"
+}

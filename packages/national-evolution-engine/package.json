@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/national-evolution-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for national-evolution-engine",
+  "main": "src/index.ts"
+}

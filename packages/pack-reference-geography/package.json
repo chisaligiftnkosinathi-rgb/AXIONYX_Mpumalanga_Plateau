@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/pack-reference-geography",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for pack-reference-geography",
+  "main": "src/index.ts"
+}

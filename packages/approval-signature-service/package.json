@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/approval-signature-service",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for approval-signature-service",
+  "main": "src/index.ts"
+}

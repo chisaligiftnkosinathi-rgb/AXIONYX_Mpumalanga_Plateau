@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/institutional-bridge-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for institutional-bridge-engine",
+  "main": "src/index.ts"
+}

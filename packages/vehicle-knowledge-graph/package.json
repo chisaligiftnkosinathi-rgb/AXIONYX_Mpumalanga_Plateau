@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/vehicle-knowledge-graph",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for vehicle-knowledge-graph",
+  "main": "src/index.ts"
+}

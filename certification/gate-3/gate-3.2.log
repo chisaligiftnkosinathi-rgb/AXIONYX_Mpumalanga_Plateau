@@ -1,0 +1,37 @@
+# Gate 3.2 - Infrastructure (PostgreSQL)
+
+## Objective
+Validate PostgreSQL configuration parsing, construction of the `DATABASE_URL`, and successful network connectivity.
+
+## Evidence 1 & 2: Configuration Source and Effective Value
+- **Source of truth:** `apps/axionyx-reference-laboratory/docker-compose.yml`
+- **Configured Environment:**
+  - POSTGRES_USER=axionyx
+  - POSTGRES_PASSWORD=axionyx_pilot
+  - POSTGRES_DB=axionyx_ref_lab
+- **Effective DATABASE_URL:** `postgresql://axionyx:********@localhost:5432/axionyx_ref_lab`
+- Loaded via `dotenv` in `apps/axionyx-reference-laboratory/.env`.
+
+## Command executed
+```bash
+npx pnpm --filter @axionyx/reference-laboratory dev
+```
+
+## Exit code
+1 (Application threw FATAL exception)
+
+## Duration
+~ 3 seconds
+
+## Result
+**FAIL** - `password authentication failed for user "axionyx"`
+
+## Analysis
+The composition root successfully parsed the configuration and initiated the pool. However, attempting to establish the connection failed at the credential level. 
+
+Further inspection revealed:
+1. The `docker-compose.yml` failed to start (`docker-compose up -d`) due to Docker Hub registry pull timeouts (`Client.Timeout exceeded while awaiting headers`).
+2. There is a native `postgres.exe` running on port 5432 locally, which rejected the credentials (it lacks the `axionyx` user).
+
+## Next gate
+Cannot proceed to Gate 3.3 until Database Connectivity (Gate 3.2) is fully resolved.

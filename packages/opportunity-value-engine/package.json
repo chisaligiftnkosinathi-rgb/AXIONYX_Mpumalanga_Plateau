@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/opportunity-value-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for opportunity-value-engine",
+  "main": "src/index.ts"
+}

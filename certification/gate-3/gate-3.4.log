@@ -1,0 +1,61 @@
+# Gate 3.4 - HTTP (Fastify)
+
+## Objective
+Validate that the application successfully starts an HTTP server and binds to a port, exposing healthy interfaces to verify runtime state.
+
+## Command executed
+```bash
+npx pnpm --filter @axionyx/reference-laboratory dev
+```
+(Using `PROFILE=runtime` to proceed past kernel initialization into server binding.)
+
+## Result
+**PASS**
+- The Fastify server started and bound successfully to `http://127.0.0.1:3000`.
+- Endpoints returned successful responses indicating kernel state.
+
+## Evidence
+
+### `/health`
+```json
+{
+  "status": "healthy",
+  "kernel": "ready",
+  "eventBus": "memory",
+  "eventStore": "postgres",
+  "policyEngine": "ready",
+  "workflow": "ready",
+  "timestamp": "2026-08-04T11:22:43.381Z"
+}
+```
+
+### `/ready`
+```json
+{
+  "status": "ready",
+  "kernel": "ready",
+  "eventBus": "memory",
+  "eventStore": "postgres",
+  "policyEngine": "ready",
+  "workflow": "ready"
+}
+```
+
+### `/runtime/about`
+```json
+{
+  "kernelVersion": "1.0.0",
+  "specification": "1.0.0",
+  "certificationLevel": "Gate 3.4",
+  "profile": "runtime",
+  "providers": {
+    "eventBus": "memory",
+    "eventStore": "postgres",
+    "workflow": "default",
+    "policyEngine": "iso17025"
+  }
+}
+```
+
+## Next gate
+Gate 3.5 - Pipeline Validation (end-to-end ingestion to evidence).

@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/conversion-learning-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for conversion-learning-engine",
+  "main": "src/index.ts"
+}

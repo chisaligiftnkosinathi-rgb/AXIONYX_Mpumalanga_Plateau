@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/identity",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for identity",
+  "main": "src/index.ts"
+}

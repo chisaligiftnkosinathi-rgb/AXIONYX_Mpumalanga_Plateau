@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/value-assurance-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for value-assurance-engine",
+  "main": "src/index.ts"
+}

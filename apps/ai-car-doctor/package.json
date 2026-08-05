@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/ai-car-doctor",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for ai-car-doctor",
+  "main": "src/index.ts"
+}

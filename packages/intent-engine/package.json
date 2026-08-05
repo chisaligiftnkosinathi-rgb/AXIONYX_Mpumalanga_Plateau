@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/intent-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for intent-engine",
+  "main": "src/index.ts"
+}

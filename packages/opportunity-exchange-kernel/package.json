@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/opportunity-exchange-kernel",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for opportunity-exchange-kernel",
+  "main": "src/index.ts"
+}

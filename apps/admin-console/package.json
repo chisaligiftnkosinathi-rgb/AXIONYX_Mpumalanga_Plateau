@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/admin-console",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for admin-console",
+  "main": "src/index.ts"
+}

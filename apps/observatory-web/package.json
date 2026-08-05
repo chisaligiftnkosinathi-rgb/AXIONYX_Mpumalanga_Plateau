@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/observatory-web",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for observatory-web",
+  "main": "src/index.ts"
+}

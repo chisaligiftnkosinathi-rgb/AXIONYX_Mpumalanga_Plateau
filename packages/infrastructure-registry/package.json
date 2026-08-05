@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/infrastructure-registry",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for infrastructure-registry",
+  "main": "src/index.ts"
+}

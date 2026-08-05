@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/industrial-core",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for industrial-core",
+  "main": "src/index.ts"
+}

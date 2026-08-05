@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/curiosity-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for curiosity-engine",
+  "main": "src/index.ts"
+}

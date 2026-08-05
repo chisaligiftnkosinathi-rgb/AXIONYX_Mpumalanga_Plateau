@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/meta-ads-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for meta-ads-engine",
+  "main": "src/index.ts"
+}

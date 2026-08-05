@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/publishing-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for publishing-engine",
+  "main": "src/index.ts"
+}

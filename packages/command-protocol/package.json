@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/command-protocol",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for command-protocol",
+  "main": "src/index.ts"
+}

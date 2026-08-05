@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/simulations",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for simulations",
+  "main": "src/index.ts"
+}

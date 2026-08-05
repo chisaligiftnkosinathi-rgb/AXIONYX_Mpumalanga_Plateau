@@ -1,4 +1,5 @@
 import { IEventBus } from '@axionyx/event-bus';
+import * as crypto from 'crypto';
 import { PolicyEngine } from '@axionyx/policy-engine/src/PolicyEngine';
 
 export class LaboratoryWorkflow {
@@ -6,7 +7,7 @@ export class LaboratoryWorkflow {
     this.eventBus.subscribe('MeasurementCaptured', this.onMeasurementCaptured.bind(this));
   }
 
-  private onMeasurementCaptured(event: any): void {
+  private async onMeasurementCaptured(event: any): Promise<void> {
     const { aggregateId, payload } = event;
     
     // Evaluate against ISO 17025 Policies
@@ -19,29 +20,32 @@ export class LaboratoryWorkflow {
       result.actions.forEach(actionReq => {
         if (actionReq.action === 'PAUSE_WORKFLOW') {
           this.eventBus.publish({
-            type: 'WorkflowPaused',
+            eventId: crypto.randomUUID(),
+            eventType: 'WorkflowPaused',
             aggregateId,
             payload: { reason: 'Policy Violation', rule: result.ruleEvaluated },
-            timestamp: new Date()
-          });
+            emittedAt: new Date()
+          } as any);
         }
         if (actionReq.action === 'GENERATE_EVIDENCE') {
           this.eventBus.publish({
-            type: 'EvidenceGenerated',
+            eventId: crypto.randomUUID(),
+            eventType: 'EvidenceGenerated',
             aggregateId,
             payload: actionReq.payload,
-            timestamp: new Date()
-          });
+            emittedAt: new Date()
+          } as any);
         }
       });
     } else {
       // Approve and Archive
       this.eventBus.publish({
-        type: 'SampleApproved',
+        eventId: crypto.randomUUID(),
+        eventType: 'SampleApproved',
         aggregateId,
         payload: { status: 'APPROVED', measurement: payload.value },
-        timestamp: new Date()
-      });
+        emittedAt: new Date()
+      } as any);
     }
   }
 }

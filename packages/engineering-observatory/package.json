@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/engineering-observatory",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for engineering-observatory",
+  "main": "src/index.ts"
+}

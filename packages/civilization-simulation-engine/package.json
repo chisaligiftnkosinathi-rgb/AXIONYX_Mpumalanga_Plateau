@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/civilization-simulation-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for civilization-simulation-engine",
+  "main": "src/index.ts"
+}

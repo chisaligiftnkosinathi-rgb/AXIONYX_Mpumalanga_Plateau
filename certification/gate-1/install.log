@@ -1,0 +1,10 @@
+.../esbuild@0.21.5/node_modules/esbuild postinstall: C:\Projects\AXIONYX_PLATFORM\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\install.js:133
+.../esbuild@0.21.5/node_modules/esbuild postinstall:     throw new Error(`Expected ${JSON.stringify(versionFromPackageJSON)} but got ${JSON.stringify(stdout)}`);
+.../esbuild@0.21.5/node_modules/esbuild postinstall:           ^
+.../esbuild@0.21.5/node_modules/esbuild postinstall: Error: Expected "0.21.5" but got "0.19.12"
+.../esbuild@0.21.5/node_modules/esbuild postinstall:     at validateBinaryVersion (C:\Projects\AXIONYX_PLATFORM\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\install.js:133:11)
+.../esbuild@0.21.5/node_modules/esbuild postinstall:     at C:\Projects\AXIONYX_PLATFORM\node_modules\.pnpm\esbuild@0.21.5\node_modules\esbuild\install.js:281:5
+.../esbuild@0.21.5/node_modules/esbuild postinstall: Node.js v22.16.0
+.../esbuild@0.19.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.21.5/node_modules/esbuild postinstall: Failed
+ ELIFECYCLE  Command failed with exit code 1.

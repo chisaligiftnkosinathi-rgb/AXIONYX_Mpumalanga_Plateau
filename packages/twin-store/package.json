@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/twin-store",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for twin-store",
+  "main": "src/index.ts"
+}

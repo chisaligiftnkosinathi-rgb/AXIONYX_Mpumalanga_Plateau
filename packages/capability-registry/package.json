@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/capability-registry",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for capability-registry",
+  "main": "src/index.ts"
+}

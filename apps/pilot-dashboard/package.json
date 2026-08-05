@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/pilot-dashboard",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for pilot-dashboard",
+  "main": "src/index.ts"
+}

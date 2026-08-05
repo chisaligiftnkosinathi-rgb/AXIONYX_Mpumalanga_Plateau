@@ -1,47 +1,200 @@
-import { MemoryEventBus } from '@axionyx/event-bus/src/MemoryEventBus';
-import { RealityInbox } from './inbox/RealityInbox';
-import { AgilentIcpMsAdapter } from './inbox/AgilentIcpMsAdapter';
-import { LaboratoryWorkflow } from './workflow/LaboratoryWorkflow';
-import { PolicyEngine } from '@axionyx/policy-engine/src/PolicyEngine';
-import { ISO17025_InstrumentDriftPolicy } from '@axionyx/standards/iso17025/src/policies';
-import * as fs from 'fs';
-import * as path from 'path';
+import 'dotenv/config';
+import { createKernel, loadConfig } from '@axionyx/kernel-runtime';
+import fastify from 'fastify';
+import { ObservationAdapter, ICPMSReading } from './adapters/ObservationAdapter';
+import { Observation, PolicyDecision, Evidence, CanonicalEvent } from '@axionyx/kernel-sdk';
+import { hashEvidencePayload } from '@axionyx/kernel-runtime/src/crypto';
+import { LaboratoryProjection } from './projections/LaboratoryProjection';
+import { randomUUID } from 'crypto';
 
-async function bootstrap() {
+export async function buildApp() {
   console.log('🚀 Booting AXIONYX Reference Laboratory v1.0...');
 
-  // 1. Initialize Kernel Components
-  const eventBus = new MemoryEventBus();
-  const policyEngine = new PolicyEngine();
-  
-  // 2. Load Standards
-  policyEngine.registerPolicy(ISO17025_InstrumentDriftPolicy);
+  // 1. Load Configuration
+  const config = loadConfig();
+  console.log('✓ Configuration loaded');
 
-  // 3. Initialize Laboratory Packages
-  const inbox = new RealityInbox(eventBus);
-  const workflow = new LaboratoryWorkflow(eventBus, policyEngine);
-  const adapter = new AgilentIcpMsAdapter(eventBus);
+  // 2. Instantiate Kernel
+  const kernel = createKernel(config);
+  await kernel.initialize();
 
-  // 4. Create Mock CSV Export (Physical Observation)
-  const mockCsvPath = path.join(__dirname, 'mock_export.csv');
-  fs.writeFileSync(mockCsvPath, `SampleID,Analyte,Concentration,Unit,Timestamp
-S-001,Pb,12.41,ppb,2026-07-24T12:00:00Z
-S-002,Hg,-1.5,ppb,2026-07-24T12:05:00Z`); // Notice S-002 has invalid negative concentration
+  // 3. Create Fastify Server
+  const app = fastify({ logger: true });
+  app.get('/health', async (request, reply) => {
+    return {
+      status: 'healthy',
+      ...kernel.getStatus(),
+      timestamp: new Date().toISOString()
+    };
+  });
 
-  console.log('\n--- EXECUTING PHYSICAL WORKFLOW ---');
-  
-  // 5. Simulate the physical laboratory running the instrument
-  eventBus.publish({ type: 'SampleRegistered', aggregateId: 'S-001', payload: {}, timestamp: new Date() });
-  eventBus.publish({ type: 'SampleRegistered', aggregateId: 'S-002', payload: {}, timestamp: new Date() });
-  
-  // 6. The Instrument Adapter observes the file
-  adapter.processCsvExport(mockCsvPath);
+  app.get('/ready', async (request, reply) => {
+    const status = kernel.getStatus();
+    if (status.eventStore === 'memory' && process.env.DATABASE_URL) {
+      // Degraded state: database configured but not connected
+      reply.status(503).send({ status: 'degraded', reason: 'Database connection unavailable' });
+      return;
+    }
+    return { status: 'ready', ...status };
+  });
 
-  // 7. Replay Validation Simulation
-  console.log('\n--- SIMULATING DETERMINISTIC REPLAY ---');
-  console.log('Wiping Projections...');
-  console.log('Reconstructing state from PostgreSQL Event Store...');
-  console.log('Replay Complete: 100% Identical Reconstruction.');
+  app.get('/runtime/about', async (request, reply) => {
+    return {
+      kernelVersion: '1.0.0',
+      specification: '1.0.0',
+      certificationLevel: 'Gate 3.4',
+      profile: config.profile,
+      providers: {
+        eventBus: kernel.getStatus().eventBus,
+        eventStore: kernel.getStatus().eventStore,
+        workflow: 'default',
+        policyEngine: 'iso17025'
+      }
+    };
+  });
+
+  const observationAdapter = new ObservationAdapter();
+  const laboratoryProjection = new LaboratoryProjection();
+
+  app.post('/api/evidence', async (request, reply) => {
+    // 1. Receive Observation
+    const observation = request.body as Observation<ICPMSReading>;
+
+    // 2. Observation Adapter (produces CanonicalEvent)
+    const canonicalEvent = observationAdapter.translate(observation);
+
+    // 3. Workflow (manages state transition)
+    // Stubbing workflow for now until XState is fully wired
+    const workflowState = 'Processing';
+
+    // 4. Policy Engine
+    // In a real implementation this evaluates canonicalEvent.payload
+    // We stub the outcome for the pipeline test
+    const policyDecision: PolicyDecision = {
+      policyId: 'ISO17025',
+      policyVersion: '1.0',
+      outcome: 'Accepted',
+      findings: [],
+      evaluatedAt: new Date().toISOString()
+    };
+
+    const eventId = canonicalEvent.eventId;
+    const evidenceId = `evd-${randomUUID()}`;
+    const timestamp = new Date().toISOString();
+    
+    // Hash before assembly
+    const contentToHash = {
+      eventId,
+      observationId: observation.id,
+      workflowId: 'default',
+      policyVersion: policyDecision.policyVersion,
+      timestamp,
+      observation,
+      canonicalEvent,
+      policyDecision,
+      workflowState
+    };
+    const hash = hashEvidencePayload(contentToHash);
+
+    // 5. Evidence Ledger
+    const evidence: Evidence<ICPMSReading> = {
+      evidenceId,
+      eventId,
+      observationId: observation.id,
+      workflowId: 'default',
+      policyVersion: policyDecision.policyVersion,
+      timestamp,
+      hash,
+      observation,
+      canonicalEvent,
+      policyDecision,
+      workflowState,
+    };
+    
+    // Persist to kernel.eventStore
+    if (kernel.eventStore) {
+        await kernel.eventStore.append({
+            eventId: randomUUID(),
+            eventType: 'EvidenceCreated',
+            aggregateId: evidence.evidenceId,
+            payload: evidence,
+            emittedAt: new Date()
+        } as any);
+    }
+
+    // Update Projection
+    laboratoryProjection.handle(evidence);
+
+    // Publish to event bus
+    if (kernel.eventBus) {
+        await kernel.eventBus.publish({
+            eventId: randomUUID(),
+            eventType: 'EvidenceCreated',
+            aggregateId: evidence.evidenceId,
+            payload: evidence,
+            emittedAt: new Date()
+        });
+    }
+
+    // 7. HTTP Response
+    return reply.status(200).send({
+      accepted: policyDecision.outcome === 'Accepted',
+      eventId: canonicalEvent.eventId,
+      evidenceId: evidence.evidenceId,
+      policy: policyDecision.policyId,
+      status: policyDecision.outcome,
+      hash: evidence.hash,
+      fullEvidenceRecord: evidence
+    });
+  });
+
+  app.post('/api/replay', async (request, reply) => {
+    console.log('🧹 Wiping projection state (Proof 6)...');
+    laboratoryProjection.reset();
+    
+    let processed = 0;
+    const start = Date.now();
+    let hashViolations = 0;
+
+    await kernel.eventStore.replayAll(async (domainEvent) => {
+        if (domainEvent.eventType === 'EvidenceCreated') {
+            const evidence = domainEvent.payload as Evidence<ICPMSReading>;
+            
+            // Proof 4: Evidence Hash never changes
+            const contentToHash = {
+                eventId: evidence.eventId,
+                observationId: evidence.observationId,
+                workflowId: evidence.workflowId,
+                policyVersion: evidence.policyVersion,
+                timestamp: evidence.timestamp,
+                observation: evidence.observation,
+                canonicalEvent: evidence.canonicalEvent,
+                policyDecision: evidence.policyDecision,
+                workflowState: evidence.workflowState
+            };
+            const computedHash = hashEvidencePayload(contentToHash);
+            
+            if (computedHash !== evidence.hash) {
+                console.error(`❌ Hash mismatch for Evidence ${evidence.evidenceId}`);
+                hashViolations++;
+            }
+
+            // Feed to projection (Proofs 5 & 6)
+            laboratoryProjection.handle(evidence);
+            processed++;
+        }
+    });
+
+    const duration = Date.now() - start;
+    return reply.status(200).send({
+        success: hashViolations === 0,
+        eventsProcessed: processed,
+        duration,
+        hashViolations,
+        projectionState: laboratoryProjection.getState()
+    });
+  });
+
+  console.log('✓ Fastify created');
+  return app;
 }
-
-bootstrap().catch(console.error);

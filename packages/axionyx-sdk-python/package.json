@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-sdk-python",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-sdk-python",
+  "main": "src/index.ts"
+}

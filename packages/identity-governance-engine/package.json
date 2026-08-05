@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/identity-governance-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for identity-governance-engine",
+  "main": "src/index.ts"
+}

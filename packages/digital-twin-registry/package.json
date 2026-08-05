@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/digital-twin-registry",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for digital-twin-registry",
+  "main": "src/index.ts"
+}

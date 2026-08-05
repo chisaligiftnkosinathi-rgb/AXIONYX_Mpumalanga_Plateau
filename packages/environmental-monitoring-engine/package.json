@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/environmental-monitoring-engine",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for environmental-monitoring-engine",
+  "main": "src/index.ts"
+}

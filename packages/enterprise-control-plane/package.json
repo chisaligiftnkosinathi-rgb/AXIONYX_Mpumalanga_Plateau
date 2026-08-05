@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/enterprise-control-plane",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for enterprise-control-plane",
+  "main": "src/index.ts"
+}

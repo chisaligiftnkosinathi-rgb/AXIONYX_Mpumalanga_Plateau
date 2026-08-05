@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-validation-center",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-validation-center",
+  "main": "src/index.ts"
+}

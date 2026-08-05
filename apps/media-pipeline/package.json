@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/media-pipeline",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for media-pipeline",
+  "main": "src/index.ts"
+}

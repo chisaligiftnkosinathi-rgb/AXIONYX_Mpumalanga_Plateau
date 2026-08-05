@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/capability-immune-system",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for capability-immune-system",
+  "main": "src/index.ts"
+}

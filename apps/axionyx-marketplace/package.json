@@ -1,0 +1,6 @@
+{
+  "name": "@axionyx/axionyx-marketplace",
+  "version": "1.0.0",
+  "description": "Auto-generated stub for axionyx-marketplace",
+  "main": "src/index.ts"
+}
